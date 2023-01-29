@@ -1,0 +1,45 @@
+---
+import {
+	Arcade,
+	BookStack,
+	ChatBubble,
+	Code,
+	Mail,
+	MessageText,
+	MultiplePages,
+	PeopleTag,
+	Running,
+	Treadmill,
+} from 'iconoir-react';
+import NavItem from './NavItem.astro';
+
+export interface Props {}
+---
+
+<nav class='flex flex-grow px-6'>
+	<ul class='flex flex-grow items-center'>
+		<NavItem text='who?!' link='/'><PeopleTag slot='icon' /></NavItem>
+		<NavItem text='articles' link='/blog'>
+			<MultiplePages slot='icon' />
+		</NavItem>
+		<NavItem text='anxiety' link='/anxiety'>
+			<Treadmill slot='icon' />
+		</NavItem>
+		<NavItem text='books' link='/books'><BookStack slot='icon' /></NavItem>
+		<NavItem text='games' link='/games'><Arcade slot='icon' /></NavItem>
+		<NavItem text='speaking' link='/speaking'>
+			<ChatBubble slot='icon' />
+		</NavItem>
+		<NavItem
+			text='occasional email experience'
+			link='/occasional-email-experience'
+		>
+			<Mail slot='icon' />
+		</NavItem>
+	</ul>
+	<ul class='flex items-center'>
+		<NavItem text='contact' link='/contact'>
+			<MessageText slot='icon' />
+		</NavItem>
+	</ul>
+</nav>
