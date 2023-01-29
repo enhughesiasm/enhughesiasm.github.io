@@ -7,20 +7,30 @@ interface Props {
 import { Pacman } from 'iconoir-react';
 
 const { link, text } = Astro.props;
+
+const { url } = Astro;
+
+const isActive =
+	(link === '/' && url.pathname === '/') ||
+	(link !== '/' && url.pathname.startsWith(link));
 ---
 
 <li
-	class='group h-full flex items-center justify-center hover:bg-gradient-to-tr hover:from-zinc-800 hover:to-zinc-500 hover:text-yellow-400 hover:animate-bounce-once hover:border-yellow-400 hover:border-b-8'
+	class={`group h-full flex items-center justify-center hover:bg-gradient-to-tr hover:from-zinc-800 hover:to-zinc-500 hover:text-yellow-400 hover:animate-bounce-once hover:border-yellow-400 hover:border-b-8
+	${isActive ? 'border-b-8 pt-2 border-rose-500' : ''}`}
 >
 	<a
 		class='w-full h-full px-6 flex items-center space-x-3 flex-grow group-hover:animate-text-bounce-once'
 		href={link}
 	>
 		<span>
-			<span class='group-hover:hidden'><slot name='icon' /></span>
+			<span
+				class={`group-hover:hidden ${
+					isActive ? 'text-yellow-500' : ''
+				}`}><slot name='icon' /></span
+			>
 			<Pacman className='text-green-500 group-hover:inline hidden' />
 		</span>
-
-		<span>{text}</span></a
+		<span class={`${isActive ? 'text-emerald-300' : ''}`}>{text}</span></a
 	>
 </li>
