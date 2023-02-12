@@ -1,0 +1,28 @@
+---
+import sblCover from '../../../assets/images/sblCover.jpg';
+import wocCover from '../../../assets/images/wocCover.jpg';
+import BookTile from './BookTile.astro';
+---
+
+<div class='my-6 space-y-3'>
+	<BookTile
+		coverImg={wocCover}
+		linkUrl='/walking-on-custard'
+		title='Walking on Custard'
+		blurb='a humorous-helpful guide to life with anxiety'
+	/>
+	<BookTile
+		coverImg={sblCover}
+		title='The Shop Before Life'
+		linkUrl='/shop-before-life'
+		blurb='before being born, all humans visit a magical shop and choose what kind of person they will become'
+	/>
+</div>
+
+<!-- sampleUrl='https://gallery.mailchimp.com/f16d438b230e1f3c54ecd5adc/files/Walking_on_Custard_the_Meaning_of_Life_Sample_01.pdf' --><!-- sampleUrl='https://gallery.mailchimp.com/f16d438b230e1f3c54ecd5adc/files/a6f251c6-b056-4ed4-96bc-51be718be470/Shop_Before_Life_Sample.pdf' --><!-- <BookTile
+<!-- <BookTile
+		coverImg=''
+		title='Articles'
+		linkUrl='/articles'
+		blurb='some of the articles on the internet were written by Neil Hughes'
+	/> -->

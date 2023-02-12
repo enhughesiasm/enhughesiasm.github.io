@@ -16,8 +16,8 @@ import NavItem from './NavItem.astro';
 export interface Props {}
 ---
 
-<nav class='flex flex-grow px-6'>
-	<ul class='flex flex-grow items-center'>
+<nav class='flex flex-grow px-1 lg:px-6'>
+	<ul class='flex-grow hidden lg:flex items-center flex-wrap'>
 		<NavItem text='who?!' link='/'><PeopleTag slot='icon' /></NavItem>
 		<NavItem text='articles' link='/blog'>
 			<MultiplePages slot='icon' />

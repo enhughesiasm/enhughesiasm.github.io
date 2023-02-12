@@ -1,0 +1,32 @@
+---
+import WhoHero from './neil/WhoHero.astro';
+import AnxietyTile from './tiles/AnxietyTile.astro';
+import WhoTile from './tiles/WhoTile.astro';
+import WriterTile from './tiles/WriterTile.astro';
+---
+
+<div class='container m-auto mt-12 grid gap-6'>
+	<WhoHero />
+	<div class='grid grid-flow-row grid-cols-3 gap-6'>
+		<WhoTile title='worrier' bgColor='bg-amber-500' link='/anxiety'>
+			<AnxietyTile />
+		</WhoTile>
+		<WhoTile title='writer' bgColor='bg-lime-500' link='/books'>
+			<WriterTile />
+		</WhoTile>
+		<WhoTile title='speaker' bgColor='bg-emerald-500' link='/speaking'>
+			.
+		</WhoTile>
+		<WhoTile title='coder' bgColor='bg-teal-500' link='/coding'>.</WhoTile>
+		<WhoTile title='comedian' bgColor='bg-purple-500' link='/comedy'>
+			.
+		</WhoTile>
+		<WhoTile title='physicist' bgColor='bg-pink-500' link='/comedy'>
+			.
+		</WhoTile>
+		<WhoTile title='two truths' bgColor='bg-yellow-500' link='/comedy'>
+			.
+		</WhoTile>
+		<WhoTile title='todo' bgColor='bg-green-600' link='/comedy'>.</WhoTile>
+	</div>
+</div>
