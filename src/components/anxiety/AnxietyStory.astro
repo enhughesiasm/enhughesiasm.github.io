@@ -1,0 +1,101 @@
+---
+import { Image } from '@astrojs/image/components';
+import { YouTube } from 'iconoir-react';
+import neilHeadshot from '../../assets/images/neil_hughes_headshot_al.jpg';
+import { YouTube as YouTubeEmbed } from '@astro-community/astro-embed-youtube';
+import wocCover from '../../assets/images/wocCover.jpg';
+---
+
+<div class='space-y-6'>
+	<div class='font-serif text-3xl'>
+		Neil Hughes experienced <span class='text-4xl font-bold text-red-700'
+			>anxiety</span
+		> for most of his life...
+	</div>
+	<div class='text-right'>
+		... well. Not <em>constantly</em>. Occasionally I was asleep, or
+		watching the Vicar of Dibley.
+	</div>
+	<hr />
+
+	<Image
+		src={neilHeadshot}
+		alt='Neil Hughes'
+		class='rounded float-left pr-4'
+		width={200}
+	/>
+	<div
+		class='first-letter:float-left first-letter:inline-block first-letter:pr-2 first-letter:text-7xl'
+	>
+		Worrying was always what I did best. But eventually my worry habit
+		spiralled out of control. After years of background anxiety that would <span
+			class='text-lg font-bold'>spike</span
+		> and <span class='text-sm text-zinc-700'>fade</span>, <span
+			class='text-lg font-bold'>spike</span
+		> and <span class='text-md text-zinc-800'>fade</span>, <span
+			class='text-lg font-bold'>spike</span
+		> and <span class='text-sm text-zinc-700'>fade</span>, one day my
+		anxiety <span class='text-xl font-bold text-red-700'>peaked</span> and never
+		went away.
+	</div>
+	<div>
+		I spent months in constant fear. Each night I lay awake, afraid of how I
+		would feel the next day. There seemed to be no escape from this cycle.
+		It seemed that the only way out might be something drastic.
+	</div>
+	<div>
+		Naturally, I didn't actually <em>tell anyone</em> how I felt. That would
+		be silly.
+	</div>
+	<div>
+		Finally, I couldn't tolerate it any longer. My coping strategy of "hope
+		it all went away" was clearly not working anymore. I decided to figure
+		out what was happening... and maybe even do something about it.
+	</div>
+	<div class='p-3'>
+		<div class='pt-3 text-xl font-bold text-green-600'>
+			<YouTube className='inline text-red-700 text-4xl' /> I tell the rest
+			of my story best through this video:
+		</div>
+		<YouTubeEmbed id={'bM06o26PCDQ'} />
+	</div>
+	<a href='/books/walking-on-custard'>
+		<Image
+			src={wocCover}
+			alt='Walking on Custard - Book Cover'
+			class='rounded float-left pr-4'
+			width={200}
+		/></a
+	>
+	<div>
+		I started writing down everything I learned about managing my anxiety,
+		and somehow it turned into <strong
+			>Walking on Custard & the Meaning of Life</strong
+		>—a funny guide to life for anxious humans.
+	</div>
+	<div>
+		It's an odd book, I'll freely admit, but it's the book I wished I could
+		read when I was struggling the most. It mixes personal stories, helpful
+		advice gleaned from experts, and little tales about wizards and aliens.
+		(And lots of embarrassing stories about me, too.)
+	</div>
+
+	<div class='clear-left pt-3'>
+		<span class='font-serif text-xl'
+			>Now I don't fear my anxiety anymore.</span
+		> I use my experiences to help others who may be going through the same thing.
+		As well as the book, there's lots of articles on this website.
+	</div><div>
+		Plus I'm available to give funny & helpful talks about anxiety, online
+		and in person. Let me know if that would be helpful to you!
+	</div>
+	<div class='text-right'>
+		<a href='/speaking'>
+			<button
+				class='rounded bg-red-500 py-2 px-4 !text-white hover:bg-red-400'
+			>
+				need a funny speaker on mental health?</button
+			>
+		</a>
+	</div>
+</div>

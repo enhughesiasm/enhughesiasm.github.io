@@ -1,1 +1,77 @@
-<footer class='mt-12 h-24 bg-amber-100'>@Neil</footer>
+---
+import { Twitter } from 'iconoir-react';
+
+let currentYear = new Date().getFullYear();
+
+const isProd = import.meta.env.PROD;
+---
+
+<div class='mt-12 flex flex-col items-center space-y-3 bg-zinc-200 pt-6 pb-3'>
+	<div class=''>
+		&copy; Neil Hughes 2019
+		{currentYear !== 2019 ? '— ' + currentYear : ''}
+	</div>
+	<div class='inline-flex flex-row items-center justify-center space-x-6'>
+		<a
+			href='https://twitter.com/enhughesiasm?ref_src=twsrc%5Etfw'
+			class='twitter-follow-button'
+			data-show-count='false'
+		>
+			<button
+				class='inline-flex flex-row items-center rounded bg-zinc-700 py-2 px-4 font-bold text-yellow-500 hover:bg-zinc-600'
+			>
+				<Twitter />
+			</button>
+		</a>
+
+		<a
+			target='_blank'
+			rel='noopener noreferrer'
+			href='https://www.buymeacoffee.com/enhughesiasm'
+		>
+			<button
+				class='inline-flex flex-row items-center rounded bg-zinc-700 py-2 px-4 font-bold text-yellow-500 hover:bg-zinc-600'
+			>
+				<img
+					style={{ width: '18px' }}
+					src='https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg'
+					alt='Buy me a coffee'
+				/>
+				<span style={{ marginLeft: '12px', fontSize: '17px' }}>
+					Buy me a coffee
+				</span>
+			</button>
+		</a>
+	</div>
+	<div class='mt-1 space-x-12'>
+		<a
+			href='/contact'
+			class='text-zinc-700 hover:font-bold hover:text-zinc-600'
+		>
+			contact</a
+		>
+		<a
+			href='/privacy'
+			class='text-zinc-700 hover:font-bold hover:text-zinc-600'
+		>
+			privacy</a
+		>
+	</div>
+	{
+		isProd && (
+			<script
+				async
+				defer
+				data-name='BMC-Widget'
+				src='https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js'
+				data-id='enhughesiasm'
+				data-description=''
+				data-message=''
+				data-color='#5F7FFF'
+				data-position='left'
+				data-x_margin='18'
+				data-y_margin='18'
+			/>
+		)
+	}
+</div>

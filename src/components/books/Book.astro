@@ -1,0 +1,48 @@
+---
+export interface Props {
+	coverImg: any;
+	linkUrl: string;
+	title: string;
+	blurb: string;
+	sampleUrl: string;
+	buttonText: string;
+}
+import { Image } from '@astrojs/image/components';
+const { coverImg, linkUrl, title, blurb, sampleUrl, buttonText } = Astro.props;
+---
+
+<div
+	class={`group/book flex rounded-3xl bg-amber-100 shadow-xl mt-6 justify-center items-center pr-12`}
+>
+	{
+		coverImg && (
+			<figure class='mr-12 w-1/6'>
+				<a href={linkUrl}>
+					<Image class='rounded-l-3xl' src={coverImg} alt={title} />
+				</a>
+			</figure>
+		)
+	}
+	<div class='flex w-4/5 flex-grow flex-col px-3 py-3'>
+		<h3
+			class={`flex flex-row items-center space-x-3 font-serif text-3xl font-bold `}
+		>
+			<a href={linkUrl}>{title}</a>
+		</h3>
+		<p class='py-3'>{blurb}</p>
+		<div class='text-right'>
+			<a href={linkUrl}>
+				<button
+					class='rounded-full bg-red-100 py-2 px-4 text-slate-700 hover:!bg-green-500 group-hover/book:animate-bounce-once group-hover/book:bg-green-700 group-hover/book:text-white'
+					>{buttonText}</button
+				></a
+			>
+			<a href={sampleUrl}>
+				<button
+					class='rounded-full bg-red-100 py-2 px-4 text-slate-700 hover:!bg-green-300 group-hover/book:animate-bounce-once group-hover/book:bg-green-400 group-hover/book:text-white'
+					>read a sample</button
+				></a
+			>
+		</div>
+	</div>
+</div>

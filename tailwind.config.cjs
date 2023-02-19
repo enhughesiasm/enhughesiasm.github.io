@@ -11,6 +11,8 @@ module.exports = {
 				'ping-once': 'ping 1s ease-in-out 1',
 				'bounce-once': 'bounce-gentle .5s ease-in-out 1',
 				'text-bounce-once': 'text-bounce .5s ease-in-out 1',
+				'heartbeat-fast': 'heartbeat 1s infinite',
+				'heartbeat-slow': 'heartbeat 3s infinite',
 			},
 			keyframes: {
 				'bounce-gentle': {
@@ -45,6 +47,23 @@ module.exports = {
 					},
 					'100%': {
 						transform: 'scale(1,1)      translateY(0)',
+					},
+				},
+				heartbeat: {
+					'0%': {
+						transform: 'scale(1)',
+					},
+					'14%': {
+						transform: 'scale(1.25)',
+					},
+					'28%': {
+						transform: 'scale(1)',
+					},
+					'42%': {
+						transform: 'scale(1.25)',
+					},
+					'70%': {
+						transform: 'scale(1)',
 					},
 				},
 			},

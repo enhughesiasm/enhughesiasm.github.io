@@ -1,9 +1,16 @@
 ---
 import { SidebarCollapse } from 'iconoir-react';
+import AnxietyResources from '../components/anxiety/AnxietyResources.astro';
+import AnxietyStory from '../components/anxiety/AnxietyStory.astro';
 import Layout from '../layouts/Layout.astro';
+import PageWithSidebar from '../layouts/PageWithSidebar.astro';
 ---
 
-<Layout title='enhughesiasm'>
-	<SidebarCollapse /> TODO: Invent Sidebar component with children "slot /\" *
-	Add anxiety content * Feeling anxious? Start here!
+<Layout title='Anxiety Resources - by Neil Hughes - enhughesiasm'>
+	<PageWithSidebar>
+		<div slot='sidebar'>
+			<AnxietyResources />
+		</div>
+		<AnxietyStory />
+	</PageWithSidebar>
 </Layout>

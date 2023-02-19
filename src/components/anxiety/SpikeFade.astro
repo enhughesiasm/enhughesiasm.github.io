@@ -1,0 +1,31 @@
+---
+export interface Props {
+	text: string;
+	direction: 'Spike' | 'Fade';
+}
+
+const { text, direction } = Astro.props;
+
+function halveString(str: string) {
+	var middle = Math.floor(str.length / 2);
+	var s1 = str.slice(0, middle);
+	var s2 = str.slice(middle);
+	return [s1, s2];
+}
+
+const halves = halveString(text);
+---
+
+<span
+	class={`${
+		direction === 'Fade'
+			? 'font-bold text-lg text-zinc-800'
+			: 'text-sm text-zinc-600'
+	}`}>{halves[0]}</span
+><span
+	class={`${
+		direction === 'Fade'
+			? 'text-sm text-zinc-600'
+			: 'font-bold text-lg text-zinc-800'
+	}`}>{halves[1]}</span
+>

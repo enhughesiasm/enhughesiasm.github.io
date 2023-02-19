@@ -1,5 +1,38 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+import sblCover from '../assets/images/sblCover.jpg';
+import wocCover from '../assets/images/wocCover.jpg';
+import Book from '../components/books/Book.astro';
+import { BookStack } from 'iconoir-react';
 ---
 
-<Layout title='enhughesiasm' />
+<Layout title='Books by Neil Hughes - enhughesiasm'>
+	<div class='m-auto mt-12 w-1/2'>
+		<div
+			class='rounded-xl bg-yellow-300 py-3 text-center font-serif text-zinc-900'
+		>
+			<div class='inline-flex items-center text-3xl font-bold'>
+				<BookStack className='inline' /> Books
+			</div>
+			<div class='text-zinc-700'>by Neil Hughes</div>
+		</div>
+		<Book
+			coverImg={wocCover}
+			linkUrl='/walking-on-custard'
+			title='Walking on Custard'
+			blurb='a humorous-helpful guide to life with anxiety'
+			sampleUrl='https://gallery.mailchimp.com/f16d438b230e1f3c54ecd5adc/files/Walking_on_Custard_the_Meaning_of_Life_Sample_01.pdf'
+			buttonText='learn how custard helps with anxiety'
+		/>
+
+		<Book
+			coverImg={sblCover}
+			title='The Shop Before Life'
+			linkUrl='/shop-before-life'
+			blurb='before being born, all humans must visit a magical shop and choose what kind of person they will become'
+			sampleUrl='https://gallery.mailchimp.com/f16d438b230e1f3c54ecd5adc/files/a6f251c6-b056-4ed4-96bc-51be718be470/Shop_Before_Life_Sample.pdf'
+			buttonText='explore the Shop Before Life'
+		/>
+	</div>
+</Layout>

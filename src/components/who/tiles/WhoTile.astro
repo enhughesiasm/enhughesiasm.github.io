@@ -12,14 +12,14 @@ const {
 	title,
 	link,
 	gradientStartHex = '#1e293b',
-	gradientEndHex = '#18181b',
+	gradientEndHex = '#000000',
 } = Astro.props;
 ---
 
-<div class={`${bgColor} who-card rounded p-3 group`}>
+<div class={`${bgColor} who-card rounded-lg py-3 px-6 group`}>
 	<a href={link}>
 		<h3
-			class='h-12 text-center font-serif text-2xl font-bold text-yellow-50 group-hover:text-3xl group-hover:text-white'
+			class='h-12 text-center font-serif text-2xl font-bold group-hover:text-3xl'
 		>
 			{title}
 		</h3>
@@ -33,7 +33,7 @@ const {
 			135deg,
 			var(--gradientStartHex),
 			var(--gradientEndHex) 30%,
-			#00000000 60%
+			#ffffff00 60%
 		);
 		background-size: 400%;
 		background-position: 100%;
@@ -41,9 +41,7 @@ const {
 		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
 			0 2px 4px -2px rgba(0, 0, 0, 0.1);
 	}
-	.who-card h3 {
-		text-shadow: 0px 1px 2px #92400e;
-	}
+
 	.who-card:is(:hover, :focus-within) h3 {
 		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 	}

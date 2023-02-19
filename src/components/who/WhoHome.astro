@@ -8,25 +8,48 @@ import WriterTile from './tiles/WriterTile.astro';
 <div class='container m-auto mt-12 grid gap-6'>
 	<WhoHero />
 	<div class='grid grid-flow-row grid-cols-3 gap-6'>
-		<WhoTile title='worrier' bgColor='bg-amber-500' link='/anxiety'>
+		<!-- 300 then 100 for start, end -->
+		<WhoTile
+			title='worrying'
+			bgColor='bg-red-200'
+			link='/anxiety'
+			gradientStartHex='#fca5a5'
+			gradientEndHex='#fee2e2'
+		>
 			<AnxietyTile />
 		</WhoTile>
-		<WhoTile title='writer' bgColor='bg-lime-500' link='/books'>
+		<WhoTile
+			title='writing'
+			bgColor='bg-lime-200'
+			link='/books'
+			gradientStartHex='#bef264'
+			gradientEndHex='#ecfccb'
+		>
 			<WriterTile />
 		</WhoTile>
-		<WhoTile title='speaker' bgColor='bg-emerald-500' link='/speaking'>
+		<WhoTile
+			title='speaking'
+			bgColor='bg-emerald-200'
+			link='/speaking'
+			gradientStartHex='#6ee7b7'
+			gradientEndHex='#d1fae5'
+		>
 			.
 		</WhoTile>
-		<WhoTile title='coder' bgColor='bg-teal-500' link='/coding'>.</WhoTile>
-		<WhoTile title='comedian' bgColor='bg-purple-500' link='/comedy'>
+		<WhoTile title='coding' bgColor='bg-teal-200' link='/coding'>.</WhoTile>
+		<WhoTile title='comedian-ing' bgColor='bg-purple-200' link='/comedy'>
 			.
 		</WhoTile>
-		<WhoTile title='physicist' bgColor='bg-pink-500' link='/comedy'>
+		<WhoTile title='physicist-ing' bgColor='bg-pink-200' link='/comedy'>
 			.
 		</WhoTile>
-		<WhoTile title='two truths' bgColor='bg-yellow-500' link='/comedy'>
+		<WhoTile
+			title='teling two truths & a lie'
+			bgColor='bg-yellow-200'
+			link='/comedy'
+		>
 			.
 		</WhoTile>
-		<WhoTile title='todo' bgColor='bg-green-600' link='/comedy'>.</WhoTile>
+		<WhoTile title='TODO' bgColor='bg-green-200' link='/comedy'>.</WhoTile>
 	</div>
 </div>
