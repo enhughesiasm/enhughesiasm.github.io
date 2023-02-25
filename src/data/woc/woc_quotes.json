@@ -1,0 +1,37 @@
+[
+	{
+		"quote": [
+			"I really, really enjoyed it.",
+			"A brave and noble book. What better thing can a person do with their own suffering than use it to help others?",
+			"It's on my read-this-again shelf."
+		],
+		"cite": {
+			"link": "http://nathanfiler.co.uk/",
+			"name": "Nathan Filer, author of 'The Shock of the Fall'"
+		}
+	},
+	{
+		"quote": [
+			"To merely call this a self-help book would be a complete disservice to the author. Part biography, part guide, and part Brother's Grimm Fairy Tales of the Strange… if only I had read this growing up then I might not have felt so alone."
+		],
+		"cite": {
+			"link": "https://www.allmadhere.co.uk/",
+			"name": "Claire Eastham, author"
+		}
+	},
+	{
+		"quote": [
+			"Hughes offers a humor-filled and useful guide for anxiety… disarmingly relatable."
+		],
+		"cite": {
+			"link": "http://www.publishersweekly.com/",
+			"name": "Publishers Weekly"
+		}
+	},
+	{
+		"quote": ["It's not bad, I suppose."],
+		"cite": {
+			"name": "Neil's Mum"
+		}
+	}
+]

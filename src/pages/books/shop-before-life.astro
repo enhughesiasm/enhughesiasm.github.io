@@ -1,5 +1,17 @@
 ---
+import BookPageLayout from '../../layouts/BookPageLayout.astro';
 import Layout from '../../layouts/Layout.astro';
+import sblCover from '../../assets/images/sblCover.jpg';
+import Sbl from '../../components/books/sbl/Sbl.astro';
 ---
 
-<Layout title='enhughesiasm' />
+<Layout title='The Shop Before Life - a novel by Neil Hughes - enhughesiasm'>
+	<BookPageLayout
+		key='shop-before-life'
+		title='The Shop Before Life'
+		linkUrl='/books/shop-before-life'
+		coverImg={sblCover}
+	>
+		<Sbl />
+	</BookPageLayout>
+</Layout>

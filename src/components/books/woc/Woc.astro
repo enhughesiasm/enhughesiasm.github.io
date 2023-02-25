@@ -1,0 +1,151 @@
+---
+import BookPageTitle from '../shared/BookPageTitle.astro';
+import wocCover from '../../../assets/images/wocCover.jpg';
+import { Image } from '@astrojs/image/components';
+import { BrainElectricity, GlassHalf, Heart } from 'iconoir-react';
+import Quote, { QuoteData } from '../shared/Quote.astro';
+import BookPurchase, { PurchaseLink } from '../shared/BookPurchase.astro';
+
+import quotes from '../../../data/woc/woc_quotes.json';
+import sillyQuotes from '../../../data/woc/woc_quotes_silly.json';
+
+const purchaseLinks: PurchaseLink[] = [
+	{
+		displayName: 'the paperback',
+		purchaseUrl: 'http://viewbook.at/walkingoncustard',
+	},
+	{ displayName: 'the hardback', purchaseUrl: 'http://viewbook.at/woch' },
+	{
+		displayName: 'Kindle',
+		purchaseUrl: 'http://getbook.at/walkingoncustard',
+	},
+	{
+		displayName: 'worldwide shipping',
+		purchaseUrl:
+			'http://www.bookdepository.com/Walking-on-Custard-Meaning-Life-Neil-Hughes/9780993166808/?a_aid=walkingoncustard',
+	},
+];
+---
+
+<BookPageTitle
+	title='Walking on Custard & the Meaning of Life'
+	quote='One of the best funny books about anxiety'
+/>
+
+<div class='mt-9 flex flex-col space-y-2 text-lg'>
+	<div class='flex flex-row'>
+		<div class='w-2/3'>
+			<a
+				href='http://viewbook.at/walkingoncustard'
+				target='_blank'
+				rel='noopener noreferrer'
+			>
+				<Image
+					src={wocCover}
+					alt='Walking on Custard - Book Cover'
+					class='hover:scale-[1.07]'
+				/>
+			</a>
+			<div class='mt-3 text-center text-sm'>
+				beautiful cover by <a
+					href='https://www.tomhumberstone.com/'
+					class='text-blue-600 hover:text-blue-500'>Tom Humberstone</a
+				>
+			</div>
+			<!-- <BookPurchase
+				isHiddenMobile
+				title='Walking on Custard'
+				showHeader={false}
+				headerText='READ IT NOW'
+				amazonPaperbackUrl='http://viewbook.at/walkingoncustard'
+				amazonHardbackUrl='http://viewbook.at/woch'
+				kindleUrl='http://getbook.at/walkingoncustard'
+				bookDepoUrl='http://www.bookdepository.com/Walking-on-Custard-Meaning-Life-Neil-Hughes/9780993166808/?a_aid=walkingoncustard'
+			/> -->
+		</div>
+		<div class='flex-grow space-y-2 pl-6'>
+			<p
+				class='first-letter:float-left first-letter:pr-4 first-letter:font-serif first-letter:text-7xl first-letter:text-red-500'
+			>
+				<strong>
+					Part-time comedian and full-time worrier Neil Hughes isn’t
+					the kind of person you’d expect to write a helpful book.
+				</strong>
+			</p>
+			<p class='italic'>He’s an idiot.</p>
+			<p class='text-right'>
+				... at least, so his <span class='text-2xl text-red-500'
+					>Inner Critic</span
+				> constantly claims.
+			</p>
+			<p class='bg-zinc-200 py-3 text-center'>
+				<BrainElectricity className='inline text-red-400' /> No wonder he
+				lives with <span class='text-2xl text-red-500'>anxiety</span>.
+			</p>
+			<p>
+				But during his nervous bumbling through life he somehow <strong
+					>learned how to reduce his anxiety</strong
+				> and quit his unhelpful mental habits.
+			</p>
+			<p>Oh… and he stumbled on the Meaning of Life, too.</p>
+
+			<Quote quote={quotes[1].quote} cite={quotes[1].cite} />
+		</div>
+	</div>
+
+	<p>
+		Now he's using the power of
+
+		<span class='font-bold text-green-700'>hilarious real-life stories</span
+		>, <span class='font-bold text-purple-700'
+			>inventive fantasy fiction</span
+		>
+		and
+		<span class='font-bold text-amber-700'>badly-drawn graphs</span> to help
+		others to be less anxious and more happy.
+	</p>
+	<p
+		class='first-letter:float-left first-letter:pr-4 first-letter:font-serif first-letter:text-7xl first-letter:text-red-500'
+	>
+		In this compelling, surprising and delightful guide to life, Neil
+		explains how he relieved his anxiety even while battling interruptions
+		from his doubtful Inner Critic. After sorting out crises, thoughts,
+		emotions, beliefs, relationships, purpose, and contentment, he even
+		considers how to deal with death and the Meaning of Life itself 😨
+	</p>
+	<p class='!my-6 bg-yellow-200 py-3 text-center'>
+		<GlassHalf className='inline text-yellow-600' /> And, somehow, it turns out
+		<span class='text-2xl'>everything</span> can be explained using <span
+			class='text-3xl font-bold text-yellow-600'>custard</span
+		>…
+	</p>
+	<div>
+		<Quote quote={quotes[0].quote} cite={quotes[0].cite} />
+		<div class='flex flex-row'>
+			<Quote
+				quote={quotes[2].quote}
+				cite={quotes[2].cite}
+				className='my-3'
+			/>
+			<Quote quote={quotes[3].quote} cite={quotes[3].cite} />
+		</div>
+	</div>
+	<BookPurchase
+		headerText='READ NOW...'
+		title='Walking on Custard'
+		links={purchaseLinks}
+		sampleUrl='https://gallery.mailchimp.com/f16d438b230e1f3c54ecd5adc/files/Walking_on_Custard_the_Meaning_of_Life_Sample_01.pdf'
+	/>
+
+	<div class='!mt-9 space-y-3'>
+		<h4 class='bg-blue-400 py-3 text-center text-xl font-bold text-white'>
+			<Heart className='inline pr-4 text-3xl' /> READERS HAVE SAID...
+		</h4>
+
+		{
+			[...(sillyQuotes as QuoteData[])].map((q) => (
+				<Quote quote={q.quote} cite={q.cite} />
+			))
+		}
+	</div>
+</div>

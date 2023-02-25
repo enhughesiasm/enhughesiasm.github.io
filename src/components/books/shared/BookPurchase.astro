@@ -1,0 +1,63 @@
+---
+import { FavouriteBook, OpenBook, WarningCircle } from 'iconoir-react';
+
+export type PurchaseLink = {
+	displayName: string;
+	purchaseUrl: string;
+	tooltip?: string;
+};
+
+export type Props = {
+	title: string;
+	headerText: string;
+	links: PurchaseLink[];
+	sampleUrl: string;
+};
+
+const { title, headerText, links, sampleUrl } = Astro.props;
+---
+
+<div class='flex flex-col bg-red-100'>
+	<div class='w-full bg-red-400 py-2 text-center text-white'>
+		{headerText}
+	</div>
+	<div class='flex flex-col items-center justify-center space-y-2 py-3'>
+		{
+			links.map((l) => (
+				<a
+					href={l.purchaseUrl}
+					data-tooltip={l.tooltip}
+					target='_blank'
+					rel='noopener noreferrer'
+					class='inline-flex items-center rounded-xl py-2 px-4 text-lg text-white odd:bg-green-500 even:bg-blue-500 hover:scale-[1.07]  hover:odd:bg-green-400 hover:even:bg-blue-400'>
+					<>
+						<FavouriteBook className='mr-2 inline' />
+						<span>
+							I want
+							<span class=''>{l.displayName}</span>!
+						</span>
+					</>
+				</a>
+			))
+		}
+		<a
+			href={sampleUrl}
+			data-tooltip={'Free sample PDF'}
+			target='_blank'
+			rel='noopener noreferrer'
+			class='inline-flex items-center rounded-xl bg-amber-200 py-1 px-4 text-base text-zinc-700 hover:scale-[1.07] hover:bg-amber-300'
+		>
+			<>
+				<OpenBook className='mr-2 inline' />
+				<span>I want to read a FREE sample!</span>
+			</>
+		</a>
+	</div>
+
+	<p class='my-3 text-center text-sm italic text-gray-500'>
+		<WarningCircle className='inline' /> These are <strong
+			>affiliate links</strong
+		>—as an Amazon Associate I earn from qualifying purchases.
+	</p>
+	<div class='flex flex-col items-center justify-center space-y-2 py-3'></div>
+</div>

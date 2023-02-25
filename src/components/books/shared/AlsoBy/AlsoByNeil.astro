@@ -1,0 +1,40 @@
+---
+import type { BookByNeil } from '../../books';
+import AlsoByBook from './AlsoByBook.astro';
+import wocCover from '../../../../assets/images/wocCover.jpg';
+import sblCover from '../../../../assets/images/sblCover.jpg';
+
+export interface Props {
+	exclude: BookByNeil;
+}
+
+const { exclude } = Astro.props;
+---
+
+<div class='py-3 px-5 text-center'>
+	<h3 class='mb-3 font-serif text-sm font-bold'>
+		Also by <div>Neil Hughes</div>
+	</h3>
+	<div class='space-y-6'>
+		{
+			exclude !== 'walking-on-custard' && (
+				<AlsoByBook
+					title='Walking on Custard'
+					linkUrl='/books/walking-on-custard'
+					coverImg={wocCover}
+					key={'walking-on-custard'}
+				/>
+			)
+		}
+		{
+			exclude !== 'shop-before-life' && (
+				<AlsoByBook
+					title='The Shop Before Life'
+					linkUrl='/books/shop-before-life'
+					coverImg={sblCover}
+					key={'shop-before-life'}
+				/>
+			)
+		}
+	</div>
+</div>
