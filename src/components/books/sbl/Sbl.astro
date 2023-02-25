@@ -1,1 +1,172 @@
-<>regregge</>
+---
+import BookPageTitle from '../shared/BookPageTitle.astro';
+import sblCover from '../../../assets/images/sblCover.jpg';
+import { Image } from '@astrojs/image/components';
+import { ChatBubbleQuestion, GlassEmpty, Heart } from 'iconoir-react';
+import Quote, { QuoteData } from '../shared/Quote.astro';
+import BookPurchase, { PurchaseLink } from '../shared/BookPurchase.astro';
+
+import jarMix from '../../../assets/images/sbl/jarmix.png';
+import sblRender1 from '../../../assets/images/sbl/SBL_PE_1024.jpg';
+import sblRender2 from '../../../assets/images/sbl/JCU_PE_1024.jpg';
+
+import quotes from '../../../data/sbl/sbl_quotes_official.json';
+import readerQuotes from '../../../data/sbl/sbl_quotes_other.json';
+
+const purchaseLinks: PurchaseLink[] = [
+	{
+		displayName: 'the paperback',
+		purchaseUrl: 'http://viewbook.at/sbl',
+	},
+	{ displayName: 'the hardback', purchaseUrl: 'http://viewbook.at/sblh' },
+	{
+		displayName: 'Kindle',
+		purchaseUrl: 'http://viewbook.at/sblk',
+	},
+	{
+		displayName: 'worldwide shipping',
+		purchaseUrl:
+			'http://www.bookdepository.com/Shop-Before-Life-Neil-Hughes/9780993166846/?a_aid=walkingoncustard',
+	},
+];
+---
+
+<BookPageTitle title='The Shop Before Life' quote='Who will you become?' />
+
+<p class='w-full bg-zinc-100 py-3 text-center text-gray-500'>
+	<GlassEmpty className='inline text-red-400' /> At the Shop, everyone must choose
+	who to be...
+	<div class='text-4xl font-bold text-red-500'>TRAIT CYCLER</div>
+</p>
+
+<div class='mt-9 flex flex-col space-y-2 text-lg'>
+	<div class='flex flex-row'>
+		<div class='w-2/3'>
+			<a
+				href='http://viewbook.at/sbl'
+				target='_blank'
+				rel='noopener noreferrer'
+			>
+				<Image
+					src={sblCover}
+					alt='The Shop Before Life - Book Cover'
+					class='hover:scale-[1.07]'
+				/>
+			</a>
+			<div class='mt-3 text-center text-sm'>
+				beautiful cover by <a
+					href='https://www.tomhumberstone.com/'
+					class='text-blue-600 hover:text-blue-500'>Tom Humberstone</a
+				>
+			</div>
+		</div>
+		<div class='flex-grow space-y-2 pl-6'>
+			<p
+				class='first-letter:float-left first-letter:pr-4 first-letter:font-serif first-letter:text-7xl first-letter:text-red-500'
+			>
+				After two happy centuries in the prelife, Faythe is battling the
+				<span class='font-bold'>most dangerous human emotion</span>.
+			</p>
+			<p class='text-right text-3xl'>
+				She's <span class='text-5xl italic'>bored</span>.
+			</p>
+			<p>
+				But after she accepts a once-in-a-prelifetime opportunity to
+				become <span class='text-2xl font-bold text-blue-500'
+					>Apprentice at the Shop Before Life</span
+				>, her days become dreadfully
+				<span class='text-2xl font-bold text-red-500'>interesting</span
+				>.
+			</p>
+			<p>
+				Now she helps customers choose a unique combination of traits
+				from the countless options available at the Shop Before Life.
+			</p>
+			<p>
+				Will they be born on Earth as{' '}
+				<span class='font-serif text-sm small-caps'>
+					MATHEMATICALLY GIFTED</span
+				>
+				? Or perhaps <span class='font-serif text-sm small-caps'
+					>EASILY IRRITATED</span
+				> or <span class='font-serif text-sm small-caps'
+					>DELIGHTED BY CATS</span
+				>
+				?
+			</p>
+			<div class='flex flex-col items-center space-y-3'>
+				<Image src={jarMix} alt='some magical jars' class='w-1/5' />
+			</div>
+		</div>
+	</div>
+
+	<Quote quote={quotes[0].quote} cite={quotes[0].cite} />
+
+	<div class='flex'>
+		<div>
+			FIX THIS
+			<Image src={sblRender1} alt='The Shop Before Life' />
+		</div>
+		<!-- <Image src={sblRender2} alt='Some jars from the shop' /> -->
+
+		<div class='px-3'>
+			<p class='!mt-6'>
+				<ChatBubbleQuestion className='inline text-2xl text-gray-600' />
+				But Faythe has questions of her own. Like—<span
+					class='font-bold text-blue-500'
+					>what exactly is <span class='italic'>in</span> these jars of
+					magical personality traits</span
+				>? And who is the mysterious Supplier who creates them?
+			</p>
+			<p>
+				Unfortunately, these questions could <span
+					class='font-bold text-red-500'
+					>awaken an ancient conflict
+				</span> and perhaps even <span class='font-bold text-red-500'
+					>destroy the Shop itself</span
+				>.
+				<span class='font-bold'
+					>They should maybe mention that sort of thing during
+					orientation.</span
+				>
+			</p>
+			<p>
+				Management are going to be furious, but Faythe's divine
+				punishment must wait. She's got to race to discover the secrets
+				of the Shop—and hope the answers will be enough to save it 😓
+			</p>
+			<p class='py-3 text-right text-3xl'>
+				Because if she fails,{' '}
+				<span class='font-bold text-red-500'>
+					nobody will become themselves ever again</span
+				>
+				...
+			</p>
+
+			{
+				[...(quotes.slice(1) as QuoteData[])].map((q) => (
+					<Quote quote={q.quote} cite={q.cite} />
+				))
+			}
+		</div>
+	</div>
+
+	<BookPurchase
+		headerText='READ NOW...'
+		title='Shop Before Life'
+		links={purchaseLinks}
+		sampleUrl='https://gallery.mailchimp.com/f16d438b230e1f3c54ecd5adc/files/d4d6e78b-a740-413b-b04c-415c8828a75e/Shop_Before_Life_Sample.01.pdf'
+	/>
+
+	<div class='!mt-9 space-y-3'>
+		<h4 class='bg-blue-400 py-3 text-center text-xl font-bold text-white'>
+			<Heart className='inline pr-4 text-3xl' /> READERS HAVE SAID...
+		</h4>
+
+		{
+			[...(readerQuotes as QuoteData[])].map((q) => (
+				<Quote quote={q.quote} cite={q.cite} />
+			))
+		}
+	</div>
+</div>
