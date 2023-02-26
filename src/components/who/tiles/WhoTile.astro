@@ -1,6 +1,7 @@
 ---
 export interface Props {
 	bgColor: string;
+	titleBgColor?: string;
 	title: string;
 	link: string;
 	gradientStartHex?: string;
@@ -10,21 +11,24 @@ export interface Props {
 const {
 	bgColor,
 	title,
+	titleBgColor = 'bg-transparent',
 	link,
 	gradientStartHex = '#1e293b',
 	gradientEndHex = '#000000',
 } = Astro.props;
 ---
 
-<div class={`${bgColor} who-card rounded-lg py-3 px-6 group`}>
+<div class={`${bgColor} who-card rounded-lg pb-3 group`}>
 	<a href={link}>
 		<h3
-			class='h-12 text-center font-serif text-2xl font-bold group-hover:text-3xl'
+			class={`py-3 h-16 text-center rounded-lg inline-flex items-center justify-center w-full font-serif text-2xl font-bold group-hover:text-3xl ${titleBgColor}`}
 		>
 			{title}
 		</h3>
 	</a>
-	<slot />
+	<div class='px-6 pt-3'>
+		<slot />
+	</div>
 </div>
 
 <style define:vars={{ gradientStartHex, gradientEndHex }}>

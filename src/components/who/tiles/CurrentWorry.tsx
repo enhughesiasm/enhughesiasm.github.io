@@ -6,7 +6,7 @@ export const CurrentWorry = () => {
 	const level = worryLevels[Math.floor(Math.random() * worryLevels.length)];
 	const worry = worries[Math.floor(Math.random() * worries.length)];
 	return (
-		<div className='rounded bg-red-100 py-3 px-12 group-hover:bg-transparent'>
+		<>
 			<p className='smallPrint'>
 				<EmojiThinkLeft className='mr-3 inline' />
 				<strong>current concern level: </strong>
@@ -17,6 +17,6 @@ export const CurrentWorry = () => {
 				<strong>cause: </strong>
 				<span>{worry}</span>
 			</p>
-		</div>
+		</>
 	);
 };

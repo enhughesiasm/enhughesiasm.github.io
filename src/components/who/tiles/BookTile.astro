@@ -23,7 +23,7 @@ const { linkUrl, coverImg, title, blurb, buttonText } = Astro.props;
 	}
 	<div class='flex w-4/5 flex-grow flex-col justify-between px-3 py-3'>
 		<h3
-			class={`flex flex-row items-center space-x-3 font-serif text-xl font-bold `}
+			class={`flex flex-row items-center space-x-3 font-serif text-xl font-bold group-hover/book:text-green-700`}
 		>
 			<a href={linkUrl}>{title}</a>
 		</h3>

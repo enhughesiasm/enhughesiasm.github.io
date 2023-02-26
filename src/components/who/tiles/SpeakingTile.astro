@@ -1,0 +1,57 @@
+---
+import { TED_TALK_VIEWS } from '../../../data/definitions';
+import tedSpeak from '../../../assets/images/speaking/ted_speak.jpg';
+import { Image } from '@astrojs/image/components';
+---
+
+<div class='space-y-6 pb-6'>
+	<p
+		class='rounded bg-emerald-100 py-2 px-6 text-center group-hover:bg-transparent'
+	>
+		More than <span class='text-2xl'
+			>{TED_TALK_VIEWS.toLocaleString()} people</span
+		>
+		have watched Neil's
+		<a
+			href='https://bit.ly/custardTED'
+			target='_blank'
+			rel='noopener noreferrer'
+			class='text-xl font-bold text-red-700'
+		>
+			helpful & hilarious TED talk</a
+		>
+		about anxiety
+	</p>
+
+	<div>
+		<a
+			href='https://bit.ly/custardTED'
+			target='_blank'
+			rel='noopener noreferrer'
+		>
+			<Image
+				src={tedSpeak}
+				alt='Neil Hughes, TEDx Leamington Spa'
+				class='group-hover:scale-[1.05]'
+			/>
+		</a>
+	</div>
+
+	<p class='py-2 px-6 text-center'>
+		Neil speaks entertainingly on topics from <span
+			class='text-xl font-bold text-blue-500'>mental health</span
+		> to <span class='text-xl font-bold text-purple-500'
+			>building a satisfying career</span
+		>
+		at events of all sizes, both in-person and online
+	</p>
+
+	<p class='text-right'>
+		<a href='/speaking'>
+			<button
+				class='rounded-full bg-transparent bg-green-200 py-2 px-4 font-bold text-slate-500 hover:!bg-green-500 group-hover:animate-bounce-once group-hover:bg-green-700 group-hover:text-white'
+				>get a fantastic speaker</button
+			>
+		</a>
+	</p>
+</div>
