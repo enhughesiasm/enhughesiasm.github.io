@@ -1,0 +1,10 @@
+---
+import { Image } from '@astrojs/image/components';
+import jar from '../../../assets/images/sbl/jar_transparent.png';
+import { TraitName } from './TraitName';
+---
+
+<div>
+	<Image src={jar} alt='a magical jar' width={25} class='inline-block' />
+	<TraitName client:only='react' />
+</div>

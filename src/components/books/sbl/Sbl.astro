@@ -2,7 +2,7 @@
 import BookPageTitle from '../shared/BookPageTitle.astro';
 import sblCover from '../../../assets/images/sblCover.jpg';
 import { Image } from '@astrojs/image/components';
-import { ChatBubbleQuestion, GlassEmpty, Heart } from 'iconoir-react';
+import { GlassEmpty, Heart } from 'iconoir-react';
 import Quote, { QuoteData } from '../shared/Quote.astro';
 import BookPurchase, { PurchaseLink } from '../shared/BookPurchase.astro';
 
@@ -12,6 +12,7 @@ import sblRender2 from '../../../assets/images/sbl/JCU_PE_1024.jpg';
 
 import quotes from '../../../data/sbl/sbl_quotes_official.json';
 import readerQuotes from '../../../data/sbl/sbl_quotes_other.json';
+import Trait from './Trait.astro';
 
 const purchaseLinks: PurchaseLink[] = [
 	{
@@ -31,17 +32,17 @@ const purchaseLinks: PurchaseLink[] = [
 ];
 ---
 
-<BookPageTitle title='The Shop Before Life' quote='Who will you become?' />
-
-<p class='w-full bg-zinc-100 py-3 text-center text-gray-500'>
-	<GlassEmpty className='inline text-red-400' /> At the Shop, everyone must choose
-	who to be...
-	<div class='text-4xl font-bold text-red-500'>TRAIT CYCLER</div>
-</p>
+<BookPageTitle title='The Shop Before Life'>
+	<p class=''>
+		<GlassEmpty className='inline text-zinc-400' /> Before being born, everyone
+		chooses who they'll be...
+	</p>
+	<Trait />
+</BookPageTitle>
 
 <div class='mt-9 flex flex-col space-y-2 text-lg'>
 	<div class='flex flex-row'>
-		<div class='w-2/3'>
+		<div>
 			<a
 				href='http://viewbook.at/sbl'
 				target='_blank'
@@ -68,50 +69,46 @@ const purchaseLinks: PurchaseLink[] = [
 				<span class='font-bold'>most dangerous human emotion</span>.
 			</p>
 			<p class='text-right text-3xl'>
-				She's <span class='text-5xl italic'>bored</span>.
+				She's <span class='text-5xl italic text-red-500'>bored</span>.
 			</p>
 			<p>
 				But after she accepts a once-in-a-prelifetime opportunity to
 				become <span class='text-2xl font-bold text-blue-500'
 					>Apprentice at the Shop Before Life</span
 				>, her days become dreadfully
-				<span class='text-2xl font-bold text-red-500'>interesting</span
-				>.
+				<span class='text-2xl font-bold'>interesting</span>.
 			</p>
 			<p>
-				Now she helps customers choose a unique combination of traits
-				from the countless options available at the Shop Before Life.
-			</p>
-			<p>
-				Will they be born on Earth as{' '}
-				<span class='font-serif text-sm small-caps'>
+				Now she helps yet-to-be-born customers plan their lives by
+				choosing a unique combination of traits from the countless
+				options available at the Shop. Will they be born on Earth as <span
+					class='font-serif text-sm font-bold small-caps'
+				>
 					MATHEMATICALLY GIFTED</span
 				>
-				? Or perhaps <span class='font-serif text-sm small-caps'
+				? Or perhaps <span
+					class='font-serif text-sm font-bold small-caps'
 					>EASILY IRRITATED</span
-				> or <span class='font-serif text-sm small-caps'
+				> or <span class='font-serif text-sm font-bold small-caps'
 					>DELIGHTED BY CATS</span
 				>
 				?
 			</p>
-			<div class='flex flex-col items-center space-y-3'>
+			<!-- <div class='flex flex-col items-center space-y-3'>
 				<Image src={jarMix} alt='some magical jars' class='w-1/5' />
-			</div>
+			</div> -->
 		</div>
 	</div>
 
-	<Quote quote={quotes[0].quote} cite={quotes[0].cite} />
+	<Quote quote={quotes[0].quote} cite={quotes[0].cite} className='!mt-6' />
 
-	<div class='flex'>
-		<div>
-			FIX THIS
-			<Image src={sblRender1} alt='The Shop Before Life' />
-		</div>
-		<!-- <Image src={sblRender2} alt='Some jars from the shop' /> -->
-
-		<div class='px-3'>
+	<div class='flex w-full items-center'>
+		<a class='hover:scale-[3]' href='https://www.instagram.com/sky2sart/'
+			><Image src={sblRender1} alt='The Shop Before Life' /></a
+		>
+		<div class='flex-grow space-y-2 pl-6'>
 			<p class='!mt-6'>
-				<ChatBubbleQuestion className='inline text-2xl text-gray-600' />
+				<!-- <ChatBubbleQuestion className='inline text-xl text-gray-400' /> -->
 				But Faythe has questions of her own. Like—<span
 					class='font-bold text-blue-500'
 					>what exactly is <span class='italic'>in</span> these jars of
@@ -135,21 +132,21 @@ const purchaseLinks: PurchaseLink[] = [
 				punishment must wait. She's got to race to discover the secrets
 				of the Shop—and hope the answers will be enough to save it 😓
 			</p>
-			<p class='py-3 text-right text-3xl'>
+			<p class='py-3 text-3xl'>
 				Because if she fails,{' '}
 				<span class='font-bold text-red-500'>
-					nobody will become themselves ever again</span
+					nobody can become themselves ever again</span
 				>
 				...
 			</p>
-
-			{
-				[...(quotes.slice(1) as QuoteData[])].map((q) => (
-					<Quote quote={q.quote} cite={q.cite} />
-				))
-			}
 		</div>
 	</div>
+
+	{
+		[...(quotes.slice(1) as QuoteData[])].map((q) => (
+			<Quote quote={q.quote} cite={q.cite} />
+		))
+	}
 
 	<BookPurchase
 		headerText='READ NOW...'
@@ -163,8 +160,19 @@ const purchaseLinks: PurchaseLink[] = [
 			<Heart className='inline pr-4 text-3xl' /> READERS HAVE SAID...
 		</h4>
 
+		<div class='flex flex-row items-center justify-between space-x-3'>
+			<Quote quote={readerQuotes[0].quote} cite={readerQuotes[0].cite} />
+			<a
+				class='w-1/5 hover:scale-[4]'
+				href='https://www.instagram.com/sky2sart/'
+				><Image
+					src={sblRender2}
+					alt='some magical jars, by sky2sart'
+				/></a
+			>
+		</div>
 		{
-			[...(readerQuotes as QuoteData[])].map((q) => (
+			[...(readerQuotes.slice(1) as QuoteData[])].map((q) => (
 				<Quote quote={q.quote} cite={q.cite} />
 			))
 		}
