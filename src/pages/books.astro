@@ -1,14 +1,14 @@
 ---
-import Layout from '../layouts/Layout.astro';
-
 import sblCover from '../assets/images/sblCover.jpg';
 import wocCover from '../assets/images/wocCover.jpg';
 import Book from '../components/books/Book.astro';
 import { BookStack } from 'iconoir-react';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LayoutPage from '../layouts/Layout_Page.astro';
 ---
 
-<Layout title='Books by Neil Hughes - enhughesiasm'>
-	<div class='m-auto mt-12 w-1/2'>
+<BaseLayout title='Books by Neil Hughes - enhughesiasm'>
+	<LayoutPage>
 		<div
 			class='rounded-xl bg-yellow-200 py-3 text-center font-serif text-zinc-900'
 		>
@@ -34,5 +34,5 @@ import { BookStack } from 'iconoir-react';
 			sampleUrl='https://gallery.mailchimp.com/f16d438b230e1f3c54ecd5adc/files/a6f251c6-b056-4ed4-96bc-51be718be470/Shop_Before_Life_Sample.pdf'
 			buttonText='explore the Shop Before Life'
 		/>
-	</div>
-</Layout>
+	</LayoutPage>
+</BaseLayout>

@@ -1,0 +1,160 @@
+---
+import { TED_TALK_VIEWS } from '../../data/definitions';
+import { Image } from '@astrojs/image/components';
+import otmImage from '../../assets/images/neil_hughes_stage.jpg';
+import ebrdImage from '../../assets/images/speaking/ebrd.jpg';
+import tedImage from '../../assets/images/speaking/ted_speak.jpg';
+import { Heart, MultiBubble, YouTube } from 'iconoir-react';
+import { YouTube as YouTubeEmbed } from '@astro-community/astro-embed-youtube';
+import quotes_highlighted from '../../data/speaking/speaking_quotes_highlighted.json';
+import quotes_businesses from '../../data/speaking/speaking_quotes_businesses.json';
+import quotes_schools from '../../data/speaking/speaking_quotes_schools.json';
+import Quote from '../Quote.astro';
+---
+
+<div class='space-y-6'>
+	<div class='flex flex-row'>
+		<Image src={otmImage} alt='Neil Hughes on stage' class='mr-4' />
+		<div class='space-y-6'>
+			<div class='font-serif text-3xl'>
+				🕺 I've been public speaking for <span
+					class='text-4xl font-bold text-red-700'
+					>over twenty years</span
+				>.
+			</div>
+
+			<div class='text-xl'>
+				Sometimes I talk about <a
+					href='https://bit.ly/custardTED'
+					class='text-xl text-blue-700 hover:text-blue-500'
+					>anxiety & mental health</a
+				>. Other times I share about <a
+					href='https://puttylike.com'
+					class='text-xl text-purple-700 hover:text-purple-500'
+					>building a satisfying career</a
+				>. And occasionally I just tell jokes.
+			</div>
+			<p>
+				I've performed for audiences ranging from <strong
+					class='text-xl'>two people</strong
+				> to
+				<strong class='text-xl'>two thousand</strong>, and at <span
+					class='text-lg text-red-700'>all sorts of events</span
+				>—including festivals, school assemblies, staff training days,
+				university lectures, conference keynotes, and more.
+			</p>
+			<div class='flex w-full justify-center'>
+				<a
+					href='/contact'
+					class='rounded-xl bg-green-500 py-2 px-6 text-white hover:bg-green-400'
+					>enquire about availability</a
+				>
+			</div>
+		</div>
+	</div>
+	<h3
+		class='flex items-center justify-center rounded bg-amber-200 font-serif font-bold text-zinc-900'
+	>
+		<span class='relative -top-3 text-5xl'>🍮</span>Walking on Custard: A
+		talk for anxious humans (and non-anxious ones too!)
+	</h3>
+	<p>
+		After <a
+			href='/anxiety'
+			class='text-lg text-red-700 underline hover:text-red-500'
+			>years with anxiety</a
+		>, I realised that it was surprisingly helpful to think about custard.
+		Who knew?!
+	</p>
+	<p>
+		I've turned my experiences into an amusing talk which explores anxiety
+		and other difficult feelings through <strong>funny stories</strong> and <strong
+			>practical tips</strong
+		>
+		for emotional management.
+	</p>
+
+	<div class='m-auto w-1/2 p-3'>
+		<div class='bg-red-200 py-2 text-center'>
+			<YouTube className='inline text-red-500 text-xl' /> I gave a short (14
+			minute) version of this talk at TEDx Leamington Spa:
+		</div>
+
+		<YouTubeEmbed id={'bM06o26PCDQ'} />
+		<div class='bg-red-200 pb-2 text-center text-sm'>
+			Over <span class='text-lg font-bold text-red-500'
+				>{TED_TALK_VIEWS.toLocaleString()}</span
+			>
+			people have watched this TED talk! 😮
+		</div>
+	</div>
+
+	<Quote
+		cite={quotes_highlighted[0].cite}
+		quote={quotes_highlighted[0].quote}
+	/>
+
+	<div class='flex flex-row items-center justify-between space-x-3'>
+		<Image
+			src={ebrdImage}
+			alt='Neil Hughes speaking at the EBRD'
+			width={400}
+		/>
+		<h3 class='w-full pl-6 text-left text-4xl font-bold'>
+			<span class='text-blue-700'
+				><MultiBubble className='inline' /> Businesses</span
+			> say:
+		</h3>
+	</div>
+
+	{quotes_businesses.map((q) => <Quote quote={q.quote} cite={q.cite} />)}
+
+	<div class='flex flex-row items-center justify-between space-x-3'>
+		<h3 class='w-full pr-4 text-right text-4xl font-bold'>
+			<span class='text-blue-700'
+				><MultiBubble className='inline' /> Schools</span
+			> say:
+		</h3>
+		<Image
+			src={tedImage}
+			alt='Neil Hughes speaking at TEDx Leamington Spa'
+			width={400}
+		/>
+	</div>
+
+	{quotes_schools.map((q) => <Quote quote={q.quote} cite={q.cite} />)}
+</div>
+
+<div
+	class='mt-12 rounded bg-amber-200 py-3 text-center font-serif text-3xl font-bold'
+>
+	Need a speaker?
+</div>
+<div class='space-y-9'>
+	<p class='mt-6 text-center text-xl'>
+		Contact <strong>neil@walkingoncustard.com</strong> or
+		<a
+			href='/contact'
+			class='rounded-xl bg-green-500 py-2 px-6 text-white hover:bg-green-400'
+			>click here to ask for a quote</a
+		>
+	</p>
+
+	<p class='text-center'>
+		I&apos;m currently based in the{' '}
+		<strong class='text-xl text-red-700'>northwest of England</strong>, but
+		I <strong class='text-xl text-blue-700'>regularly travel</strong> all over
+		the UK (and further, if required).
+	</p>
+	<div class='space-y-3 bg-red-100 px-12 py-3'>
+		<Heart className='inline text-2xl text-red-700' />
+		Thanks to the generosity of clients who are able to pay more, a
+		<strong class='text-purple-500'>
+			limited number of free events are available</strong
+		>, with priority given to state schools and charities. If you think you
+		might qualify for a free event then please ask! <div>
+			Either way, please get in touch—I try to accommodate all budgets as
+			flexibly as I can.
+		</div>
+	</div>
+</div>

@@ -2,12 +2,14 @@
 import { TED_TALK_VIEWS } from '../../../data/definitions';
 import tedSpeak from '../../../assets/images/speaking/ted_speak.jpg';
 import { Image } from '@astrojs/image/components';
+import { LightBulbOn } from 'iconoir-react';
 ---
 
 <div class='space-y-6 pb-6'>
 	<p
 		class='rounded bg-emerald-100 py-2 px-6 text-center group-hover:bg-transparent'
 	>
+		<LightBulbOn className='inline text-emerald-600' />
 		More than <span class='text-2xl'
 			>{TED_TALK_VIEWS.toLocaleString()} people</span
 		>
@@ -16,7 +18,7 @@ import { Image } from '@astrojs/image/components';
 			href='https://bit.ly/custardTED'
 			target='_blank'
 			rel='noopener noreferrer'
-			class='text-xl font-bold text-red-700'
+			class='text-xl font-bold text-red-700 hover:text-red-500'
 		>
 			helpful & hilarious TED talk</a
 		>
@@ -38,12 +40,11 @@ import { Image } from '@astrojs/image/components';
 	</div>
 
 	<p class='py-2 px-6 text-center'>
-		Neil speaks entertainingly on topics from <span
+		Neil speaks entertainingly on many topics, from <span
 			class='text-xl font-bold text-blue-500'>mental health</span
 		> to <span class='text-xl font-bold text-purple-500'
 			>building a satisfying career</span
-		>
-		at events of all sizes, both in-person and online
+		>, and at events of all sizes, both in-person and online.
 	</p>
 
 	<p class='text-right'>
