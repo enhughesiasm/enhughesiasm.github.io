@@ -2,7 +2,10 @@
 import WhoHero from './neil/WhoHero.astro';
 import AnxietyTile from './tiles/AnxietyTile.astro';
 import CodingTile from './tiles/CodingTile.astro';
+import ComedianTile from './tiles/ComedianTile.astro';
+import PhysicistTile from './tiles/PhysicistTile.astro';
 import SpeakingTile from './tiles/SpeakingTile.astro';
+import TwoTruthsTile from './tiles/TwoTruthsTile.astro';
 import WhoTile from './tiles/WhoTile.astro';
 import WriterTile from './tiles/WriterTile.astro';
 ---
@@ -46,19 +49,38 @@ import WriterTile from './tiles/WriterTile.astro';
 		>
 			<CodingTile />
 		</WhoTile>
-		<WhoTile title='comedian-ing' bgColor='bg-teal-200' link='/comedy'>
-			.
-		</WhoTile>
-		<WhoTile title='physicist-ing' bgColor='bg-purple-200' link='/comedy'>
-			.
+		<WhoTile
+			title='comedian-ing'
+			bgColor='bg-teal-200'
+			link='/comedy'
+			gradientStartHex={'#5eead4'}
+			gradientEndHex={'#ccfbf1'}
+		>
+			<ComedianTile />
 		</WhoTile>
 		<WhoTile
-			title='teling two truths & a lie'
-			bgColor='bg-yellow-200'
-			link='/comedy'
+			title='physicist-ing'
+			bgColor='bg-purple-200'
+			gradientStartHex={'#d8b4fe'}
+			gradientEndHex={'f3e8ff'}
 		>
-			.
+			<PhysicistTile />
 		</WhoTile>
-		<WhoTile title='TODO' bgColor='bg-green-200' link='/comedy'>.</WhoTile>
+		<WhoTile
+			title='telling two truths & a lie'
+			bgColor='bg-amber-200'
+			gradientStartHex={'#fcd34d'}
+			gradientEndHex={'#fef3c7'}
+		>
+			<TwoTruthsTile />
+		</WhoTile>
+		<WhoTile
+			title='TODO'
+			bgColor='bg-white'
+			gradientStartHex={'#fef9c3'}
+			gradientEndHex={'#fefce8'}
+		>
+			<div class='font-serif'>1) Write TODO list</div>
+		</WhoTile>
 	</div>
 </div>
