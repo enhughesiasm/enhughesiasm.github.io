@@ -4,8 +4,11 @@ import AnxietyTile from './tiles/AnxietyTile.astro';
 import CodingTile from './tiles/CodingTile.astro';
 import ComedianTile from './tiles/ComedianTile.astro';
 import PhysicistTile from './tiles/PhysicistTile.astro';
+import ReceivingEmailsTile from './tiles/ReceivingEmailsTile.astro';
 import SpeakingTile from './tiles/SpeakingTile.astro';
+import TodoTile from './tiles/TodoTile.astro';
 import TwoTruthsTile from './tiles/TwoTruthsTile.astro';
+
 import WhoTile from './tiles/WhoTile.astro';
 import WriterTile from './tiles/WriterTile.astro';
 ---
@@ -50,7 +53,7 @@ import WriterTile from './tiles/WriterTile.astro';
 			<CodingTile />
 		</WhoTile>
 		<WhoTile
-			title='comedian-ing'
+			title='helping people be funny'
 			bgColor='bg-teal-200'
 			link='/comedy'
 			gradientStartHex={'#5eead4'}
@@ -59,7 +62,7 @@ import WriterTile from './tiles/WriterTile.astro';
 			<ComedianTile />
 		</WhoTile>
 		<WhoTile
-			title='physicist-ing'
+			title='misusing his education'
 			bgColor='bg-purple-200'
 			gradientStartHex={'#d8b4fe'}
 			gradientEndHex={'f3e8ff'}
@@ -80,7 +83,15 @@ import WriterTile from './tiles/WriterTile.astro';
 			gradientStartHex={'#fef9c3'}
 			gradientEndHex={'#fefce8'}
 		>
-			<div class='font-serif'>1) Write TODO list</div>
+			<TodoTile />
+		</WhoTile>
+		<WhoTile
+			title='receiving emails'
+			bgColor='bg-rose-200'
+			gradientStartHex={'#fda4af'}
+			gradientEndHex={'#ffe4e6'}
+		>
+			<ReceivingEmailsTile />
 		</WhoTile>
 	</div>
 </div>

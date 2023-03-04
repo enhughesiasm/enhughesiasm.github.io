@@ -18,4 +18,5 @@ export const truths = [
 	'... was once (wrongly) known as Rowan to an entire town in rural Australia',
 	'... has broken one bone and chipped another',
 	'... is allergic to apples',
+	'... once crossed Australia with some monks he met in a bar',
 ];

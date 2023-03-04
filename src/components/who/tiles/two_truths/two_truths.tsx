@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { truths } from '../../../../data/truths/truths';
 import lies from '../../../../data/truths/lies.json';
+import { Refresh } from 'iconoir-react';
 
 const choose = <T,>(arr: T[], number: number) => {
 	const ret: T[] = [];
@@ -40,7 +41,7 @@ export const TwoTruths = () => {
 			<ul className='mt-3 space-y-3'>
 				{selected.map((item) => (
 					<li
-						className={`cursor-pointer text-lg font-bold ${
+						className={`h-16 cursor-pointer font-serif text-lg font-bold ${
 							item.clicked && !item.truth
 								? 'text-red-500 line-through'
 								: ''
@@ -64,9 +65,9 @@ export const TwoTruths = () => {
 			<hr />
 			<div className='mt-6'>
 				<a
-					className='rounded-xl bg-green-500 py-2 px-6 text-white hover:bg-green-400'
+					className='cursor-pointer rounded-xl bg-green-500 py-2 px-6 text-white hover:bg-green-400'
 					onClick={() => setSelected(getSelectedTruths())}>
-					get more
+					<Refresh className='inline pr-2' /> get more
 				</a>
 			</div>
 		</>
