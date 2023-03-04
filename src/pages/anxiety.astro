@@ -2,15 +2,15 @@
 import { SidebarCollapse } from 'iconoir-react';
 import AnxietyResources from '../components/anxiety/AnxietyResources.astro';
 import AnxietyStory from '../components/anxiety/AnxietyStory.astro';
-import Layout from '../layouts/Layout.astro';
-import PageWithSidebar from '../layouts/PageWithSidebar.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LayoutPageWithSidebar from '../layouts/Layout_Page_With_Sidebar.astro';
 ---
 
-<Layout title='Anxiety Resources - by Neil Hughes - enhughesiasm'>
-	<PageWithSidebar>
+<BaseLayout title='Anxiety Resources - by Neil Hughes - enhughesiasm'>
+	<LayoutPageWithSidebar>
 		<div slot='sidebar'>
 			<AnxietyResources />
 		</div>
 		<AnxietyStory />
-	</PageWithSidebar>
-</Layout>
+	</LayoutPageWithSidebar>
+</BaseLayout>

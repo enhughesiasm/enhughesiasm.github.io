@@ -1,19 +1,20 @@
 ---
 import Woc from '../../components/books/woc/Woc.astro';
-import BookPageLayout from '../../layouts/BookPageLayout.astro';
-import Layout from '../../layouts/Layout.astro';
+
 import wocCover from '../../assets/images/wocCover.jpg';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LayoutBook from '../../layouts/Layout_Book.astro';
 ---
 
-<Layout
+<BaseLayout
 	title='Walking on Custard - The Best Funny Book about Anxiety - enhughesiasm'
 >
-	<BookPageLayout
+	<LayoutBook
 		key='walking-on-custard'
 		title='Walking on Custard & the Meaning of Life'
 		linkUrl='/books/walking-on-custard'
 		coverImg={wocCover}
 	>
 		<Woc />
-	</BookPageLayout>
-</Layout>
+	</LayoutBook>
+</BaseLayout>
