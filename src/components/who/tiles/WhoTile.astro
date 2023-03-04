@@ -3,6 +3,7 @@ export interface Props {
 	bgColor: string;
 	titleBgColor?: string;
 	title: string;
+	titleColor?: string;
 	link: string;
 	gradientStartHex?: string;
 	gradientEndHex?: string;
@@ -12,6 +13,7 @@ const {
 	bgColor,
 	title,
 	titleBgColor = 'bg-transparent',
+	titleColor = 'text-zinc-900',
 	link,
 	gradientStartHex = '#1e293b',
 	gradientEndHex = '#000000',
@@ -21,7 +23,7 @@ const {
 <div class={`${bgColor} who-card rounded-lg pb-3 group`}>
 	<a href={link}>
 		<h3
-			class={`py-3 h-16 text-center rounded-lg inline-flex items-center justify-center w-full font-serif text-2xl font-bold group-hover:text-3xl ${titleBgColor}`}
+			class={`py-3 h-16 text-center rounded-lg inline-flex items-center justify-center w-full font-serif text-2xl font-bold group-hover:text-3xl ${titleBgColor} ${titleColor}`}
 		>
 			{title}
 		</h3>

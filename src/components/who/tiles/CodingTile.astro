@@ -1,0 +1,66 @@
+---
+import { ChatBubbleError, Check } from 'iconoir-react';
+---
+
+<div class='space-y-6 pb-6 pl-3 font-code text-xl uppercase text-white'>
+	<div>
+		&gt; <span class='text-red-500'>NEIL</span> has been developing <span
+			class='text-blue-500'>SOFTWARE</span
+		> since the <span class='text-2xl text-yellow-500'>1980s</span>
+	</div>
+
+	<div>
+		&gt; when he would excitedly type <span class='text-orange-500'
+			>PROGRAMS</span
+		>
+	</div>
+	<div>
+		&gt; from magazines into a <span
+			class='bg-gradient-to-r from-red-500 to-purple-500 bg-clip-text'
+			>ZX SPECTRUM +2</span
+		>
+	</div>
+	<div class='text-red-500'>&gt; SYNTAX ERROR</div>
+	<div>$ <span class='animate-cursor-blink text-xl font-bold'>|</span></div>
+
+	<hr />
+
+	<div class='lowercase'>$ ls recent-projects</div>
+	<div class='text-green-500'>
+		<Check className='inline' /> PROJECTS FOUND:
+	</div>
+	<ul>
+		<li class='pl-6'>
+			&gt;{' '}
+			<a
+				class='inline-block text-green-500 hover:!scale-[1.03] hover:!text-red-500 group-hover:animate-bounce-once group-hover:text-amber-500'
+				href='/complex'
+			>
+				The Supplier&apos;s Complex</a
+			>
+		</li>
+		<li class='pl-6'>
+			&gt;{' '}
+			<a
+				class='inline-block text-green-500 hover:!scale-[1.03] hover:!text-red-500 group-hover:animate-bounce-once group-hover:text-amber-500'
+				href='https://ourpomona.org'
+			>
+				Our Pomona
+			</a>
+		</li>
+		<li class='pl-6'>
+			&gt;{' '}
+			<a
+				class='inline-block text-green-500 hover:!scale-[1.03] hover:!text-red-500 group-hover:animate-bounce-once group-hover:text-amber-500'
+				href='/q'
+			>
+				Interactive Live Quiz
+			</a>
+		</li>
+	</ul>
+	<hr />
+	<div class='text-red-500'>
+		<ChatBubbleError className='inline' /> Neil is not currently available for
+		coding work
+	</div>
+</div>
