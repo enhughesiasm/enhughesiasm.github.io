@@ -4,7 +4,7 @@ export interface Props {
 	linkUrl: string;
 	title: string;
 	blurb: string;
-	sampleUrl: string;
+	sampleUrl?: string;
 	buttonText: string;
 }
 import { Image } from '@astrojs/image/components';
@@ -37,12 +37,15 @@ const { coverImg, linkUrl, title, blurb, sampleUrl, buttonText } = Astro.props;
 					>{buttonText}</button
 				></a
 			>
-			<a href={sampleUrl}>
-				<button
-					class='rounded-full bg-red-100 py-2 px-4 text-slate-700 hover:!bg-green-300 group-hover/book:animate-bounce-once group-hover/book:bg-green-400 group-hover/book:text-white'
-					>read a sample</button
-				></a
-			>
+			{
+				sampleUrl && (
+					<a href={sampleUrl}>
+						<button class='group-hover/book:animate-bounce-once rounded-full bg-red-100 py-2 px-4 text-slate-700 hover:!bg-green-300 group-hover/book:bg-green-400 group-hover/book:text-white'>
+							read a sample
+						</button>
+					</a>
+				)
+			}
 		</div>
 	</div>
 </div>

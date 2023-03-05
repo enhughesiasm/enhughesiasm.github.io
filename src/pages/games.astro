@@ -1,5 +1,27 @@
 ---
+import shelves from '../assets/images/sbl/shelves.jpg';
+import Book from '../components/books/Book.astro';
+import { Pacman } from 'iconoir-react';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import LayoutPage from '../layouts/Layout_Page.astro';
 ---
 
-<BaseLayout title='enhughesiasm' />
+<BaseLayout title='Games by Neil Hughes - enhughesiasm'>
+	<LayoutPage>
+		<div
+			class='rounded-xl bg-teal-200 py-3 text-center font-serif text-zinc-900'
+		>
+			<div class='inline-flex items-center text-3xl font-bold'>
+				<Pacman className='inline pr-4' /> Games
+			</div>
+			<div class='text-zinc-700'>by Neil Hughes</div>
+		</div>
+		<Book
+			coverImg={shelves}
+			linkUrl='/complex'
+			title="The Supplier's Complex"
+			blurb='A relaxing, addictive idle game. Create magical jars of human traits to supply the Shop Before Life.'
+			buttonText='begin your adventure'
+		/>
+	</LayoutPage>
+</BaseLayout>
