@@ -1,4 +1,5 @@
 import { Cookie, WarningCircle } from 'iconoir-react';
+import { LoadingBox } from '../../shared/LoadingBox';
 import { MailchimpSignupForm } from './MailchimpSignupForm';
 import { SignupResultAlreadySubscribed } from './SignupResult_Already_Subscribed';
 import { SignupResultFailed } from './SignupResult_Failed';
@@ -13,12 +14,7 @@ export const MailchimpSignup: React.FC = () => {
 
 	return (
 		<div className='mt-6'>
-			{signupState.isSubmitting && (
-				<div className='mx-12 bg-green-200 py-6 text-center font-serif text-green-700'>
-					<Cookie className='inline animate-spin text-3xl ' />{' '}
-					Sending...
-				</div>
-			)}
+			{signupState.isSubmitting && <LoadingBox />}
 			{!signupState.isSubmitting && (
 				<>
 					{!signupState.hasSubmitted && (

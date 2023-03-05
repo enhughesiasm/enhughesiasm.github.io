@@ -1,4 +1,5 @@
 import clientConfig from '../../../config/client_config';
+import { JSON_to_URLEncoded } from './signup_utils';
 
 export type SubmitToMailChimpResult = {
 	result: 'SUCCESS' | 'FAILED' | 'ALREADY_SUBSCRIBED';
@@ -21,14 +22,14 @@ export async function submitToMailchimp(
 			cache: 'no-cache',
 			headers: {
 				Accept: 'application/json',
-				'Content-Type': 'application/json',
+				'Content-Type': 'application/x-www-form-urlencoded',
 			},
-			body: JSON.stringify({
+			body: JSON_to_URLEncoded({
 				id: id,
 				EMAIL: email,
 				gdpr: gdprConfirmed,
 				gdprConsentText: gdprConsentText,
-			}),
+			}), // this has to be url_encoded rather than pure JSON because CORS stops us sending json "cross-domain", ie to a different port
 		}).catch((error) => {
 			throw error;
 		});
