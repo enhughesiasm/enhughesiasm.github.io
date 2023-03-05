@@ -1,0 +1,106 @@
+---
+import { Image } from '@astrojs/image/components';
+import { CoffeeCup, Gift, Mail, SendMail } from 'iconoir-react';
+import yayImg from '../../assets/images/mailing-list-yay.png';
+import Quote from '../Quote.astro';
+import { MailchimpSignup } from './signup/MailchimpSignup';
+---
+
+<div class='space-y-6'>
+	<div class='space-y-6'>
+		<h2 class='rounded-xl py-3 text-center font-serif text-3xl font-bold'>
+			<Mail className='inline text-4xl pr-4 text-amber-600' /> The Occasional
+			Email Experience
+		</h2>
+
+		<div class='relative top-3 clear-left flex flex-row'>
+			<div class='flex flex-col items-center justify-center p-3'>
+				<Image alt='hooray' src={yayImg} />
+				<p class='mt-2 text-xs italic'>
+					the joy of receiving an email from Neil Hughes cannot be
+					contained in a mere picture, but this comes close
+				</p>
+			</div>
+			<div class='mb-6 mr-12 space-y-6 rounded bg-amber-50 px-12 py-6'>
+				<p
+					class='text-2xl first-letter:float-left first-letter:pr-2 first-letter:text-6xl first-line:small-caps'
+				>
+					Most emails are terrible. So I aim to make my emails a <strong
+						class='text-red-500'>special occasion</strong
+					>.
+				</p>
+				<p>
+					<SendMail className='inline text-4xl pr-4 text-zinc-500' /> Sign
+					up below and I&apos;ll send you <span
+						class='font-bold text-green-600'
+						>funny stories which may mildly improve your life</span
+					>.
+				</p>
+				<p>
+					<CoffeeCup className='inline text-4xl pr-4 text-zinc-500' />
+					On the rare occasion that an email arrives, you can grab a cup
+					of tea and settle in to enjoy.
+				</p>
+				<p>
+					<Gift className='inline text-4xl pr-4 text-zinc-500' />Plus!
+					In your welcome email, I'll include the opening chapters of
+					my books, <a
+						href='/books/walking-on-custard'
+						class='text-blue-500 underline hover:text-blue-400'
+					>
+						Walking on Custard
+					</a>
+					and
+					<a
+						href='/books/shop-before-life'
+						class='text-blue-500 underline hover:text-blue-400'
+						>The Shop Before Life</a
+					>, for <strong class='text-red-500'>free</strong>.
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class='mb-6 px-12'>
+		<Quote
+			quote={[
+				'Your emails make me howl. With laughter, I hasten to add!',
+				'I think they could be sold to a major publisher. Thank you for entertaining me.',
+			]}
+			cite={{ name: 'A long-time subscriber' }}
+		/>
+	</div>
+
+	<MailchimpSignup client:only='react' />
+
+	<div class='space-y-6 bg-green-100 py-3 px-12'>
+		<ul class='space-y-3 px-12'>
+			<li>
+				👉 You can expect to receive an email newsletter from me
+				‘occasionally’; in practice, this means roughly every few weeks
+				to every few months.
+			</li>
+			<li>
+				✍️ The content of these emails can be quite varied, but they
+				tend to be mainly humorous or thought-provoking stories, along
+				with roundups of links to interesting things I've found, and
+				articles I've written recently.
+			</li>
+			<li>
+				❗ I don't store any of your data myself: at the time of writing
+				I am using <a
+					href='http://mailchimp.com'
+					class='text-blue-500 underline hover:text-blue-400'
+				>
+					Mailchimp</a
+				> to manage my email list, which means they will store the data you
+				provide on my behalf.
+			</li>
+			<li>
+				🥳 Naturally, <strong>
+					you can unsubscribe at any time</strong
+				>—an unsubscribe link is provided in every email.
+			</li>
+		</ul>
+	</div>
+</div>
