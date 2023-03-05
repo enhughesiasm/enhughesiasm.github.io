@@ -1,0 +1,34 @@
+---
+interface Props {
+	text: string;
+	link: string;
+}
+
+const { link, text } = Astro.props;
+
+const { url } = Astro;
+
+const isActive =
+	(link === '/' && url.pathname === '/') ||
+	(link !== '/' && url.pathname.startsWith(link));
+---
+
+<li
+	class={`group/dropdown h-full flex items-center justify-center bg-zinc-800 relative top-9 hover:bg-gradient-to-tr hover:from-zinc-800 hover:to-zinc-500 `}
+>
+	<a
+		class='flex h-full w-full flex-grow items-center space-x-1 px-2 py-3 text-center text-xs lg:space-x-3 lg:px-4 lg:text-sm'
+		href={link}
+	>
+		<span class=''>
+			<span
+				class={`group/dropdown-hover:hidden ${
+					isActive ? 'text-yellow-500' : ''
+				}`}><slot name='icon' /></span
+			>
+		</span>
+		<span class={`${isActive ? 'text-emerald-300' : 'text-white'}`}
+			>{text}</span
+		></a
+	>
+</li>

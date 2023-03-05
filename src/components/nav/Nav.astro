@@ -1,23 +1,28 @@
 ---
 import {
 	Arcade,
+	Book,
 	BookStack,
 	ChatBubble,
 	Code,
+	CrackedEgg,
+	Egg,
 	Mail,
 	MessageText,
 	MultiplePages,
 	PeopleTag,
 	Running,
+	ShopAlt,
 	Treadmill,
 } from 'iconoir-react';
+import DropdownItem from './DropdownItem.astro';
 import NavItem from './NavItem.astro';
 
 export interface Props {}
 ---
 
 <nav class='flex flex-grow px-1 lg:px-6'>
-	<ul class='hidden flex-grow flex-wrap items-center lg:flex'>
+	<ul class='top-0 hidden flex-grow flex-wrap items-center lg:flex'>
 		<NavItem text='who?!' link='/'><PeopleTag slot='icon' /></NavItem>
 		<NavItem text='articles' link='/articles'>
 			<MultiplePages slot='icon' />
@@ -25,7 +30,23 @@ export interface Props {}
 		<NavItem text='anxiety' link='/anxiety'>
 			<Treadmill slot='icon' />
 		</NavItem>
-		<NavItem text='books' link='/books'><BookStack slot='icon' /></NavItem>
+		<NavItem text='books' link='/books'>
+			<BookStack slot='icon' />
+			<div slot='dropdown-items'>
+				<DropdownItem
+					text='Walking on Custard'
+					link='/books/walking-on-custard'
+				>
+					<CrackedEgg slot='icon' />
+				</DropdownItem>
+				<DropdownItem
+					text='The Shop Before Life'
+					link='/books/shop-before-life'
+				>
+					<ShopAlt slot='icon' />
+				</DropdownItem>
+			</div>
+		</NavItem>
 		<NavItem text='games' link='/games'><Arcade slot='icon' /></NavItem>
 		<NavItem text='speaking' link='/speaking'>
 			<ChatBubble slot='icon' />
@@ -37,7 +58,7 @@ export interface Props {}
 			<Mail slot='icon' />
 		</NavItem>
 	</ul>
-	<ul class='flex items-center'>
+	<ul class='top-0 flex items-center'>
 		<NavItem text='contact' link='/contact'>
 			<MessageText slot='icon' />
 		</NavItem>

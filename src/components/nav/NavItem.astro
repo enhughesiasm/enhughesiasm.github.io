@@ -16,11 +16,11 @@ const isActive =
 ---
 
 <li
-	class={`group h-full flex items-center justify-center hover:bg-gradient-to-tr hover:from-zinc-800 hover:to-zinc-500 hover:text-yellow-400 hover:animate-bounce-once hover:border-yellow-400 hover:border-b-8
+	class={`group relative cursor-pointer h-full flex items-center justify-center hover:bg-gradient-to-tr hover:from-zinc-800 hover:to-zinc-500 hover:text-yellow-400 hover:animate-bounce-once hover:border-yellow-400 hover:border-b-8
 	${isActive ? 'border-b-4 lg:border-b-8 pt-2 border-rose-500' : ''}`}
 >
 	<a
-		class='text-xs lg:text-lg w-full h-full px-2 lg:px-6 flex items-center space-x-1 lg:space-x-3 flex-grow group-hover:animate-text-bounce-once'
+		class='flex h-full w-full flex-grow items-center space-x-1 px-2 text-xs group-hover:animate-text-bounce-once lg:space-x-3 lg:px-6 lg:text-lg'
 		href={link}
 	>
 		<span class=''>
@@ -33,4 +33,9 @@ const isActive =
 		</span>
 		<span class={`${isActive ? 'text-emerald-300' : ''}`}>{text}</span></a
 	>
+	<div class='absolute top-16 hidden h-auto group-hover:block'>
+		<ul>
+			<slot name='dropdown-items' />
+		</ul>
+	</div>
 </li>

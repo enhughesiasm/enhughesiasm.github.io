@@ -1,0 +1,144 @@
+---
+import { Image } from '@astrojs/image/components';
+import micImg from '../../assets/images/speaking/microphone.jpg';
+import stageImg from '../../assets/images/neil_hughes_stage.jpg';
+import Quote from '../Quote.astro';
+import { YouTube as YouTubeEmbed } from '@astro-community/astro-embed-youtube';
+import { TED_TALK_VIEWS } from '../../data/definitions';
+import { Heart } from 'iconoir-react';
+---
+
+<div class='bg-amber-100 py-6 text-center'>
+	<h2 class='py-3 font-serif text-3xl font-bold'>Comedy Consulting</h2>
+	<p class='text-xl'>Make your public speaking more amusing!</p>
+</div>
+
+<article class='flex flex-row py-6'>
+	<div>
+		<Image src={stageImg} alt='One Track Minds' />
+	</div>
+	<div class='space-y-6 pl-6'>
+		<p>
+			Neil Hughes is a
+			<a
+				href='/speaking'
+				class='font-bold text-red-500 hover:text-red-400'
+				>public speaker</a
+			> and <span class='font-bold text-blue-500'>standup comedian</span>,
+			and he can help you make your speech funnier.
+		</p>
+
+		<p>
+			Everyone loves laughing. And we all know that humour is the best way
+			to connect with audiences, to get them to retain the information you
+			share... and to even ENJOY yourself while you&apos;re speaking in
+			public!
+		</p>
+		<p>
+			<strong>But being funny is hard.</strong>
+		</p>
+		<p>
+			When jokes fall flat, self-doubt creeps in and that can derail your
+			entire presentation. And hey—it happens! But if there was a way to
+			be confident that your next presentation will be more entertaining,
+			wouldn&apos;t you want to get on board?
+		</p>
+	</div>
+</article>
+
+<div class='px-12'>
+	<Quote
+		quote={[
+			'Neil did the nearly impossible: he helped me realize my personal finance workshop could be fun... and funny!',
+			"He didn't write the jokes for me but instead worked with me to hone my natural sense of humor. It made the process a whole lot more enjoyable and less anxiety-inducing. I was actually excited to give my workshop!",
+		]}
+		cite={{
+			link: 'https://www.kristinwong.com/',
+			name: 'Kristin Wong, author of Get Money',
+		}}
+	/>
+</div>
+
+<div class='space-y-6 py-6'>
+	<p>
+		I&apos;ve been amusing audiences since the early 2000s, when I sang a
+		song about beans to a surprisingly enthusiastic crowd.
+	</p>
+	<p>
+		Since then I&apos;ve performed everywhere from the Edinburgh Fringe
+		Festival to my local shopping centre.
+	</p>
+	<p>
+		Now I give comedy talks about anxiety, including <a
+			href='http://bit.ly/custardTED'
+			class='font-bold text-blue-500 underline hover:text-blue-400'
+			>this one</a
+		>, which has been seen by over {TED_TALK_VIEWS.toLocaleString()} people!
+	</p>
+
+	<p>
+		And I enjoy <strong>helping others be funny too</strong>.
+	</p>
+</div>
+
+<div class='mb-6 flex flex-row bg-green-100 py-6'>
+	<div class='space-y-6 px-6 py-3 pr-6'>
+		<h4 class='font-bold text-green-700'>I will work with you to:</h4>
+
+		<ul>
+			<li>👉 Embrace your natural sense of humour</li>
+			<li>👉 Write jokes appropriate to you and your audience</li>
+			<li>👉 Develop your comedic timing</li>
+			<li>
+				👉 Identify the different types of humour you can and should use
+				in YOUR presentations
+			</li>
+			<li>
+				👉 Come up with a strategy to use the right types of jokes at
+				the right time
+			</li>
+			<li>👉 Create comedy material you can use again and again</li>
+		</ul>
+	</div>
+	<div class='flex flex-col items-center justify-center'>
+		<Image src={micImg} alt='A Microphone' />
+		<div class='text-xs italic'>
+			Photo by{' '}
+			<a href='https://unsplash.com/@esloman'>Elliot Sloman</a> on Unsplash
+		</div>
+	</div>
+</div>
+
+<Quote
+	quote={[
+		"I'd written a keynote that had plenty of funny material in it somewhere, but it really just wasn't coming out like it should. Neil not only helped to sharpen it up, he also did it with exactly the right attitude and style for me to be able to carry it off.",
+		'His help was exactly what I needed to have confidence that the humour would come across.',
+		"On the day, the laughs meant that people were really identifying with the situations I'd been in and seeing the funny side.  As this talk was about IT, I'd say that's an amazing skill Neil's got!",
+	]}
+	cite={{
+		link: 'http://www.angelalamont.com/AngelaLamont/',
+		name: 'Angela Lamont',
+	}}
+/>
+
+<div
+	class='mt-12 rounded bg-amber-200 py-3 text-center font-serif text-3xl font-bold'
+>
+	Ask Neil to help you improve your material and skills
+</div>
+<div class='space-y-9 bg-amber-100 px-6 py-3'>
+	<p class='mt-6 text-center text-xl'>
+		Contact <strong>neil@walkingoncustard.com</strong> or
+		<a
+			href='/contact'
+			class='rounded-xl bg-green-500 py-2 px-6 text-white hover:bg-green-400'
+			>click here to ask for a quote</a
+		>
+	</p>
+	<p>
+		Tell me a little background about you and what you&apos;re looking for,
+		and I&apos;ll be in touch with a suggested fee. After that, we&apos;ll
+		arrange an online meeting and I&apos;ll get to work on your talk
+		material.
+	</p>
+</div>
