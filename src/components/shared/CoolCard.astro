@@ -2,31 +2,33 @@
 export interface Props {
 	title: string;
 	subtitle: string;
+	slug?: string;
 }
 
-const { title, subtitle } = Astro.props;
+const { title, subtitle, slug } = Astro.props;
 ---
 
-<div class='card group !border-amber-800 bg-stone-200 shadow'>
-	<div class='card-content flex flex-col justify-evenly'>
-		<div class='card-icon group-hover:text-white'>
-			<slot name='icon' />
-		</div>
-		<h3
-			class='card-title font-serif text-xl text-zinc-700 group-hover:font-bold group-hover:text-white'
-		>
-			{title}
-		</h3>
-		<!-- <h4 class='card-subtitle truncate text-lg group-hover:text-white'>
+<a href={slug}>
+	<div class='card group !border-amber-800 bg-stone-200 shadow'>
+		<div class='card-content flex flex-col justify-evenly'>
+			<div class='card-icon group-hover:text-white'>
+				<slot name='icon' />
+			</div>
+			<h3
+				class='card-title font-serif text-xl text-zinc-700 group-hover:font-bold group-hover:text-white'
+			>
+				{title}
+			</h3>
+			<!-- <h4 class='card-subtitle truncate text-lg group-hover:text-white'>
 			{subtitle}
 		</h4> -->
 
-		<div class='mx-auto w-1/2 group-hover:scale-[1.03]'>
-			<slot name='image' />
+			<div class='mx-auto w-1/2 group-hover:scale-[1.03]'>
+				<slot name='image' />
+			</div>
 		</div>
 	</div>
-</div>
-
+</a>
 <style>
 	:root {
 		--border: rgb(250, 207, 67);

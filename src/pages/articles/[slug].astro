@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LayoutPage from '../../layouts/Layout_Page.astro';
+import { Image } from '@astrojs/image/components';
+import {
+	getArticles,
+	getTotalPageNumber,
+} from '../../components/blog/fetch_posts';
+import type { Post } from '../../components/blog/post';
+import { WP_API_POSTS_PER_PAGE } from '../../data/definitions';
+
+const { slug } = Astro.params;
+
+export async function getStaticPaths() {
+	let pageCount = await getTotalPageNumber(WP_API_POSTS_PER_PAGE);
+
+	let posts: Post[] = [];
+
+	for (let i = 1; i <= pageCount; i++) {
+		posts = posts.concat(await getArticles(i, WP_API_POSTS_PER_PAGE));
+	}
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: { post: post },
+	}));
+}
+
+const { post } = Astro.props;
+
+let imgUrl = undefined;
+try {
+	imgUrl = post?._embedded['wp:featuredmedia']['0'].source_url;
+} catch {}
+---
+
+<BaseLayout title={post.title.rendered}>
+	<LayoutPage>
+		{imgUrl && <Image src={imgUrl} alt={post.title.rendered} />}
+
+		<article class='prose'>
+			<h1 set:html={post.title.rendered} />
+			<Fragment set:html={post.content.rendered} />
+		</article>
+	</LayoutPage>
+</BaseLayout>

@@ -3,25 +3,26 @@ import CoolCard from '../shared/CoolCard.astro';
 import { Image } from '@astrojs/image/components';
 import otm from '../../assets/images/neil_hughes_stage.jpg';
 import { UserStar } from 'iconoir-react';
+const res = await fetch(
+	`${import.meta.env.PUBLIC_WP_API_URL}/posts?_embed&page=1&_fields=id,excerpt,title,slug`
+);
+const posts = await res.json();
 ---
 
 <div
 	class='mx-auto mt-6 flex w-4/5 flex-row items-center space-x-12 text-center'
 >
 	<h3 class='text-6xl'>🗣️</h3>
-	<CoolCard title='Hello there' subtitle='You can read all about it here'>
-		<UserStar slot='icon' />
-		<Image src={otm} alt='neil' slot='image' />
-	</CoolCard>
-	<CoolCard
-		title='The Contrast Between What Is Good And What Is Not'
-		subtitle='Lorem ipsum dolor sit amet, consectetur adipisicing elit.	Voluptatibus quia, nulla!'
-	>
-		<UserStar slot='icon' />
-		<Image src={otm} alt='neil' slot='image' />
-	</CoolCard>
-	<CoolCard title='Hello there' subtitle='You can read all about it here'>
-		<UserStar slot='icon' />
-		<Image src={otm} alt='neil' slot='image' />
-	</CoolCard>
+	{
+		posts.map((post) => (
+			<CoolCard
+				title={post.title.rendered}
+				subtitle={post.excerpt.rendered}
+				slug={`/articles/${post.slug}`}>
+				<UserStar slot='icon' />
+				<Image src={otm} alt='neil' slot='image' />
+				<!--<img src={post._embedded['wp:featuredmedia']['0'].source_url} />-->
+			</CoolCard>
+		))
+	}
 </div>
