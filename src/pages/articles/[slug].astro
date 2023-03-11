@@ -8,8 +8,14 @@ import {
 } from '../../components/blog/fetch_posts';
 import type { Post } from '../../components/blog/post';
 import { WP_API_POSTS_PER_PAGE } from '../../data/definitions';
+import { HomeAlt, MultiplePages } from 'iconoir-react';
+import { friendlyDate } from '../../components/shared/friendly_date';
 
 const { slug } = Astro.params;
+
+export type Props = {
+	post: Post;
+};
 
 export async function getStaticPaths() {
 	let pageCount = await getTotalPageNumber(WP_API_POSTS_PER_PAGE);
@@ -29,17 +35,43 @@ const { post } = Astro.props;
 
 let imgUrl = undefined;
 try {
-	imgUrl = post?._embedded['wp:featuredmedia']['0'].source_url;
+	imgUrl = ''; //post?._embedded['wp:featuredmedia']['0'].source_url;
 } catch {}
 ---
 
 <BaseLayout title={post.title.rendered}>
 	<LayoutPage>
-		{imgUrl && <Image src={imgUrl} alt={post.title.rendered} />}
+		{
+			imgUrl && imgUrl.length > 0 && (
+				<Image
+					src={imgUrl}
+					alt={post.title.rendered}
+					height={200}
+					width={400}
+				/>
+			)
+		}
 
 		<article class='prose'>
-			<h1 set:html={post.title.rendered} />
+			<h1 class='font-serif' set:html={post.title.rendered} />
+			<p
+				class='text-right text-green-600'
+				set:html={friendlyDate(post.date)}
+			/>
 			<Fragment set:html={post.content.rendered} />
 		</article>
+		<div class='flex flex-row items-center justify-evenly'>
+			<a
+				href='/'
+				class='flex flex-row space-x-1 text-blue-500 underline hover:text-blue-400'
+				><HomeAlt className='inline' /><span>Home</span></a
+			>
+			<a
+				href='/articles'
+				class='flex flex-row space-x-1 text-blue-500 underline hover:text-blue-400'
+				><MultiplePages className='inline' /><span>Other Articles</span
+				></a
+			>
+		</div>
 	</LayoutPage>
 </BaseLayout>

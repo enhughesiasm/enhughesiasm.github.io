@@ -3,11 +3,12 @@ import BookPageTitle from '../shared/BookPageTitle.astro';
 import wocCover from '../../../assets/images/wocCover.jpg';
 import { Image } from '@astrojs/image/components';
 import { BrainElectricity, GlassHalf, Heart } from 'iconoir-react';
-import Quote, { QuoteData } from '../../Quote.astro';
+
 import BookPurchase, { PurchaseLink } from '../shared/BookPurchase.astro';
 
 import quotes from '../../../data/woc/woc_quotes.json';
 import sillyQuotes from '../../../data/woc/woc_quotes_silly.json';
+import Quote, { QuoteData } from '../../shared/Quote.astro';
 
 const purchaseLinks: PurchaseLink[] = [
 	{

@@ -8,27 +8,29 @@ export interface Props {
 const { title, subtitle, slug } = Astro.props;
 ---
 
-<a href={slug}>
-	<div class='card group !border-amber-800 bg-stone-200 shadow'>
-		<div class='card-content flex flex-col justify-evenly'>
-			<div class='card-icon group-hover:text-white'>
-				<slot name='icon' />
-			</div>
+<div
+	class='card group overflow-hidden border-2 !border-yellow-500 shadow transition ease-in-out odd:bg-zinc-900 even:bg-stone-900 hover:scale-[1.05] hover:!border-zinc-900'
+>
+	<a class='' href={slug}>
+		<div class='card-content flex flex-col justify-between'>
 			<h3
-				class='card-title font-serif text-xl text-zinc-700 group-hover:font-bold group-hover:text-white'
+				class='px-2 pt-2 text-center font-serif text-lg font-bold text-yellow-500 group-hover:text-lg group-hover:font-bold group-hover:text-white'
 			>
-				{title}
+				<Fragment set:html={title} />
 			</h3>
-			<!-- <h4 class='card-subtitle truncate text-lg group-hover:text-white'>
-			{subtitle}
-		</h4> -->
+			<div
+				class='hidden text-base group-hover:block group-hover:text-white'
+			>
+				<Fragment set:html={subtitle} />
+			</div>
 
-			<div class='mx-auto w-1/2 group-hover:scale-[1.03]'>
+			<div class='mx-auto w-1/2 group-hover:hidden'>
 				<slot name='image' />
 			</div>
 		</div>
-	</div>
-</a>
+	</a>
+</div>
+
 <style>
 	:root {
 		--border: rgb(250, 207, 67);
@@ -43,7 +45,7 @@ const { title, subtitle, slug } = Astro.props;
 
 		cursor: pointer;
 		position: relative;
-		width: 18vmin;
+		width: 20vmin;
 	}
 
 	.card:hover:before {
@@ -88,10 +90,7 @@ const { title, subtitle, slug } = Astro.props;
 	}
 
 	.card-content {
-		background-image: radial-gradient(
-			rgba(254, 240, 240, 0.553) 8%,
-			transparent 8%
-		);
+		background-image: radial-gradient(#3f3f46 8%, transparent 8%);
 		background-position: 0% 0%;
 		background-size: 2.5vmin 2.5vmin;
 		height: calc(100% - 1vmin);
@@ -100,6 +99,13 @@ const { title, subtitle, slug } = Astro.props;
 		transition: background-position 350ms ease;
 		width: calc(100% - 0vmin);
 		z-index: 2;
+	}
+
+	.card-content:hover {
+		background-image: radial-gradient(
+			rgba(254, 240, 240, 0.553) 8%,
+			transparent 8%
+		);
 	}
 
 	.card-icon {

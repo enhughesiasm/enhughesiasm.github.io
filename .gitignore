@@ -21,3 +21,7 @@ pnpm-debug.log*
 .DS_Store
 
 TODO
+
+.cache
+public/.cache
+./public/.cache
