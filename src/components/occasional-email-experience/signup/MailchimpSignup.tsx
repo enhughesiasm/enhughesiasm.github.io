@@ -29,7 +29,7 @@ export const MailchimpSignup: React.FC = () => {
 						signupState.submitResult === 'SUCCESS' && (
 							<meta
 								http-equiv='refresh'
-								content='0;url=/confirm-signup'
+								content='0;url=/enhughesiasm-astro/confirm-signup'
 							/>
 						)}
 					{signupState.hasSubmitted &&

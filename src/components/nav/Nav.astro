@@ -23,43 +23,47 @@ export interface Props {}
 
 <nav class='flex flex-grow px-1 lg:px-6'>
 	<ul class='top-0 hidden flex-grow flex-wrap items-center lg:flex'>
-		<NavItem text='who?!' link='/'><PeopleTag slot='icon' /></NavItem>
-		<NavItem text='articles' link='/articles'>
+		<NavItem text='who?!' link='/enhughesiasm-astro/'>
+			<PeopleTag slot='icon' />
+		</NavItem>
+		<NavItem text='articles' link='/enhughesiasm-astro/articles'>
 			<MultiplePages slot='icon' />
 		</NavItem>
-		<NavItem text='anxiety' link='/anxiety'>
+		<NavItem text='anxiety' link='/enhughesiasm-astro/anxiety'>
 			<Treadmill slot='icon' />
 		</NavItem>
-		<NavItem text='books' link='/books'>
+		<NavItem text='books' link='/enhughesiasm-astro/books'>
 			<BookStack slot='icon' />
 			<div slot='dropdown-items'>
 				<DropdownItem
 					text='Walking on Custard'
-					link='/books/walking-on-custard'
+					link='/enhughesiasm-astro/books/walking-on-custard'
 				>
 					<CrackedEgg slot='icon' />
 				</DropdownItem>
 				<DropdownItem
 					text='The Shop Before Life'
-					link='/books/shop-before-life'
+					link='/enhughesiasm-astro/books/shop-before-life'
 				>
 					<ShopAlt slot='icon' />
 				</DropdownItem>
 			</div>
 		</NavItem>
-		<NavItem text='games' link='/games'><Arcade slot='icon' /></NavItem>
-		<NavItem text='speaking' link='/speaking'>
+		<NavItem text='games' link='/enhughesiasm-astro/games'>
+			<Arcade slot='icon' />
+		</NavItem>
+		<NavItem text='speaking' link='/enhughesiasm-astro/speaking'>
 			<ChatBubble slot='icon' />
 		</NavItem>
 		<NavItem
 			text='occasional email experience'
-			link='/occasional-email-experience'
+			link='/enhughesiasm-astro/occasional-email-experience'
 		>
 			<Mail slot='icon' />
 		</NavItem>
 	</ul>
 	<ul class='top-0 flex items-center'>
-		<NavItem text='contact' link='/contact'>
+		<NavItem text='contact' link='/enhughesiasm-astro/contact'>
 			<MessageText slot='icon' />
 		</NavItem>
 	</ul>

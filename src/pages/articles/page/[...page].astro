@@ -39,7 +39,7 @@ const { page } = Astro.props;
 				page.url.prev && (
 					<a
 						class='text-blue-500 hover:text-blue-400'
-						href={page.url.prev}>
+						href={'/enhughesiasm-astro' + page.url.prev}>
 						<LeftRoundArrow />
 					</a>
 				)
@@ -49,7 +49,7 @@ const { page } = Astro.props;
 				page.url.next && (
 					<a
 						class='text-blue-500 hover:text-blue-400'
-						href={page.url.next}>
+						href={'/enhughesiasm-astro' + page.url.next}>
 						<RightRoundArrow />
 					</a>
 				)

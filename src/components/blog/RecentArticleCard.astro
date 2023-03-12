@@ -31,7 +31,7 @@ const imageType = featured_media?.mime_type ?? '';
 <CoolCard
 	title={post.title.rendered}
 	subtitle={post.excerpt.rendered}
-	slug={`/articles/${post.slug}`}
+	slug={`/enhughesiasm-astro/articles/${post.slug}`}
 	tags={post.categories.map(
 		(c) => categories.find((cat) => cat.id === c)?.name ?? ''
 	)}
