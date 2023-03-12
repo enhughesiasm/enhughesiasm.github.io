@@ -5,10 +5,10 @@ export async function cacheLocal<T>(
 
 	performFetch: () => Promise<T>
 ): Promise<T> {
-	if (!import.meta.env.DEV) {
-		console.log(`Prod mode, skipping cache...`);
-		return await performFetch();
-	}
+	// if (!import.meta.env.DEV) {
+	// 	console.log(`Prod mode, skipping cache...`);
+	// 	return await performFetch();
+	// }
 
 	const cacheFolder = `./public/.cache`;
 	const cacheLocation = `${cacheFolder}/${key}.json`;

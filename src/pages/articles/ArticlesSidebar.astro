@@ -65,6 +65,6 @@ const { nextPost, lastPost, currentPost } = Astro.props;
 	<div
 		class='!mb-12 flex flex-grow flex-col justify-end self-end pb-3 text-right font-serif text-xl font-bold'
 	>
-		<Fragment set:html={currentPost.title.rendered} />
+		<Fragment set:html={currentPost?.title.rendered ?? 'Untitled'} />
 	</div>
 </div>
