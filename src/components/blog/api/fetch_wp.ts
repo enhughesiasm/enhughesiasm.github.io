@@ -1,4 +1,4 @@
-export const WP_API_URL = import.meta.env.PUBLIC_WP_API_URL;
+import { WP_API_URL } from '../../../data/definitions';
 
 export async function fetchWP<T>(
 	key: string,

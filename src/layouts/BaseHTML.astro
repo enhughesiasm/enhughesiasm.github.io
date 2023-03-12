@@ -4,14 +4,12 @@ import '@fontsource/besley';
 import '@fontsource/vt323';
 
 import '../assets/styles/base_styles.scss';
-
+import { RECAPTCHA_SITE_KEY } from '../data/definitions';
 export interface Props {
 	title: string;
 }
 
 const { title } = Astro.props;
-
-const RECAPTCHA_SITE_KEY = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
 ---
 
 <!DOCTYPE html>
