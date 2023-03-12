@@ -1,9 +1,5 @@
 name: Deploy to GitHub Pages
 
-env:
-    PUBLIC_RECAPTCHA_SITE_KEY: ${{env.PUBLIC_RECAPTCHA_SITE_KEY}}
-    PUBLIC_WP_API_URL: ${{env.PUBLIC_WP_API_URL}}
-
 on:
     push:
         branches: [main]
@@ -22,6 +18,9 @@ jobs:
         steps:
             - name: Checkout your repository using git
               uses: actions/checkout@v3
+            - name: Store environment variables
+              run: |
+                  echo ${{ secrets.PUBLIC_RECAPTCHA_SITE_KEY }}
             - name: Install, build, and upload your site
               uses: withastro/action@v0
               # with:
