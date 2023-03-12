@@ -10,13 +10,12 @@ import tailwind from '@astrojs/tailwind';
 import image from '@astrojs/image';
 
 // https://astro.build/config
+import sitemap from "@astrojs/sitemap";
+
+// https://astro.build/config
 export default defineConfig({
-	site: 'https://enhughesiasm-astro.github.io',
-	integrations: [
-		react(),
-		tailwind(),
-		image({
-			serviceEntryPoint: '@astrojs/image/sharp',
-		}),
-	],
+  site: 'https://enhughesiasm-astro.github.io',
+  integrations: [react(), tailwind(), image({
+    serviceEntryPoint: '@astrojs/image/sharp'
+  }), sitemap()]
 });
