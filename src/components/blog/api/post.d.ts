@@ -10,6 +10,7 @@ export type Post = {
 	title: { rendered: string };
 	content: { rendered: string };
 	excerpt: { rendered: string };
+	featured_media: number;
 	comment_status: 'open';
 	categories: number[];
 	_embedded?: { 'wp:featuredmedia': { source_url: string }[] };

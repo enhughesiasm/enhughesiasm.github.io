@@ -25,3 +25,4 @@ TODO
 .cache
 public/.cache
 ./public/.cache
+./public/.cache/*

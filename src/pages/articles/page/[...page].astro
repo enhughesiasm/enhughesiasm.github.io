@@ -1,23 +1,21 @@
 ---
 import { LeftRoundArrow, RightRoundArrow } from 'iconoir-react';
 import ArticleCard from '../../../components/blog/ArticleCard.astro';
-import {
-	getArticles,
-	getTotalPageNumber,
-} from '../../../components/blog/fetch_posts';
-import type { Post } from '../../../components/blog/post';
+import { getArticles } from '../../../components/blog/api/fetch_articles';
+import type { Post } from '../../../components/blog/api/post';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import LayoutPage from '../../../layouts/Layout_Page.astro';
+import { WP_API_POSTS_PER_PAGE } from '../../../data/definitions';
 
 export async function getStaticPaths({ paginate }: { paginate: Function }) {
-	const POSTS_PER_PAGE = 20;
-	const pageCount = await getTotalPageNumber(POSTS_PER_PAGE);
-	let allPosts: Post[] = [];
-	for (let i = 1; i <= pageCount; i++) {
-		allPosts = allPosts.concat(await getArticles(i, POSTS_PER_PAGE));
-	}
+	const allPosts = await getArticles();
 
-	return paginate(allPosts, { pageSize: POSTS_PER_PAGE });
+	const pages = paginate(allPosts, { pageSize: WP_API_POSTS_PER_PAGE });
+
+	// pages[0] has page "undefined" instead of 1. Let's make it work for page 1 for either undefined or 1
+	pages.push({ ...pages[0], params: { page: 1 } });
+
+	return pages;
 }
 
 const { page } = Astro.props;
@@ -29,7 +27,7 @@ const { page } = Astro.props;
 	<LayoutPage>
 		<div class='flex flex-row items-center justify-center space-x-3'>
 			<h2
-				class='rounded-xl bg-amber-200 py-3 px-6 font-serif text-3xl font-bold text-zinc-700'
+				class='rounded-xl py-3 px-6 font-serif text-3xl font-bold text-zinc-700'
 			>
 				Articles by Neil Hughes
 			</h2>

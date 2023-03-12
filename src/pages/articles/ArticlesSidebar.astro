@@ -1,0 +1,70 @@
+---
+import {
+	HomeAlt,
+	LeftRoundArrow,
+	MultiplePages,
+	RightRoundArrow,
+} from 'iconoir-react';
+import type { Post } from '../../components/blog/api/post';
+import LinkToArticle from './LinkToArticle.astro';
+
+export type Props = {
+	currentPost: Post;
+	nextPost: Post | undefined;
+	lastPost: Post | undefined;
+};
+
+const { nextPost, lastPost, currentPost } = Astro.props;
+---
+
+<div class='sticky top-6 mr-6 flex h-[102vh] flex-col items-end space-y-3'>
+	<!-- <a
+		href='/'
+		class='flex flex-row space-x-1 text-blue-500 underline hover:text-blue-400'
+		><HomeAlt className='inline' /><span>Home</span></a
+	>
+	<a
+		href='/articles'
+		class='flex flex-row space-x-1 text-blue-500 underline hover:text-blue-400'
+		><MultiplePages className='inline' /><span>All Articles</span></a
+	> -->
+	{
+		nextPost !== undefined && (
+			<div class='inline-flex flex-row items-center justify-end space-x-3 text-blue-500'>
+				<RightRoundArrow className='inline !text-xl' />{' '}
+				<div class='w-2/3'>
+					<LinkToArticle post={nextPost} />
+				</div>
+			</div>
+		)
+	}
+	{
+		nextPost === undefined && (
+			<div class='rounded-xl bg-zinc-300 py-3 px-6 text-center text-zinc-500'>
+				This is the latest post! 🥳
+			</div>
+		)
+	}
+	{
+		lastPost !== undefined && (
+			<div class='inline-flex flex-row items-center justify-end space-x-3 text-blue-500'>
+				<LeftRoundArrow className='inline !text-xl' />{' '}
+				<div class='w-2/3'>
+					<LinkToArticle post={lastPost} />
+				</div>
+			</div>
+		)
+	}
+	{
+		lastPost === undefined && (
+			<div class='rounded-xl bg-red-300 py-3 px-6 text-center text-white'>
+				No more posts! 😢
+			</div>
+		)
+	}
+	<div
+		class='!mb-12 flex flex-grow flex-col justify-end self-end pb-3 text-right font-serif text-xl font-bold'
+	>
+		<Fragment set:html={currentPost.title.rendered} />
+	</div>
+</div>

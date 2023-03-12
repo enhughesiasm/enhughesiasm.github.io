@@ -1,12 +1,9 @@
 ---
-import CoolCard from '../shared/CoolCard.astro';
-import { Image } from '@astrojs/image/components';
-import otm from '../../assets/images/neil_hughes_stage.jpg';
-import { UserStar } from 'iconoir-react';
-const res = await fetch(
-	`${import.meta.env.PUBLIC_WP_API_URL}/posts?_embed&page=1&_fields=id,excerpt,title,slug`
-);
-const posts = await res.json();
+import { getArticles } from './api/fetch_articles';
+import ArticleCard from './ArticleCard.astro';
+import RecentArticleCard from './RecentArticleCard.astro';
+
+const posts = (await getArticles()).slice(0, 6);
 ---
 
 <div
@@ -15,14 +12,7 @@ const posts = await res.json();
 	<h3 class='text-6xl'>🗣️</h3>
 	{
 		posts.map((post) => (
-			<CoolCard
-				title={post.title.rendered}
-				subtitle={post.excerpt.rendered}
-				slug={`/articles/${post.slug}`}>
-				<UserStar slot='icon' />
-				<Image src={otm} alt='neil' slot='image' />
-				<!--<img src={post._embedded['wp:featuredmedia']['0'].source_url} />-->
-			</CoolCard>
+			<RecentArticleCard post={{ ...post, categories: [] }} />
 		))
 	}
 </div>

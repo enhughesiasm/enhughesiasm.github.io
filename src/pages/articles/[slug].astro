@@ -2,14 +2,20 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import LayoutPage from '../../layouts/Layout_Page.astro';
 import { Image } from '@astrojs/image/components';
-import {
-	getArticles,
-	getTotalPageNumber,
-} from '../../components/blog/fetch_posts';
-import type { Post } from '../../components/blog/post';
-import { WP_API_POSTS_PER_PAGE } from '../../data/definitions';
+import { getArticles } from '../../components/blog/api/fetch_articles';
+import type { Post } from '../../components/blog/api/post';
 import { HomeAlt, MultiplePages } from 'iconoir-react';
 import { friendlyDate } from '../../components/shared/friendly_date';
+import { getMediaById } from '../../components/blog/api/fetch_media';
+import { getCategories } from '../../components/blog/api/fetch_categories';
+import {
+	DEFAULT_WP_MEDIA_ID,
+	FEATURED_WP_IMAGE_HEIGHT,
+	FEATURED_WP_IMAGE_WIDTH,
+} from '../../data/definitions';
+import Categories from '../../components/blog/Categories.astro';
+import LayoutPageWithSidebar from '../../layouts/Layout_Page_With_Sidebar.astro';
+import ArticlesSidebar from './ArticlesSidebar.astro';
 
 const { slug } = Astro.params;
 
@@ -18,13 +24,8 @@ export type Props = {
 };
 
 export async function getStaticPaths() {
-	let pageCount = await getTotalPageNumber(WP_API_POSTS_PER_PAGE);
+	const posts = await getArticles();
 
-	let posts: Post[] = [];
-
-	for (let i = 1; i <= pageCount; i++) {
-		posts = posts.concat(await getArticles(i, WP_API_POSTS_PER_PAGE));
-	}
 	return posts.map((post) => ({
 		params: { slug: post.slug },
 		props: { post: post },
@@ -32,46 +33,70 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
+const allPosts = await getArticles();
 
-let imgUrl = undefined;
-try {
-	imgUrl = ''; //post?._embedded['wp:featuredmedia']['0'].source_url;
-} catch {}
+const postIndex = allPosts.findIndex((p) => p.id === post.id);
+
+let nextPost: Post | undefined = undefined;
+if (postIndex > 0) {
+	nextPost = allPosts[postIndex - 1];
+}
+
+let lastPost: Post | undefined = undefined;
+if (postIndex < allPosts.length - 1) {
+	lastPost = allPosts[postIndex + 1];
+}
+
+const featured_media = await getMediaById(
+	post.featured_media === 0 ? DEFAULT_WP_MEDIA_ID : post.featured_media
+);
+const categories = (await getCategories()).filter((c) =>
+	post.categories.includes(c.id)
+);
 ---
 
-<BaseLayout title={post.title.rendered}>
-	<LayoutPage>
-		{
-			imgUrl && imgUrl.length > 0 && (
-				<Image
-					src={imgUrl}
-					alt={post.title.rendered}
-					height={200}
-					width={400}
-				/>
-			)
-		}
-
-		<article class='prose'>
-			<h1 class='font-serif' set:html={post.title.rendered} />
-			<p
-				class='text-right text-green-600'
-				set:html={friendlyDate(post.date)}
+<BaseLayout title={`${post.title.rendered} - enhughesiasm`}>
+	<LayoutPageWithSidebar>
+		<ArticlesSidebar
+			currentPost={post}
+			nextPost={nextPost}
+			lastPost={lastPost}
+			slot='sidebar'
+		/>
+		<article class='w-2/3 space-y-4'>
+			<h1
+				class='text-center font-serif text-4xl font-bold'
+				set:html={post.title.rendered}
 			/>
-			<Fragment set:html={post.content.rendered} />
+			<div class='m-0 flex flex-row justify-between p-0'>
+				<Categories categories={categories.map((c) => c.name)} />
+				<p
+					class='text-xl text-green-600'
+					set:html={friendlyDate(post.date)}
+				/>
+			</div>
+			{
+				featured_media && featured_media.source_url.length > 0 && (
+					<>
+						<div>
+							<Image
+								src={featured_media.source_url}
+								alt={featured_media.alt_text}
+								slot='image'
+								width={FEATURED_WP_IMAGE_WIDTH}
+								height={FEATURED_WP_IMAGE_HEIGHT}
+							/>
+
+							<div class='py-1 text-center text-xs italic'>
+								<Fragment
+									set:html={featured_media.caption.rendered}
+								/>
+							</div>
+						</div>
+					</>
+				)
+			}
+			<div class='prose' set:html={post.content.rendered} />
 		</article>
-		<div class='flex flex-row items-center justify-evenly'>
-			<a
-				href='/'
-				class='flex flex-row space-x-1 text-blue-500 underline hover:text-blue-400'
-				><HomeAlt className='inline' /><span>Home</span></a
-			>
-			<a
-				href='/articles'
-				class='flex flex-row space-x-1 text-blue-500 underline hover:text-blue-400'
-				><MultiplePages className='inline' /><span>Other Articles</span
-				></a
-			>
-		</div>
-	</LayoutPage>
+	</LayoutPageWithSidebar>
 </BaseLayout>

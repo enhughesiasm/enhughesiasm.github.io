@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LayoutPage from '../layouts/Layout_Page.astro';
+import { Image } from '@astrojs/image/components';
+import yayImg from '../assets/images/mailing-list-yay.png';
+---
+
+<BaseLayout title='Email Signup Confirmed - enhughesiasm'>
+	<LayoutPage>
+		<div class='space-y-6'>
+			<div
+				class='rounded bg-green-500 py-3 text-center font-serif text-2xl font-bold text-white'
+			>
+				Welcome to the Occasional Email Experience!
+			</div>
+			<p class='mx-12 rounded-xl bg-amber-500 py-3 text-center'>
+				I've sent you an email with a <strong
+					>couple of free gifts</strong
+				> and a <strong>quick question</strong>.
+			</p>
+
+			<div class='flex flex-col items-center justify-center'>
+				<Image src={yayImg} alt='Hooray!' />
+				<span class='text-center text-xs italic'
+					>This joy is now yours</span
+				>
+			</div>
+		</div>
+	</LayoutPage>
+</BaseLayout>
