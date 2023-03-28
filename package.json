@@ -22,7 +22,7 @@
 		"@types/react-dom": "^18.0.10",
 		"astro": "^2.0.10",
 		"daisyui": "^2.51.5",
-		"iconoir-react": "^6.4.0",
+		"iconoir-react": "^6.5.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"sharp": "^0.32.0",
