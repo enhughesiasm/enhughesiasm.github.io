@@ -18,7 +18,7 @@
 		"@astrojs/tailwind": "^3.1.1",
 		"@fontsource/besley": "^4.5.13",
 		"@fontsource/jost": "^4.5.13",
-		"@types/react": "^18.0.30",
+		"@types/react": "^18.0.31",
 		"@types/react-dom": "^18.0.11",
 		"astro": "^2.1.7",
 		"daisyui": "^2.51.5",
