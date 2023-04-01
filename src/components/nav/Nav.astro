@@ -16,6 +16,7 @@ import {
 	Treadmill,
 } from 'iconoir-react';
 import DropdownItem from './DropdownItem.astro';
+import { SITE_BASE_URL } from '../../data/definitions';
 import NavItem from './NavItem.astro';
 
 export interface Props {}
@@ -23,47 +24,47 @@ export interface Props {}
 
 <nav class='flex flex-grow px-1 lg:px-6'>
 	<ul class='top-0 hidden flex-grow flex-wrap items-center lg:flex'>
-		<NavItem text='who?!' link='/enhughesiasm-astro/'>
+		<NavItem text='who?!' link={`${SITE_BASE_URL}`}>
 			<PeopleTag slot='icon' />
 		</NavItem>
-		<NavItem text='articles' link='/enhughesiasm-astro/articles'>
+		<NavItem text='articles' link={`${SITE_BASE_URL}articles`}>
 			<MultiplePages slot='icon' />
 		</NavItem>
-		<NavItem text='anxiety' link='/enhughesiasm-astro/anxiety'>
+		<NavItem text='anxiety' link={`${SITE_BASE_URL}anxiety`}>
 			<Treadmill slot='icon' />
 		</NavItem>
-		<NavItem text='books' link='/enhughesiasm-astro/books'>
+		<NavItem text='books' link={`${SITE_BASE_URL}books`}>
 			<BookStack slot='icon' />
 			<div slot='dropdown-items'>
 				<DropdownItem
 					text='Walking on Custard'
-					link='/enhughesiasm-astro/books/walking-on-custard'
+					link={`${SITE_BASE_URL}books/walking-on-custard`}
 				>
 					<CrackedEgg slot='icon' />
 				</DropdownItem>
 				<DropdownItem
 					text='The Shop Before Life'
-					link='/enhughesiasm-astro/books/shop-before-life'
+					link={`${SITE_BASE_URL}books/shop-before-life`}
 				>
 					<ShopAlt slot='icon' />
 				</DropdownItem>
 			</div>
 		</NavItem>
-		<NavItem text='games' link='/enhughesiasm-astro/games'>
+		<NavItem text='games' link={`${SITE_BASE_URL}games`}>
 			<Arcade slot='icon' />
 		</NavItem>
-		<NavItem text='speaking' link='/enhughesiasm-astro/speaking'>
+		<NavItem text='speaking' link={`${SITE_BASE_URL}speaking`}>
 			<ChatBubble slot='icon' />
 		</NavItem>
 		<NavItem
 			text='occasional email experience'
-			link='/enhughesiasm-astro/occasional-email-experience'
+			link={`${SITE_BASE_URL}occasional-email-experience`}
 		>
 			<Mail slot='icon' />
 		</NavItem>
 	</ul>
 	<ul class='top-0 flex items-center'>
-		<NavItem text='contact' link='/enhughesiasm-astro/contact'>
+		<NavItem text='contact' link={`${SITE_BASE_URL}contact`}>
 			<MessageText slot='icon' />
 		</NavItem>
 	</ul>

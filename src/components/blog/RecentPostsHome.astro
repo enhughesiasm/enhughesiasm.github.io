@@ -1,18 +1,24 @@
 ---
 import { getArticles } from './api/fetch_articles';
-import ArticleCard from './ArticleCard.astro';
 import RecentArticleCard from './RecentArticleCard.astro';
 
-const posts = (await getArticles()).slice(0, 6);
+const posts = (await getArticles()).slice(0, 4);
 ---
 
-<div
-	class='mx-auto mt-6 flex w-4/5 flex-row items-center space-x-12 text-center'
->
-	<h3 class='text-6xl'>🗣️</h3>
-	{
-		posts.map((post) => (
-			<RecentArticleCard post={{ ...post, categories: [] }} />
-		))
-	}
+<div class='hidden space-y-6 md:block'>
+	<div
+		class='items-center justify-center space-x-6 text-center font-serif text-xl'
+	>
+		<span class='text-3xl'>🗣️</span> Recent posts:
+	</div>
+	<div
+		class='mx-auto flex flex-row flex-wrap items-center justify-center gap-y-6 space-x-12 text-center'
+	>
+		{
+			posts.map((post) => (
+				<RecentArticleCard post={{ ...post, categories: [] }} />
+			))
+		}
+		<div class='text-6xl'>...</div>
+	</div>
 </div>

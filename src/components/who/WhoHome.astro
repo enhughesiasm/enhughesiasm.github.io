@@ -8,19 +8,22 @@ import ReceivingEmailsTile from './tiles/ReceivingEmailsTile.astro';
 import SpeakingTile from './tiles/SpeakingTile.astro';
 import TodoTile from './tiles/TodoTile.astro';
 import TwoTruthsTile from './tiles/TwoTruthsTile.astro';
+import { SITE_BASE_URL } from '../../data/definitions';
 
 import WhoTile from './tiles/WhoTile.astro';
 import WriterTile from './tiles/WriterTile.astro';
 ---
 
-<div class='container m-auto grid gap-6'>
+<div class='container m-auto grid gap-3 md:gap-6 lg:gap-9'>
 	<WhoHero />
-	<div class='grid grid-flow-row grid-cols-3 gap-6'>
+	<div
+		class='grid grid-flow-row grid-cols-1 gap-3 md:grid-cols-2 md:gap-6 lg:gap-9 xl:grid-cols-3'
+	>
 		<!-- 300 then 100 for start, end -->
 		<WhoTile
 			title='worrying'
 			bgColor='bg-red-200'
-			link='/enhughesiasm-astro/anxiety'
+			link={`${SITE_BASE_URL}anxiety`}
 			gradientStartHex='#fca5a5'
 			gradientEndHex='#fee2e2'
 		>
@@ -29,7 +32,7 @@ import WriterTile from './tiles/WriterTile.astro';
 		<WhoTile
 			title='writing'
 			bgColor='bg-lime-200'
-			link='/enhughesiasm-astro/books'
+			link={`${SITE_BASE_URL}books`}
 			gradientStartHex='#bef264'
 			gradientEndHex='#ecfccb'
 		>
@@ -38,7 +41,7 @@ import WriterTile from './tiles/WriterTile.astro';
 		<WhoTile
 			title='speaking'
 			bgColor='bg-emerald-200'
-			link='/enhughesiasm-astro/speaking'
+			link={`${SITE_BASE_URL}speaking`}
 			gradientStartHex='#6ee7b7'
 			gradientEndHex='#d1fae5'
 		>
@@ -47,7 +50,7 @@ import WriterTile from './tiles/WriterTile.astro';
 		<WhoTile
 			title='coding'
 			bgColor='bg-black'
-			link='/enhughesiasm-astro/games'
+			link={`${SITE_BASE_URL}games`}
 			titleColor='text-white'
 		>
 			<CodingTile />
@@ -55,7 +58,7 @@ import WriterTile from './tiles/WriterTile.astro';
 		<WhoTile
 			title='helping people be funny'
 			bgColor='bg-teal-200'
-			link='/enhughesiasm-astro/comedy'
+			link={`${SITE_BASE_URL}comedy`}
 			gradientStartHex={'#5eead4'}
 			gradientEndHex={'#ccfbf1'}
 		>

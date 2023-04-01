@@ -14,7 +14,7 @@ export const MailchimpSignupForm: React.FC<{
 			e.preventDefault();
 			performSubmit();
 		}}
-		className='mx-12 mt-6 space-y-6 bg-green-200 py-3 px-6'>
+		className='mx-12 mt-6 space-y-3 bg-green-200 px-6 py-3 md:space-y-6'>
 		<h3 className='py-1 text-center font-serif font-bold '>
 			👇 Sign up for the experience here
 		</h3>
@@ -27,7 +27,7 @@ export const MailchimpSignupForm: React.FC<{
 			<input
 				type='email'
 				placeholder='Enter your email to sign up'
-				className={`w-full rounded border-2 border-gray-200 py-2 px-3 font-serif
+				className={`w-full rounded border-2 border-gray-200 px-3 py-2 font-serif
 					${
 						signupState.email.length > 0 &&
 						(isValidEmail(signupState.email)
@@ -99,7 +99,7 @@ export const MailchimpSignupForm: React.FC<{
 				value={isEnabled(signupState) ? 'Subscribe' : 'Subscribe'}
 				name='subscribe'
 				id='mc-subscribe'
-				className={` rounded-xl py-3 px-6 text-xl font-bold text-white
+				className={` rounded-xl px-6 py-3 text-xl font-bold text-white
 				${
 					!isEnabled(signupState)
 						? 'cursor-not-allowed bg-gray-200 !text-red-400'
@@ -108,7 +108,7 @@ export const MailchimpSignupForm: React.FC<{
 			/>
 		</div>
 
-		<p className='bg-amber-50 py-3 px-6 text-sm italic'>
+		<p className='bg-amber-50 px-6 py-3 text-sm italic'>
 			Mailchimp is my email list management platform. By clicking
 			&apos;subscribe&apos;, you acknowledge that your information will be
 			processed according to the terms on this page, and transferred to

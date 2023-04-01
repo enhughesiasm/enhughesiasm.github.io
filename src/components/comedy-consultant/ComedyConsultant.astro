@@ -2,7 +2,7 @@
 import { Image } from '@astrojs/image/components';
 import micImg from '../../assets/images/speaking/microphone.jpg';
 import stageImg from '../../assets/images/neil_hughes_stage.jpg';
-
+import { SITE_BASE_URL } from '../../data/definitions';
 import { TED_TALK_VIEWS } from '../../data/definitions';
 import Quote from '../shared/Quote.astro';
 ---
@@ -16,11 +16,11 @@ import Quote from '../shared/Quote.astro';
 	<div>
 		<Image src={stageImg} alt='One Track Minds' />
 	</div>
-	<div class='space-y-6 pl-6'>
+	<div class='space-y-3 md:space-y-6 pl-6'>
 		<p>
 			Neil Hughes is a
 			<a
-				href='/enhughesiasm-astro/speaking'
+				href={`${SITE_BASE_URL}speaking`}
 				class='font-bold text-red-500 hover:text-red-400'
 				>public speaker</a
 			> and <span class='font-bold text-blue-500'>standup comedian</span>,
@@ -58,7 +58,7 @@ import Quote from '../shared/Quote.astro';
 	/>
 </div>
 
-<div class='space-y-6 py-6'>
+<div class='space-y-3 md:space-y-6 py-6'>
 	<p>
 		I&apos;ve been amusing audiences since the early 2000s, when I sang a
 		song about beans to a surprisingly enthusiastic crowd.
@@ -81,7 +81,7 @@ import Quote from '../shared/Quote.astro';
 </div>
 
 <div class='mb-6 flex flex-row bg-green-100 py-6'>
-	<div class='space-y-6 px-6 py-3 pr-6'>
+	<div class='space-y-3 md:space-y-6 px-6 py-3 pr-6'>
 		<h4 class='font-bold text-green-700'>I will work with you to:</h4>
 
 		<ul>
@@ -129,8 +129,8 @@ import Quote from '../shared/Quote.astro';
 	<p class='mt-6 text-center text-xl'>
 		Contact <strong>neil@walkingoncustard.com</strong> or
 		<a
-			href='/enhughesiasm-astro/contact'
-			class='rounded-xl bg-green-500 py-2 px-6 text-white hover:bg-green-400'
+			href={`${SITE_BASE_URL}contact'
+			class='rounded-xl bg-green-500 px-6 py-2 text-white hover:bg-green-400'
 			>click here to ask for a quote</a
 		>
 	</p>

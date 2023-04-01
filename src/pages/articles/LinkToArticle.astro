@@ -1,17 +1,24 @@
 ---
+import { LeftRoundArrow, RightRoundArrow } from 'iconoir-react';
 import type { Post } from '../../components/blog/api/post';
+import { SITE_BASE_URL } from '../../data/definitions';
 
 export type Props = {
 	post: Post;
+	icon: 'Right' | 'Left' | 'None';
 };
-const { post } = Astro.props;
+const { post, icon } = Astro.props;
 ---
 
-<div class='text-right'>
-	<a
-		class='text-blue-500 hover:text-blue-400'
-		href={`/enhughesiasm-astro/articles/${post?.slug}`}
+<a
+	class='block flex w-full justify-between space-x-2 text-right leading-tight text-blue-500 hover:text-blue-400'
+	href={`${SITE_BASE_URL}articles/${post?.slug}`}
+>
+	<span
+		>{icon === 'Right' && <RightRoundArrow className='inline !text-lg' />}
+		{
+			icon === 'Left' && <LeftRoundArrow className='inline  !text-lg' />
+		}</span
 	>
-		<Fragment set:html={post?.title.rendered} />
-	</a>
-</div>
+	<span><Fragment set:html={post?.title.rendered} /></span>
+</a>

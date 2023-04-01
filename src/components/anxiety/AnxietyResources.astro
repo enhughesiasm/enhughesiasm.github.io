@@ -4,26 +4,47 @@ import {
 	OnePointCircle,
 	YouTube,
 } from 'iconoir-react';
+import { getArticles } from '../blog/api/fetch_articles';
+import AnxietyArticleCard from './AnxietyArticleCard.astro';
+
+const highlightedArticleIds = [
+	'2440', // three causes
+	'3378', // untying the knot
+	'2813', // anxious what do i do now
+	'2979', // repetitive anxiety tally
+	'2291', // might not matter why
+	'3116', // might as well do the thing
+	'3077', // self-esteem-self-confidence/
+	'2589', //	cant-not-things-can/
+	'2580', // plan-ruminate-worry-poke-prod-fumble-stop-overanalysing-life/
+	'635', // /resonance/
+	'2514', //is-it-too-late-for-me/
+	'1935', // /how-i-accidentally-had-an-endoscopy/
+	'2361', //same-problems-over/
+	'1818', //my-life-is-not-worth-living/
+];
+
+const allArticles = await getArticles();
+
+const articles = allArticles.filter((a) =>
+	highlightedArticleIds.includes(a.id.toString())
+);
 ---
 
-<div class='px-3'>
-	<div class='bg-red-200 py-1 px-3'>Feel anxious? Start here!</div>
-	<div
-		class='my-3 flex flex-row items-center px-6 text-center hover:font-bold hover:text-red-700'
-	>
-		<a href='http://bit.ly/custardTED' target='_blank' rel='noopener'
-			><YouTube className='inline text-red-500' /> Click here to watch a funny
-			talk about anxiety.</a
-		>
-	</div>
-	<div class='bg-red-100 py-1 px-3'>Next check out these articles:</div>
-	COME BACK TO ONCE ARTICLE CARDS MADE https://www.walkingoncustard.com/three-causes-anxiety/
-	https://www.walkingoncustard.com/untying-the-knot-of-anxiety-one-strand-at-a-time/
-	https://www.walkingoncustard.com/im-anxious-what-do-i-do-now/ https://www.walkingoncustard.com/repetitive-anxiety-tally-system/
-	https://www.walkingoncustard.com/might-not-matter-why-anxious/ https://www.walkingoncustard.com/you-might-as-well-do-the-thing-how-to-make-decisions-while-anxious/
-	https://www.walkingoncustard.com/self-esteem-self-confidence/ https://www.walkingoncustard.com/cant-not-things-can/
-	https://www.walkingoncustard.com/plan-ruminate-worry-poke-prod-fumble-stop-overanalysing-life/
-	https://www.walkingoncustard.com/resonance/ https://www.walkingoncustard.com/is-it-too-late-for-me/
-	https://www.walkingoncustard.com/how-i-accidentally-had-an-endoscopy/ https://www.walkingoncustard.com/same-problems-over/
-	https://www.walkingoncustard.com/my-life-is-not-worth-living/
+<div class='rounded-lg bg-red-200 px-3 py-1 text-center'>
+	Feel anxious? Start here!
 </div>
+<div
+	class='my-3 flex flex-row items-center px-6 text-center hover:font-bold hover:text-red-700'
+>
+	<a href='http://bit.ly/custardTED' target='_blank' rel='noopener'
+		><YouTube className='inline text-red-500' /> Click here to watch a funny
+		talk about anxiety.</a
+	>
+</div>
+<div class='rounded-lg bg-red-100 px-3 py-1 text-center'>
+	Next check out these articles:
+</div>
+<ul class='space-y-3 px-2 py-3 text-center'>
+	{articles.map((a) => <AnxietyArticleCard post={a} />)}
+</ul>

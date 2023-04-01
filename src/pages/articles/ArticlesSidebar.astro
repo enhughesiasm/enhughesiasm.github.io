@@ -1,70 +1,60 @@
 ---
-import {
-	HomeAlt,
-	LeftRoundArrow,
-	MultiplePages,
-	RightRoundArrow,
-} from 'iconoir-react';
+import type { WPMedia } from '../../components/blog/api/media';
 import type { Post } from '../../components/blog/api/post';
 import LinkToArticle from './LinkToArticle.astro';
+import { Image } from '@astrojs/image/components';
+import {
+	FEATURED_WP_IMAGE_HEIGHT,
+	FEATURED_WP_IMAGE_WIDTH,
+} from '../../data/definitions';
+import { clamp, lerp } from '../../helpers/helpers';
 
 export type Props = {
 	currentPost: Post;
 	nextPost: Post | undefined;
 	lastPost: Post | undefined;
+	featuredMedia: WPMedia | undefined;
 };
 
-const { nextPost, lastPost, currentPost } = Astro.props;
+const { nextPost, lastPost, currentPost, featuredMedia } = Astro.props;
 ---
 
-<div class='sticky top-6 mr-6 flex h-[102vh] flex-col items-end space-y-3'>
-	<!-- <a
-		href='/enhughesiasm-astro/'
-		class='flex flex-row space-x-1 text-blue-500 underline hover:text-blue-400'
-		><HomeAlt className='inline' /><span>Home</span></a
-	>
-	<a
-		href='/enhughesiasm-astro/articles'
-		class='flex flex-row space-x-1 text-blue-500 underline hover:text-blue-400'
-		><MultiplePages className='inline' /><span>All Articles</span></a
-	> -->
-	{
-		nextPost !== undefined && (
-			<div class='inline-flex flex-row items-center justify-end space-x-3 text-blue-500'>
-				<RightRoundArrow className='inline !text-xl' />{' '}
-				<div class='w-2/3'>
-					<LinkToArticle post={nextPost} />
-				</div>
-			</div>
-		)
-	}
+<div class='sticky top-6 flex h-[100vh] flex-col items-end space-y-3'>
+	{nextPost !== undefined && <LinkToArticle post={nextPost} icon='Right' />}
 	{
 		nextPost === undefined && (
-			<div class='rounded-xl bg-zinc-300 py-3 px-6 text-center text-zinc-500'>
+			<div class='rounded-xl bg-zinc-300 px-6 py-3 text-center text-zinc-500'>
 				This is the latest post! 🥳
 			</div>
 		)
 	}
-	{
-		lastPost !== undefined && (
-			<div class='inline-flex flex-row items-center justify-end space-x-3 text-blue-500'>
-				<LeftRoundArrow className='inline !text-xl' />{' '}
-				<div class='w-2/3'>
-					<LinkToArticle post={lastPost} />
-				</div>
-			</div>
-		)
-	}
+	{lastPost !== undefined && <LinkToArticle post={lastPost} icon='Left' />}
 	{
 		lastPost === undefined && (
-			<div class='rounded-xl bg-red-300 py-3 px-6 text-center text-white'>
+			<div class='rounded-xl bg-red-300 px-6 py-3 text-center text-white'>
 				No more posts! 😢
 			</div>
 		)
 	}
-	<div
-		class='!mb-12 flex flex-grow flex-col justify-end self-end pb-3 text-right font-serif text-xl font-bold'
-	>
-		<Fragment set:html={currentPost?.title.rendered ?? 'Untitled'} />
-	</div>
+</div>
+
+<div
+	class={`sticky top-[70vh] mb-24 flex flex-grow flex-col justify-end text-right font-serif text-xl font-bold`}
+>
+	{
+		featuredMedia && featuredMedia.source_url.length > 0 && (
+			<>
+				<div class='flex flex-col items-end justify-end pb-3'>
+					<Image
+						src={featuredMedia.source_url}
+						alt={featuredMedia.alt_text}
+						slot='image'
+						width={FEATURED_WP_IMAGE_WIDTH * 0.2}
+						height={FEATURED_WP_IMAGE_HEIGHT * 0.2}
+					/>
+				</div>
+			</>
+		)
+	}
+	<Fragment set:html={currentPost?.title.rendered ?? 'Untitled'} />
 </div>

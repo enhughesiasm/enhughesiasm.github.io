@@ -38,10 +38,10 @@ export const TwoTruths = () => {
 
 	return (
 		<>
-			<ul className='mt-3 space-y-3'>
+			<ul className='mt-3 space-y-6'>
 				{selected.map((item) => (
 					<li
-						className={`h-16 cursor-pointer font-serif text-lg font-bold ${
+						className={`h-16 cursor-pointer font-serif text-base font-bold xl:text-lg ${
 							item.clicked && !item.truth
 								? 'text-red-500 line-through'
 								: ''
@@ -65,7 +65,7 @@ export const TwoTruths = () => {
 			<hr />
 			<div className='mt-6'>
 				<a
-					className='cursor-pointer rounded-xl bg-green-500 py-2 px-6 text-white hover:bg-green-400'
+					className='cursor-pointer rounded-xl bg-green-500 px-6 py-2 text-white hover:bg-green-400'
 					onClick={() => setSelected(getSelectedTruths())}>
 					<Refresh className='inline pr-2' /> get more
 				</a>

@@ -2,9 +2,12 @@
 import RecentPostsHome from '../components/blog/RecentPostsHome.astro';
 import WhoHome from '../components/who/WhoHome.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import HomeLayout from '../layouts/Home_Layout.astro';
 ---
 
 <BaseLayout title='The online home of Neil Hughes - enhughesiasm'>
-	<RecentPostsHome />
-	<WhoHome />
+	<HomeLayout>
+		<RecentPostsHome />
+		<WhoHome />
+	</HomeLayout>
 </BaseLayout>

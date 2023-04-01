@@ -1,24 +1,25 @@
 ---
 import { Image } from '@astrojs/image/components';
 import micImage from '../../../assets/images/speaking/microphone.jpg';
+import { SITE_BASE_URL } from '../../../data/definitions';
+import LinkButton from '../../shared/LinkButton.astro';
 ---
 
 <article>
 	<p>
-		😁 as well as <span class='text-2xl text-red-500'
+		😁 as well as <span
+			class='text-base text-red-500 lg:text-lg 2xl:text-2xl'
 			>performing his own standup</span
 		>, Neil is available as a comedy consultant to
-		<strong class='text-2xl text-blue-500'
+		<strong class='text-base text-blue-500 lg:text-lg 2xl:text-2xl'
 			>help add jokes to your speech</strong
 		>
 	</p>
 	<Image src={micImage} alt='A microphone' class='my-3 rounded' />
 	<p class='pt-3 text-right'>
-		<a href='/enhughesiasm-astro/humour-consultant'>
-			<button
-				class='rounded-full bg-transparent bg-green-200 py-2 px-4 font-bold text-slate-500 hover:!bg-green-500 group-hover:animate-bounce-once group-hover:bg-green-700 group-hover:text-white'
-				>get help writing a speech</button
-			></a
-		>
+		<LinkButton
+			text='get help writing a speech'
+			url={`${SITE_BASE_URL}humour-consultant`}
+		/>
 	</p>
 </article>

@@ -12,19 +12,19 @@ const { title, subtitle, slug, tags } = Astro.props;
 ---
 
 <div
-	class='card group overflow-hidden transition ease-in-out hover:scale-[1.05]'
+	class='card group overflow-hidden border-b border-zinc-300 bg-slate-200 transition ease-in-out hover:scale-[1.05] hover:rounded-xl hover:border-none'
 >
 	<a class='' href={slug}>
 		<div
-			class={`card-content flex flex-col justify-between space-y-2 overflow-hidden border-b border-zinc-300 hover:border-none group-hover:pb-4`}
+			class={`card-content flex flex-col justify-between items-center space-y-2 overflow-hidden  group-hover:pb-4`}
 		>
 			<h3
-				class='inline-flex h-32 flex-grow flex-col justify-between px-2 pt-2 text-center font-serif text-lg font-bold text-zinc-800 group-hover:text-lg group-hover:font-bold group-hover:text-white'
+				class='flex flex-grow items-center justify-center px-2 text-center font-serif text-xs font-bold text-zinc-950 group-hover:rounded-xl group-hover:bg-[#09090b22] group-hover:font-bold group-hover:text-white md:text-base lg:px-3 lg:text-lg'
 			>
 				<Fragment set:html={title} />
 			</h3>
 			<div
-				class='hidden text-base group-hover:block group-hover:text-white'
+				class='hidden rounded-xl px-3 py-3 text-xs group-hover:bg-[#f4f4f5aa] group-hover:text-zinc-950 md:group-hover:block lg:text-sm'
 			>
 				<Fragment set:html={subtitle} />
 			</div>
@@ -97,7 +97,7 @@ const { title, subtitle, slug, tags } = Astro.props;
 	}
 
 	.card-content {
-		background-image: radial-gradient(#3f3f46 3%, transparent 2%);
+		/* background-image: radial-gradient(#f4f4f5 3%, transparent 0.5%); */
 		background-position: 0% 0%;
 		background-size: 2.5vmin 2.5vmin;
 		height: calc(100% - 1vmin);
@@ -109,10 +109,10 @@ const { title, subtitle, slug, tags } = Astro.props;
 	}
 
 	.card-content:hover {
-		background-image: radial-gradient(
+		/* background-image: radial-gradient(
 			rgba(254, 240, 240, 0.553) 8%,
 			transparent 8%
-		);
+		); */
 	}
 
 	.card-icon {

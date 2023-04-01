@@ -1,12 +1,13 @@
 ---
 import { Image } from '@astrojs/image/components';
-import { Archery, ArrowArchery, YouTube } from 'iconoir-react';
-import neilHeadshot from '../../assets/images/neil_hughes_headshot_al.jpg';
+import { Archery, YouTube } from 'iconoir-react';
+import anxietyScrabble from '../../assets/images/other/anxiety_scrabble.jpg';
 import { YouTube as YouTubeEmbed } from '@astro-community/astro-embed-youtube';
 import wocCover from '../../assets/images/wocCover.jpg';
+import { SITE_BASE_URL } from '../../data/definitions';
 ---
 
-<div class='space-y-6'>
+<div class='space-y-3 md:space-y-6'>
 	<div class='font-serif text-3xl'>
 		I experienced <span class='text-4xl font-bold text-red-700'
 			>anxiety</span
@@ -18,12 +19,11 @@ import wocCover from '../../assets/images/wocCover.jpg';
 	</div>
 	<hr />
 
-	<Image
-		src={neilHeadshot}
-		alt='Neil Hughes'
-		class='rounded float-left pr-4'
-		width={200}
-	/>
+	<div
+		class='float-left flex flex-col items-center justify-center rounded pr-4'
+	>
+		<Image src={anxietyScrabble} alt='Anxiety' class='' width={200} />
+	</div>
 	<div
 		class='first-letter:float-left first-letter:inline-block first-letter:pr-2 first-letter:text-7xl'
 	>
@@ -41,79 +41,92 @@ import wocCover from '../../assets/images/wocCover.jpg';
 	<div>
 		I spent months living with near-constant fear. Each night I lay awake,
 		afraid of how I would feel the next day. There seemed to be no escape
-		from this cycle. It seemed that the only way out might be something
-		drastic.
+		from this cycle. I feared the only way out would be something drastic.
+		(Thinking about this possibility didn't help <em>at all</em>.)
 	</div>
 	<div>
-		Naturally, I didn't actually 🗣️ <em>tell anyone</em> about any of this. That
+		Naturally, I didn't actually <em>tell anyone</em> about any of this. That
 		would be silly 🙃
 	</div>
 	<div>
 		Finally, I couldn't tolerate it any longer. <span class='font-bold'
-			>My coping strategy of "hope it all went away" was clearly not
-			working anymore</span
+			>My coping strategy of "do nothing and hope it all goes away" was
+			clearly not working</span
 		>. I decided to figure out what was happening... and maybe even do
 		something about it.
 	</div>
-	<div class='p-3'>
+	<div class='p-3 text-center'>
 		<div class='pt-3 text-xl font-bold'>
 			<YouTube className='inline text-red-700 text-4xl' /> Here's me telling
 			the story of what I discovered:
 		</div>
-		<YouTubeEmbed id={'bM06o26PCDQ'} />
+		<div class='pb-6 lg:pl-32'>
+			<YouTubeEmbed id={'bM06o26PCDQ'} />
+		</div>
 	</div>
-	<a href='/enhughesiasm-astro/books/walking-on-custard'>
-		<Image
-			src={wocCover}
-			alt='Walking on Custard - Book Cover'
-			class='rounded float-left pr-4'
-			width={200}
-		/></a
-	>
-	<div>
-		I started writing down everything I'd learned about my anxiety, and
-		somehow it turned into <a
-			href='/enhughesiasm-astro/books/walking-on-custard'
-			><strong>Walking on Custard & the Meaning of Life</strong></a
-		>—a funny guide to life for anxious humans.
-	</div>
-	<div>
-		<em>Walking on Custard</em> is a strange book, I'll freely admit, but it's
-		the book I wished I could have read while I was struggling the most. It mixes
-		personal stories, helpful advice gleaned from experts, and little tales about
-		wizards and aliens. (Along with plenty of embarrassing stories about me,
-		too.)
-	</div>
-
-	<div class='clear-left pt-3'>
+	<div class='pt-3'>
 		<span class='font-serif text-xl'
-			>Now I don't fear my anxiety anymore.</span
-		>And I try to use these experiences to help other people who may be
-		going through the same thing. As well as <a
-			href='https://bit.ly/custardTED'
-			target='_blank'
-			rel='noopener'>my TED talk</a
-		> and <a href='/enhughesiasm-astro/books/walking-on-custard'
-			>the Custard book</a
-		>, there are <a href='/enhughesiasm-astro/articles' class='text-red-500'
-			>lots of articles</a
-		> right here on this website.
+			>Nowadays I don't fear my anxiety anymore.</span
+		> And I use my experiences to help others who may be going through the same
+		thing.
 	</div>
-
-	<div class='space-y-6 bg-zinc-200 py-6 px-6'>
+	<div class='flex flex-row space-y-3 md:space-y-6'>
+		<a
+			class='hidden md:block'
+			href={`${SITE_BASE_URL}books/walking-on-custard`}
+		>
+			<Image
+				src={wocCover}
+				alt='Walking on Custard - Book Cover'
+				class='float-left rounded pr-4'
+			/></a
+		>
+		<div class='space-y-3 md:space-y-6'>
+			<div>
+				Eventually, I wrote down everything I'd learned about my
+				anxiety, and this turned into <a
+					href={`${SITE_BASE_URL}books/walking-on-custard`}
+					class='text-blue-500 hover:text-blue-400'
+					><strong>Walking on Custard & the Meaning of Life</strong
+					></a
+				>—a funny guide to life for anxious humans.
+			</div>
+			<div>
+				<em>Walking on Custard</em> is an unusual book, but I wish I could
+				have read it while I was struggling the most. It mixes personal stories,
+				helpful advice gleaned from experts, and tiny tales about wizards
+				and aliens. (Along with plenty of embarrassing stories about me,
+				too.)
+			</div>
+		</div>
+	</div>
+	<div class='clear-left space-y-3 bg-zinc-200 px-6 py-6 md:space-y-6'>
 		<p>
 			<Archery className='inline text-red-500' />
 			I'm available to give funny & helpful talks about anxiety—online and
 			in person.
 		</p>
 		<div class='text-right'>
-			<a href='/enhughesiasm-astro/speaking'>
+			<a href={`${SITE_BASE_URL}speaking`}>
 				<button
-					class='rounded bg-red-500 py-2 px-4 !text-white hover:bg-red-400'
+					class='rounded bg-red-500 px-4 py-2 !text-white hover:bg-red-400'
 				>
 					need an entertaining speaker on mental health?</button
 				>
 			</a>
 		</div>
+	</div>
+	<div class='mt-1 px-3 text-center text-xs italic text-zinc-400'>
+		Picture credit: "Anxiety"
+		<a
+			rel='license'
+			href='https://creativecommons.org/licenses/by/2.0/'
+			target='_blank'>(CC BY 2.0)</a
+		>&nbsp;by&nbsp;<a
+			rel='cc:attributionURL'
+			property='cc:attributionName'
+			href='https://www.flickr.com/people/128745475@N07/'
+			target='_blank'>sinclair.sharon28</a
+		>
 	</div>
 </div>

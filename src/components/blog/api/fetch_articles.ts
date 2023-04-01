@@ -1,6 +1,6 @@
 import { WP_API_POSTS_PER_PAGE } from '../../../data/definitions';
 import { cacheLocal } from './cache_local';
-import { fetchWP, WP_API_URL } from './fetch_wp';
+import { fetchWP } from './fetch_wp';
 import type { Post } from './post';
 
 export async function getArticles(): Promise<Post[]> {

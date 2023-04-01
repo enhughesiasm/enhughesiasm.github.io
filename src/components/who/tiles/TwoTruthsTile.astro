@@ -2,13 +2,13 @@
 import { TwoTruths } from './two_truths/two_truths';
 ---
 
-<article class='pb-9 text-center'>
+<article class='pb-3 text-center md:pb-6 xl:pb-9'>
 	<p
-		class='mb-3 bg-red-100 py-2 italic group-hover:animate-bounce-once group-hover:bg-red-200'
+		class='mb-3 bg-red-100 px-3 py-2 text-sm italic group-hover:animate-bounce-once group-hover:bg-red-200 xl:text-base'
 	>
 		Click the answers to reveal the truth!
 	</p>
-	<strong class='font-serif text-2xl font-bold text-blue-500'
+	<strong class='font-serif text-lg font-bold text-blue-500 xl:text-2xl'
 		>Neil Hughes...</strong
 	>
 	<TwoTruths client:only='react' />

@@ -2,21 +2,22 @@
 import sblCover from '../../../assets/images/sblCover.jpg';
 import wocCover from '../../../assets/images/wocCover.jpg';
 import BookTile from './BookTile.astro';
+import { SITE_BASE_URL } from '../../../data/definitions';
 ---
 
-<div class='my-6 space-y-6'>
+<div class='flex h-full flex-col justify-evenly space-y-3 md:space-y-6'>
 	<BookTile
 		coverImg={wocCover}
-		linkUrl='/walking-on-custard'
+		linkUrl={`${SITE_BASE_URL}books/walking-on-custard`}
 		title='Walking on Custard'
-		blurb='a humorous-helpful guide to life with anxiety'
+		blurb='a funny guide to life with anxiety'
 		buttonText='find out how custard helps with anxiety'
 	/>
 	<BookTile
 		coverImg={sblCover}
 		title='The Shop Before Life'
-		linkUrl='/shop-before-life'
-		blurb='before being born, all humans visit a magical shop and choose what kind of person they will become'
+		linkUrl={`${SITE_BASE_URL}books/shop-before-life`}
+		blurb='before being born, everyone chooses who to be'
 		buttonText='explore the Shop Before Life'
 	/>
 </div>

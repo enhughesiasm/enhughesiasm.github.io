@@ -1,0 +1,21 @@
+---
+import { SITE_BASE_URL } from '../../data/definitions';
+import type { Post } from '../blog/api/post';
+
+export interface Props {
+	post: Post;
+}
+
+const { post } = Astro.props;
+
+const BASE_ARTICLE_URL = `${SITE_BASE_URL}articles/`;
+---
+
+<li class=''>
+	<a
+		href={`${BASE_ARTICLE_URL}${post.slug}`}
+		class='block text-sm text-blue-500 hover:scale-[1.02] hover:text-blue-400'
+	>
+		👉 <Fragment set:html={post.title.rendered} />
+	</a>
+</li>

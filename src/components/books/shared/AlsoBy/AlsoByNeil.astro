@@ -11,11 +11,11 @@ export interface Props {
 const { exclude } = Astro.props;
 ---
 
-<div class='py-3 px-5 text-center'>
+<div class='px-5 py-3 text-center'>
 	<h3 class='mb-3 font-serif text-sm font-bold'>
 		Also by <div>Neil Hughes</div>
 	</h3>
-	<div class='space-y-6'>
+	<div class='space-y-3 md:space-y-6'>
 		{
 			exclude !== 'walking-on-custard' && (
 				<AlsoByBook

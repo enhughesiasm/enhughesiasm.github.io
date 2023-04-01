@@ -1,4 +1,8 @@
-<div class='prose m-auto w-fit space-y-6 text-zinc-700'>
+---
+import { SITE_BASE_URL } from '../../data/definitions';
+---
+
+<div class='prose m-auto w-fit space-y-3 text-zinc-700 md:space-y-6'>
 	<h2>Privacy</h2>
 
 	<p class='text-xl text-yellow-700'>
@@ -14,24 +18,21 @@
 	</p>
 
 	<p>
-		This page applies to my main website—
-		<strong>
-			<a
-				class='text-blue-500 underline hover:text-blue-400'
-				href='http://www.enhughesiasm.com'
-			>
-				enhughesiasm.com</a
-			>
-		</strong>
-		—to my mailing list, and also to any little projects I create at{' '}
+		This page applies to my main websites—<a
+			class='text-blue-500 underline hover:text-blue-400'
+			href='https://enhughesiasm.com'>enhughesiasm.com</a
+		> and <a
+			class='text-blue-500 underline hover:text-blue-400'
+			href='https://www.walkingoncustard.com'>walkingoncustard.com</a
+		>—to my mailing list, and also to any little projects I create at{' '}
 		<strong>
 			<a
 				class='text-blue-500 underline hover:text-blue-400'
 				href='https://enhughesiasm.github.io'
 			>
 				enhughesiasm.github.io</a
-			>
-		</strong>.
+			></strong
+		>.
 	</p>
 
 	<div class='space-y-4 rounded-xl bg-amber-100 px-12 pb-6 pt-1'>
@@ -93,7 +94,7 @@
 		believe there's something I could do better, then please{' '}
 		<a
 			class='text-blue-500 underline hover:text-blue-400'
-			href='/enhughesiasm-astro/contact'
+			href={`${SITE_BASE_URL}contact`}
 		>
 			<strong>let me know</strong></a
 		>. I value your privacy highly and will never intentionally breach the

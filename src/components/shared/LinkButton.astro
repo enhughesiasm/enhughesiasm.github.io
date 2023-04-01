@@ -1,0 +1,15 @@
+---
+export interface Props {
+	url: string;
+	text: string;
+}
+
+const { url, text } = Astro.props;
+---
+
+<a href={url}>
+	<button
+		class='rounded-full bg-green-700 px-4 py-2 font-bold text-white hover:!bg-green-500 group-hover:animate-bounce-once group-hover:bg-green-700 group-hover:text-white xl:bg-transparent xl:text-slate-500'
+		>{text}</button
+	>
+</a>

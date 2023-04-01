@@ -1,19 +1,16 @@
 ---
 import { Mail } from 'iconoir-react';
+import { SITE_BASE_URL } from '../../../data/definitions';
+import LinkButton from '../../shared/LinkButton.astro';
 ---
 
-<div class='space-y-6'>
+<div class='space-y-3 md:space-y-6'>
 	<p class='group-hover:text-xl'>
 		<Mail
 			className='inline text-zinc-500 group-hover:text-3xl group-hover:text-green-500'
 		/> Say hi, if you want!
 	</p>
 	<div class='mt-12 text-right'>
-		<a href='/enhughesiasm-astro/contact'>
-			<button
-				class='rounded-full bg-transparent py-2 px-4 font-bold text-slate-500 hover:!bg-green-500 group-hover:animate-bounce-once group-hover:bg-green-700 group-hover:text-white'
-				>get in touch</button
-			></a
-		>
+		<LinkButton text='get in touch' url={`${SITE_BASE_URL}contact`} />
 	</div>
 </div>

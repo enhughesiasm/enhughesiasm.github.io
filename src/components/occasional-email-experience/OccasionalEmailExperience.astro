@@ -3,12 +3,13 @@ import { Image } from '@astrojs/image/components';
 import { CoffeeCup, Gift, Mail, SendMail } from 'iconoir-react';
 import yayImg from '../../assets/images/mailing-list-yay.png';
 import Quote from '../shared/Quote.astro';
+import { SITE_BASE_URL } from '../../data/definitions';
 
 import { MailchimpSignup } from './signup/MailchimpSignup';
 ---
 
-<div class='space-y-6'>
-	<div class='space-y-6'>
+<div class='space-y-3 md:space-y-6'>
+	<div class='space-y-3 md:space-y-6'>
 		<h2 class='rounded-xl py-3 text-center font-serif text-3xl font-bold'>
 			<Mail className='inline text-4xl pr-4 text-amber-600' /> The Occasional
 			Email Experience
@@ -22,7 +23,9 @@ import { MailchimpSignup } from './signup/MailchimpSignup';
 					contained in a mere picture, but this comes close
 				</p>
 			</div>
-			<div class='mb-6 mr-12 space-y-6 rounded bg-amber-50 px-12 py-6'>
+			<div
+				class='mb-6 mr-12 space-y-3 rounded bg-amber-50 px-12 py-6 md:space-y-6'
+			>
 				<p
 					class='text-2xl first-letter:float-left first-letter:pr-2 first-letter:text-6xl first-line:small-caps'
 				>
@@ -46,14 +49,14 @@ import { MailchimpSignup } from './signup/MailchimpSignup';
 					<Gift className='inline text-4xl pr-4 text-zinc-500' />Plus!
 					In your welcome email, I'll include the opening chapters of
 					my books, <a
-						href='/enhughesiasm-astro/books/walking-on-custard'
+						href={`${SITE_BASE_URL}books/walking-on-custard`}
 						class='text-blue-500 underline hover:text-blue-400'
 					>
 						Walking on Custard
 					</a>
 					and
 					<a
-						href='/enhughesiasm-astro/books/shop-before-life'
+						href={`${SITE_BASE_URL}books/shop-before-life`}
 						class='text-blue-500 underline hover:text-blue-400'
 						>The Shop Before Life</a
 					>, for <strong class='text-red-500'>free</strong>.
@@ -74,7 +77,7 @@ import { MailchimpSignup } from './signup/MailchimpSignup';
 
 	<MailchimpSignup client:only='react' />
 
-	<div class='space-y-6 bg-blue-100 py-3 px-12'>
+	<div class='space-y-3 bg-blue-100 px-12 py-3 md:space-y-6'>
 		<ul class='space-y-3 px-12'>
 			<li>
 				👉 You can expect to receive an email newsletter from me

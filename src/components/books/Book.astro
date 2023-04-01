@@ -12,35 +12,35 @@ const { coverImg, linkUrl, title, blurb, sampleUrl, buttonText } = Astro.props;
 ---
 
 <div
-	class={`group/book flex rounded-3xl bg-amber-100 shadow-xl mt-6 justify-center items-center pr-12`}
+	class={`group/book flex rounded-3xl bg-amber-100 shadow-xl mt-6 justify-center items-center pr-6 lg:pr-12`}
 >
 	{
 		coverImg && (
-			<figure class='mr-12 w-1/6'>
+			<figure class='w-[25%] lg:w-[30%]'>
 				<a href={linkUrl}>
 					<Image class='rounded-l-3xl' src={coverImg} alt={title} />
 				</a>
 			</figure>
 		)
 	}
-	<div class='flex w-4/5 flex-grow flex-col px-3 py-3'>
+	<div class='flex flex-grow flex-col px-6 py-3'>
 		<h3
-			class={`flex flex-row items-center space-x-3 font-serif text-3xl font-bold group-hover/book:text-green-800`}
+			class={`hidden 2xl:block space-x-3 font-serif text-3xl font-bold group-hover/book:text-green-800`}
 		>
 			<a href={linkUrl}>{title}</a>
 		</h3>
 		<p class='py-3'>{blurb}</p>
-		<div class='text-right'>
+		<div class='hidden space-y-2 text-right xl:flex xl:flex-col'>
 			<a href={linkUrl}>
 				<button
-					class='rounded-full bg-red-100 py-2 px-4 text-slate-700 hover:!bg-green-500 group-hover/book:animate-bounce-once group-hover/book:bg-green-700 group-hover/book:text-white'
+					class='rounded-full bg-red-100 px-4 py-2 text-slate-700 hover:!bg-green-500 group-hover/book:animate-bounce-once group-hover/book:bg-green-700 group-hover/book:text-white'
 					>{buttonText}</button
 				></a
 			>
 			{
 				sampleUrl && (
 					<a href={sampleUrl}>
-						<button class='group-hover/book:animate-bounce-once rounded-full bg-red-100 py-2 px-4 text-slate-700 hover:!bg-green-300 group-hover/book:bg-green-400 group-hover/book:text-white'>
+						<button class='group-hover/book:animate-bounce-once rounded-full bg-red-100 px-4 py-2 text-slate-700 hover:!bg-green-300 group-hover/book:bg-green-400 group-hover/book:text-white'>
 							read a sample
 						</button>
 					</a>

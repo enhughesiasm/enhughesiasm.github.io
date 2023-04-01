@@ -5,14 +5,15 @@ interface Props {
 }
 
 import { Pacman } from 'iconoir-react';
+import { SITE_BASE_URL } from '../../data/definitions';
 
 const { link, text } = Astro.props;
 
 const { url } = Astro;
 
 const isActive =
-	(link === '/' && url.pathname === '/') ||
-	(link !== '/' && url.pathname.startsWith(link));
+	(link === SITE_BASE_URL && url.pathname === SITE_BASE_URL) ||
+	(link !== SITE_BASE_URL && url.pathname.startsWith(link));
 ---
 
 <li
