@@ -35,8 +35,9 @@ async function fetchTotalPageNumber(pageSize: number) {
 }
 
 export async function getTotalPageNumber(pageSize: number) {
-	const number = await cacheLocal('total-pages-for-size-' + pageSize, () =>
-		fetchTotalPageNumber(pageSize)
+	const number = await cacheLocal(
+		'total-posts-pages-for-size-' + pageSize,
+		() => fetchTotalPageNumber(pageSize)
 	);
 
 	return number;

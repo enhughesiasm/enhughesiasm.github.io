@@ -16,6 +16,7 @@ import {
 import Categories from '../../components/blog/Categories.astro';
 import LayoutPageWithSidebar from '../../layouts/Layout_Page_With_Sidebar.astro';
 import ArticlesSidebar from './ArticlesSidebar.astro';
+import ArticleFooter from './ArticleFooter.astro';
 
 const { slug } = Astro.params;
 
@@ -98,6 +99,7 @@ const categories = (await getCategories()).filter((c) =>
 				)
 			}
 			<div class='prose' set:html={post.content.rendered} />
+			<ArticleFooter />
 		</article>
 	</LayoutPageWithSidebar>
 </BaseLayout>
