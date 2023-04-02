@@ -37,11 +37,11 @@ export const TwoTruths = () => {
 	const [selected, setSelected] = useState(getSelectedTruths());
 
 	return (
-		<>
+		<div className='space-y-6'>
 			<ul className='mt-3 space-y-6'>
 				{selected.map((item) => (
 					<li
-						className={`h-16 cursor-pointer font-serif text-base font-bold xl:text-lg ${
+						className={`cursor-pointer py-2 font-serif text-base font-bold xl:text-lg ${
 							item.clicked && !item.truth
 								? 'text-red-500 line-through'
 								: ''
@@ -62,14 +62,13 @@ export const TwoTruths = () => {
 					</li>
 				))}
 			</ul>
-			<hr />
-			<div className='mt-6'>
+			<div>
 				<a
 					className='cursor-pointer rounded-xl bg-green-500 px-6 py-2 text-white hover:bg-green-400'
 					onClick={() => setSelected(getSelectedTruths())}>
-					<Refresh className='inline pr-2' /> get more
+					<Refresh className='inline pr-2' /> more truths
 				</a>
 			</div>
-		</>
+		</div>
 	);
 };

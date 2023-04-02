@@ -1,9 +1,5 @@
 ---
-import {
-	OneFingerSelectHandGesture,
-	OnePointCircle,
-	YouTube,
-} from 'iconoir-react';
+import { YouTube } from 'iconoir-react';
 import { getArticles } from '../blog/api/fetch_articles';
 import AnxietyArticleCard from './AnxietyArticleCard.astro';
 
@@ -31,15 +27,20 @@ const articles = allArticles.filter((a) =>
 );
 ---
 
-<div class='rounded-lg bg-red-200 px-3 py-1 text-center'>
+<div class='mt-3 rounded-lg bg-red-200 px-3 py-1 text-center lg:mt-1'>
 	Feel anxious? Start here!
 </div>
 <div
-	class='my-3 flex flex-row items-center px-6 text-center hover:font-bold hover:text-red-700'
+	class='my-3 flex flex-row items-center justify-center px-6 text-center hover:font-bold hover:text-red-700'
 >
-	<a href='http://bit.ly/custardTED' target='_blank' rel='noopener'
-		><YouTube className='inline text-red-500' /> Click here to watch a funny
-		talk about anxiety.</a
+	<a
+		href='http://bit.ly/custardTED'
+		target='_blank'
+		rel='noopener'
+		class='flex flex-row items-center space-x-2'
+		><YouTube className='inline text-red-500' /><span
+			>Click here to watch a funny talk about anxiety.</span
+		></a
 	>
 </div>
 <div class='rounded-lg bg-red-100 px-3 py-1 text-center'>

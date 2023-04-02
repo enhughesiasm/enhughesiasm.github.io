@@ -2,7 +2,9 @@
 import sblCover from '../../../assets/images/sblCover.jpg';
 import wocCover from '../../../assets/images/wocCover.jpg';
 import BookTile from './BookTile.astro';
+import { BookStack, MultiplePages, PageSearch } from 'iconoir-react';
 import { SITE_BASE_URL } from '../../../data/definitions';
+import LinkButton from '../../shared/LinkButton.astro';
 ---
 
 <div class='flex h-full flex-col justify-evenly space-y-3 md:space-y-6'>
@@ -20,4 +22,8 @@ import { SITE_BASE_URL } from '../../../data/definitions';
 		blurb='before being born, everyone chooses who to be'
 		buttonText='explore the Shop Before Life'
 	/>
+	<div class='text-center font-serif text-lg font-bold'>
+		<LinkButton text='Books' url={`${SITE_BASE_URL}books`} />
+		<LinkButton text='Articles' url={`${SITE_BASE_URL}articles`} />
+	</div>
 </div>
