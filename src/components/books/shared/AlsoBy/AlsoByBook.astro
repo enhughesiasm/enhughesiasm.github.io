@@ -6,11 +6,15 @@ export type Props = BookPage;
 const { key, title, coverImg, linkUrl } = Astro.props;
 ---
 
-<a href={linkUrl} class='group'>
-	<div class='w-24 group-hover:scale-[1.07]'>
-		<Image src={coverImg} alt={title} />
-	</div>
-	<div class='mt-2 text-sm group-hover:font-bold group-hover:text-blue-700'>
+<a href={linkUrl} class='group flex flex-col items-center justify-center'>
+	<Image
+		src={coverImg}
+		alt={title}
+		class='mx-auto max-w-[25%] group-hover:scale-[1.07] md:max-w-[66%]'
+	/>
+	<div
+		class='mt-2 text-center text-sm leading-tight group-hover:font-bold group-hover:text-blue-700'
+	>
 		{title}
 	</div>
 </a>

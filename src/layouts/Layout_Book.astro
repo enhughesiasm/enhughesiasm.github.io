@@ -1,15 +1,14 @@
 ---
 import type { BookPage } from '../components/books/books';
 import AlsoByNeil from '../components/books/shared/AlsoBy/AlsoByNeil.astro';
+import LayoutPageWithSidebar from './Layout_Page_With_Sidebar.astro';
 
 export type Props = BookPage;
 
 const { key, imageUrl, link, title } = Astro.props;
 ---
 
-<div class='m-auto mt-12 flex w-1/2 space-x-6'>
-	<div>
-		<slot />
-	</div>
-	<AlsoByNeil exclude={key} />
-</div>
+<LayoutPageWithSidebar>
+	<slot />
+	<AlsoByNeil exclude={key} slot='sidebar' />
+</LayoutPageWithSidebar>

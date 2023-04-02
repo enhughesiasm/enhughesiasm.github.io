@@ -4,7 +4,9 @@ export type Props = { title: string; quote?: string };
 const { title, quote } = Astro.props;
 ---
 
-<div class='space-y-2 bg-yellow-100 py-3 text-center font-serif'>
+<div
+	class='space-y-2 rounded-xl bg-yellow-100 px-6 py-3 text-center font-serif 2xl:px-9 2xl:py-6'
+>
 	<h2 class='text-3xl font-bold'>{title}</h2>
 	{quote && <div class=''>"{quote}"</div>}
 	<slot />

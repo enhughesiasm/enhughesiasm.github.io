@@ -1,9 +1,19 @@
 ---
-import { FavouriteBook, OpenBook, WarningCircle } from 'iconoir-react';
+import {
+	Book,
+	BookStack,
+	Dollar,
+	FavouriteBook,
+	Globe,
+	OpenBook,
+	Thunderstorm,
+	WarningCircle,
+} from 'iconoir-react';
 
 export type PurchaseLink = {
 	displayName: string;
 	purchaseUrl: string;
+	icon: 'FavouriteBook' | 'Globe' | 'Book' | 'Dollar' | 'Thunderstorm';
 	tooltip?: string;
 };
 
@@ -29,9 +39,15 @@ const { title, headerText, links, sampleUrl } = Astro.props;
 					data-tooltip={l.tooltip}
 					target='_blank'
 					rel='noopener noreferrer'
-					class='inline-flex items-center rounded-xl py-2 px-4 text-lg text-white odd:bg-green-500 even:bg-blue-500 hover:scale-[1.07]  hover:odd:bg-green-400 hover:even:bg-blue-400'>
+					class='inline-flex items-center rounded-xl px-4 py-2 text-lg text-white odd:bg-green-500 even:bg-blue-500 hover:scale-[1.07]  hover:odd:bg-green-400 hover:even:bg-blue-400'>
 					<>
-						<FavouriteBook className='mr-2 inline' />
+						<span class='mr-2 text-sm'>
+							{l.icon === 'FavouriteBook' && <FavouriteBook />}
+							{l.icon === 'Globe' && <Globe />}
+							{l.icon === 'Book' && <BookStack />}
+							{l.icon === 'Dollar' && <Dollar />}
+							{l.icon === 'Thunderstorm' && <Thunderstorm />}
+						</span>
 						<span>
 							I want
 							<span class=''>{l.displayName}</span>!
@@ -45,7 +61,7 @@ const { title, headerText, links, sampleUrl } = Astro.props;
 			data-tooltip={'Free sample PDF'}
 			target='_blank'
 			rel='noopener noreferrer'
-			class='inline-flex items-center rounded-xl bg-amber-200 py-1 px-4 text-base text-zinc-700 hover:scale-[1.07] hover:bg-amber-300'
+			class='inline-flex items-center rounded-xl bg-amber-200 px-4 py-1 text-base text-zinc-700 hover:scale-[1.07] hover:bg-amber-300'
 		>
 			<>
 				<OpenBook className='mr-2 inline' />
