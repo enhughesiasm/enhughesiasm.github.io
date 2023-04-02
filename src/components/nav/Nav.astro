@@ -18,12 +18,15 @@ import {
 import DropdownItem from './DropdownItem.astro';
 import { SITE_BASE_URL } from '../../data/definitions';
 import NavItem from './NavItem.astro';
+import { MobileNav } from './mobile_nav';
 
 export interface Props {}
 ---
 
-<nav class='flex flex-grow px-1 lg:px-6'>
-	<ul class='top-0 hidden flex-grow flex-wrap items-center lg:flex'>
+<MobileNav client:load />
+
+<nav class='hidden flex-grow px-1 md:flex lg:px-6'>
+	<ul class='top-0 hidden flex-grow items-center md:flex'>
 		<NavItem text='who?!' link={`${SITE_BASE_URL}`}>
 			<PeopleTag slot='icon' />
 		</NavItem>
@@ -35,7 +38,7 @@ export interface Props {}
 		</NavItem>
 		<NavItem text='books' link={`${SITE_BASE_URL}books`}>
 			<BookStack slot='icon' />
-			<div slot='dropdown-items'>
+			<Fragment slot='dropdown-items'>
 				<DropdownItem
 					text='Walking on Custard'
 					link={`${SITE_BASE_URL}books/walking-on-custard`}
@@ -48,7 +51,7 @@ export interface Props {}
 				>
 					<ShopAlt slot='icon' />
 				</DropdownItem>
-			</div>
+			</Fragment>
 		</NavItem>
 		<NavItem text='games' link={`${SITE_BASE_URL}games`}>
 			<Arcade slot='icon' />
@@ -63,7 +66,7 @@ export interface Props {}
 			<Mail slot='icon' />
 		</NavItem>
 	</ul>
-	<ul class='top-0 flex items-center'>
+	<ul class='top-0 hidden items-center md:flex'>
 		<NavItem text='contact' link={`${SITE_BASE_URL}contact`}>
 			<MessageText slot='icon' />
 		</NavItem>

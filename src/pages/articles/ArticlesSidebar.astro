@@ -19,7 +19,9 @@ export type Props = {
 const { nextPost, lastPost, currentPost, featuredMedia } = Astro.props;
 ---
 
-<div class='sticky top-6 flex h-[100vh] flex-col items-end space-y-3'>
+<div
+	class='sticky top-6 mt-12 flex flex-col-reverse items-end space-y-3 md:mt-0 md:h-[100vh] md:flex-col'
+>
 	{nextPost !== undefined && <LinkToArticle post={nextPost} icon='Right' />}
 	{
 		nextPost === undefined && (
@@ -39,7 +41,7 @@ const { nextPost, lastPost, currentPost, featuredMedia } = Astro.props;
 </div>
 
 <div
-	class={`sticky top-[70vh] mb-24 flex flex-grow flex-col justify-end text-right font-serif text-xl font-bold`}
+	class={`md:sticky md:top-[70vh] md:mb-24 flex flex-grow flex-col justify-end text-right font-serif text-xl font-bold`}
 >
 	{
 		featuredMedia && featuredMedia.source_url.length > 0 && (
@@ -51,6 +53,7 @@ const { nextPost, lastPost, currentPost, featuredMedia } = Astro.props;
 						slot='image'
 						width={FEATURED_WP_IMAGE_WIDTH * 0.2}
 						height={FEATURED_WP_IMAGE_HEIGHT * 0.2}
+						class='mt-3 md:mt-0'
 					/>
 				</div>
 			</>
