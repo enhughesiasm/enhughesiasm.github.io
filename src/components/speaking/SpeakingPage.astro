@@ -4,7 +4,13 @@ import { Image } from '@astrojs/image/components';
 import otmImage from '../../assets/images/neil_hughes_stage.jpg';
 import ebrdImage from '../../assets/images/speaking/ebrd.jpg';
 import tedImage from '../../assets/images/speaking/ted_speak.jpg';
-import { Heart, MultiBubble, YouTube } from 'iconoir-react';
+import {
+	Heart,
+	MultiBubble,
+	BubbleStar,
+	YouTube,
+	Walking,
+} from 'iconoir-react';
 import { YouTube as YouTubeEmbed } from '@astro-community/astro-embed-youtube';
 import quotes_highlighted from '../../data/speaking/speaking_quotes_highlighted.json';
 import quotes_businesses from '../../data/speaking/speaking_quotes_businesses.json';
@@ -14,50 +20,56 @@ import { SITE_BASE_URL } from '../../data/definitions';
 ---
 
 <div class='space-y-3 md:space-y-6'>
-	<div class='flex flex-row'>
-		<Image src={otmImage} alt='Neil Hughes on stage' class='mr-4' />
-		<div class='space-y-3 md:space-y-6'>
-			<div class='font-serif text-3xl'>
-				🕺 I've been public speaking for <span
-					class='text-4xl font-bold text-red-700'
-					>over twenty years</span
-				>.
-			</div>
+	<div class='space-y-3 md:space-y-6'>
+		<div class='text-center font-serif text-2xl 2xl:text-3xl'>
+			🕺 I've been public speaking for <span
+				class='text-3xl font-bold text-red-700 2xl:text-4xl'
+				>over twenty years</span
+			>.
+		</div>
+		<Image
+			src={otmImage}
+			alt='Neil Hughes on stage'
+			class='mx-auto w-1/2 2xl:w-1/3'
+		/>
 
-			<div class='text-xl'>
-				Sometimes I talk about <a
-					href='https://bit.ly/custardTED'
-					class='text-xl text-blue-700 hover:text-blue-500'
-					>anxiety & mental health</a
-				>. Other times I share about <a
-					href='https://puttylike.com'
-					class='text-xl text-purple-700 hover:text-purple-500'
-					>building a satisfying career</a
-				>. And occasionally I just tell jokes.
-			</div>
-			<p>
-				I've performed for audiences ranging from <strong
-					class='text-xl'>two people</strong
-				> to
-				<strong class='text-xl'>two thousand</strong>, and at <span
-					class='text-lg text-red-700'>all sorts of events</span
-				>—including festivals, school assemblies, staff training days,
-				university lectures, conference keynotes, and more.
-			</p>
-			<div class='flex w-full justify-center'>
-				<a
-					href={`${SITE_BASE_URL}contact`}
-					class='rounded-xl bg-green-500 px-6 py-2 text-white hover:bg-green-400'
-					>enquire about availability</a
-				>
-			</div>
+		<div class='text-xl'>
+			Sometimes I talk about <a
+				href='https://bit.ly/custardTED'
+				class='text-xl text-blue-700 hover:text-blue-500'
+				>anxiety & mental health</a
+			>. Other times I share about <a
+				href='https://puttylike.com'
+				class='text-xl text-blue-700 hover:text-blue-500'
+				>building a satisfying career</a
+			>. And occasionally I just tell jokes.
+		</div>
+		<p>
+			I've performed for audiences ranging from <strong class='text-lg'
+				>two people</strong
+			> to
+			<strong class='text-lg'>two thousand</strong>, and at <span
+				class='text-lg text-red-700'>all sorts of events</span
+			>—including festivals, school assemblies, staff training days,
+			university lectures, conference keynotes, and more.
+		</p>
+		<div class='flex w-full justify-center'>
+			<a
+				href={`${SITE_BASE_URL}contact`}
+				class='rounded-xl bg-green-500 px-6 py-2 text-white hover:bg-green-400'
+				>enquire about availability</a
+			>
 		</div>
 	</div>
+	<p>Most commonly, people want me to talk about anxiety:</p>
 	<h3
-		class='flex items-center justify-center rounded bg-amber-200 font-serif font-bold text-zinc-900'
+		class='flex items-center justify-center rounded-xl bg-amber-200 py-3 font-serif font-bold text-zinc-900'
 	>
-		<span class='relative -top-3 text-5xl'>🍮</span>Walking on Custard: A
-		talk for anxious humans (and non-anxious ones too!)
+		<span
+			class='-gap-y-3 relative inline-flex flex-col justify-center text-5xl'
+			><Walking className='text-4xl text-amber-600' /> 🍮</span
+		>Walking on Custard: A talk for anxious humans (and non-anxious ones
+		too!)
 	</h3>
 	<p>
 		After <a
@@ -68,8 +80,8 @@ import { SITE_BASE_URL } from '../../data/definitions';
 		Who knew?!
 	</p>
 	<p>
-		I've turned my experiences into an amusing talk which explores anxiety
-		and other difficult feelings through <strong>funny stories</strong> and <strong
+		I've turned my experiences into an amusing talk which explores difficult
+		times through <strong>funny stories</strong> and <strong
 			>practical tips</strong
 		>
 		for emotional management.
@@ -89,19 +101,25 @@ import { SITE_BASE_URL } from '../../data/definitions';
 			people have watched this TED talk! 😮
 		</div>
 	</div>
-
+	<h4 class='text-center font-serif text-xl font-bold'>
+		<BubbleStar className='inline mr-4' /> Comments from Businesses, Schools
+		and Audience Members:
+	</h4>
 	<Quote
 		cite={quotes_highlighted[0].cite}
 		quote={quotes_highlighted[0].quote}
 	/>
 
-	<div class='flex flex-row items-center justify-between space-x-3'>
+	<div
+		class='flex flex-col items-center justify-between space-x-3 md:flex-row'
+	>
 		<Image
 			src={ebrdImage}
 			alt='Neil Hughes speaking at the EBRD'
 			width={400}
+			class='w-1/2 md:w-full'
 		/>
-		<h3 class='w-full pl-6 text-left text-4xl font-bold'>
+		<h3 class='w-full py-3 text-left text-4xl font-bold md:pl-6'>
 			<span class='text-blue-700'
 				><MultiBubble className='inline' /> Businesses</span
 			> say:
@@ -110,8 +128,12 @@ import { SITE_BASE_URL } from '../../data/definitions';
 
 	{quotes_businesses.map((q) => <Quote quote={q.quote} cite={q.cite} />)}
 
-	<div class='flex flex-row items-center justify-between space-x-3'>
-		<h3 class='w-full pr-4 text-right text-4xl font-bold'>
+	<div
+		class='flex flex-col-reverse items-center justify-between space-x-3 md:flex-row'
+	>
+		<h3
+			class='w-full py-3 pr-4 text-center text-xl font-bold md:text-right lg:text-4xl'
+		>
 			<span class='text-blue-700'
 				><MultiBubble className='inline' /> Schools</span
 			> say:
@@ -120,6 +142,7 @@ import { SITE_BASE_URL } from '../../data/definitions';
 			src={tedImage}
 			alt='Neil Hughes speaking at TEDx Leamington Spa'
 			width={400}
+			class='w-1/2 md:w-full'
 		/>
 	</div>
 
@@ -127,25 +150,27 @@ import { SITE_BASE_URL } from '../../data/definitions';
 </div>
 
 <div
-	class='mt-12 rounded bg-amber-200 py-3 text-center font-serif text-3xl font-bold'
+	class='mt-12 rounded bg-amber-200 py-3 text-center font-serif text-xl font-bold lg:text-3xl'
 >
 	Need a speaker?
 </div>
 <div class='space-y-9'>
-	<p class='mt-6 text-center text-xl'>
+	<p class='mt-6 text-center text-lg lg:text-xl'>
 		Contact <strong>neil@walkingoncustard.com</strong> or
 		<a
 			href={`${SITE_BASE_URL}contact`}
-			class='rounded-xl bg-green-500 px-6 py-2 text-white hover:bg-green-400'
+			class='mt-3 inline-block rounded-xl bg-green-500 px-6 py-2 text-white hover:bg-green-400 md:inline-block'
 			>click here to ask for a quote</a
 		>
 	</p>
 
 	<p class='text-center'>
 		I&apos;m currently based in the{' '}
-		<strong class='text-xl text-red-700'>northwest of England</strong>, but
-		I <strong class='text-xl text-blue-700'>regularly travel</strong> all over
-		the UK (and further, if required).
+		<strong class='text-lg text-red-700 xl:text-xl'
+			>northwest of England</strong
+		>, but I <strong class='text-lg text-blue-700 xl:text-xl'
+			>regularly travel</strong
+		> all over the UK (and further, if required).
 	</p>
 	<div class='space-y-3 bg-red-100 px-12 py-3'>
 		<Heart className='inline text-2xl text-red-700' />
