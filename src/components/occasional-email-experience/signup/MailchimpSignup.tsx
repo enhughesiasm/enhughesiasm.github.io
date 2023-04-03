@@ -1,4 +1,3 @@
-import { Cookie, WarningCircle } from 'iconoir-react';
 import { SITE_BASE_URL } from '../../../data/definitions';
 import { LoadingBox } from '../../shared/LoadingBox';
 import { MailchimpSignupForm } from './MailchimpSignupForm';
