@@ -7,7 +7,9 @@ let currentYear = new Date().getFullYear();
 const isProd = import.meta.env.PROD;
 ---
 
-<div class='mt-12 flex flex-col items-center space-y-3 bg-yellow-100 pb-3 pt-6'>
+<div
+	class='mt-12 flex flex-col items-center space-y-3 bg-zinc-900 pb-3 pt-6 text-white'
+>
 	<div class=''>
 		&copy; Neil Hughes 2019
 		{currentYear !== 2019 ? '— ' + currentYear : ''}
@@ -47,13 +49,13 @@ const isProd = import.meta.env.PROD;
 	<div class='mt-1 space-x-12'>
 		<a
 			href={`${SITE_BASE_URL}contact`}
-			class='text-zinc-700 hover:font-bold hover:text-zinc-600'
+			class='hover:font-bold hover:text-zinc-600'
 		>
 			contact</a
 		>
 		<a
 			href={`${SITE_BASE_URL}privacy`}
-			class='text-zinc-700 hover:font-bold hover:text-zinc-600'
+			class='hover:font-bold hover:text-zinc-600'
 		>
 			privacy</a
 		>
