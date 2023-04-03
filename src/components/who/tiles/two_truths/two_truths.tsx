@@ -39,8 +39,9 @@ export const TwoTruths = () => {
 	return (
 		<div className='space-y-6'>
 			<ul className='mt-3 space-y-6'>
-				{selected.map((item) => (
+				{selected.map((item, i) => (
 					<li
+						key={`truths-item-${i}`}
 						className={`cursor-pointer py-2 font-serif text-base font-bold xl:text-lg ${
 							item.clicked && !item.truth
 								? 'text-red-500 line-through'
