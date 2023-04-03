@@ -12,19 +12,19 @@ const { title, subtitle, slug, tags } = Astro.props;
 ---
 
 <div
-	class='card group overflow-hidden border-b border-zinc-300 transition ease-in-out odd:bg-emerald-100 even:bg-amber-100 hover:scale-[1.05] hover:rounded-xl hover:border-none'
+	class='card group overflow-hidden border-b border-zinc-300 bg-gradient-to-bl transition ease-in-out odd:from-blue-100 odd:to-blue-500 even:from-amber-100 even:to-amber-400 hover:scale-[1.05] hover:rounded-xl hover:border-none'
 >
 	<a class='' href={slug}>
 		<div
 			class={`card-content flex flex-col justify-between items-center space-y-2 overflow-hidden  group-hover:pb-4`}
 		>
 			<h3
-				class='flex flex-grow items-center justify-center px-2 text-center font-serif text-xs font-bold text-zinc-950 group-hover:rounded-xl group-hover:bg-[#09090b22] group-hover:font-bold group-hover:text-white md:text-base lg:px-3 lg:text-lg'
+				class='flex flex-grow items-center justify-center px-2 text-center font-serif text-xs font-bold text-zinc-950 group-hover:rounded-xl group-hover:bg-[#09090b22] group-hover:font-bold group-hover:text-white md:text-base lg:px-3 lg:text-base'
 			>
 				<Fragment set:html={title} />
 			</h3>
 			<div
-				class='hidden rounded-xl px-3 py-3 text-xs group-hover:bg-[#f4f4f5aa] group-hover:text-zinc-950 md:group-hover:block lg:text-sm'
+				class='hidden rounded-xl px-3 py-2 text-xs group-hover:bg-amber-100 group-hover:text-zinc-950 md:group-hover:block lg:text-sm'
 			>
 				<Fragment set:html={subtitle} />
 			</div>
@@ -42,9 +42,13 @@ const { title, subtitle, slug, tags } = Astro.props;
 	:root {
 		--border: rgb(250, 207, 67);
 
+		/*
 		--g2: #ef4444;
 		--g3: #2563eb;
-		--g1: #f59e0b;
+		--g1: #f59e0b;*/
+		--g3: #60a5fa;
+		--g1: #fcd34d;
+		--g2: #09090b;
 	}
 
 	.card {
@@ -80,7 +84,7 @@ const { title, subtitle, slug, tags } = Astro.props;
 			130deg,
 			transparent 0% 33%,
 			var(--g1) 66%,
-			var(--g2) 83.5%,
+			var(--g2) 87%,
 			var(--g3) 100%
 		);
 		background-position: 0% 0%;

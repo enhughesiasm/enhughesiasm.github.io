@@ -1,3 +1,4 @@
+import { OnePointCircle } from 'iconoir-react';
 import { useState } from 'react';
 
 const subtitles = [
@@ -19,8 +20,20 @@ export const RandomSubtitle: React.FC = () => {
 
 	if (!subtitle) {
 		setSubtitle(subtitles[Math.floor(Math.random() * subtitles.length)]);
-		return <></>;
+		return (
+			<span>
+				<OnePointCircle className='inline animate-spin' />
+			</span>
+		);
 	}
 
-	return <div>{subtitle}</div>;
+	return (
+		<div className='animate-fade-once'>
+			{subtitle ?? (
+				<span>
+					<OnePointCircle className='inline animate-spin' />
+				</span>
+			)}
+		</div>
+	);
 };

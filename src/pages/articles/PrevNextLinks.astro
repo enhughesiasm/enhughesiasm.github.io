@@ -1,0 +1,31 @@
+---
+import type { Post } from '../../components/blog/api/post';
+import LinkToArticle from './LinkToArticle.astro';
+
+export interface Props {
+	nextPost: Post | undefined;
+	lastPost: Post | undefined;
+	className?: string;
+}
+
+const { nextPost, lastPost, className } = Astro.props;
+---
+
+<div class={`${className} space-y-3 font-normal`}>
+	{nextPost !== undefined && <LinkToArticle post={nextPost} icon='Right' />}
+	{
+		nextPost === undefined && (
+			<div class='rounded-xl bg-zinc-300 px-6 py-3 text-center text-zinc-500'>
+				This is the latest post! 🥳
+			</div>
+		)
+	}
+	{lastPost !== undefined && <LinkToArticle post={lastPost} icon='Left' />}
+	{
+		lastPost === undefined && (
+			<div class='rounded-xl bg-red-300 px-6 py-3 text-center text-white'>
+				No more posts! 😢
+			</div>
+		)
+	}
+</div>

@@ -6,7 +6,7 @@ export const CurrentWorry = () => {
 	const level = worryLevels[Math.floor(Math.random() * worryLevels.length)];
 	const worry = worries[Math.floor(Math.random() * worries.length)];
 	return (
-		<div className='grid grid-cols-2 gap-x-2 gap-y-3 rounded bg-red-100 px-3 py-2 group-hover:bg-transparent'>
+		<div className='grid animate-fade-once grid-cols-2 gap-x-2 gap-y-3 rounded bg-red-100 px-3 py-2 group-hover:bg-transparent'>
 			<div className='mr-3 flex items-center justify-end text-right'>
 				<strong>current concern level: </strong>
 			</div>
