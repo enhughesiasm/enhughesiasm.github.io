@@ -4,6 +4,7 @@ import '@fontsource/besley';
 import '@fontsource/vt323';
 
 import '../assets/styles/base_styles.scss';
+import { SITE_BASE_URL } from '../data/definitions';
 export interface Props {
 	title: string;
 }
@@ -19,9 +20,9 @@ const { title } = Astro.props;
 		<link
 			rel='icon'
 			type='image/svg+xml'
-			href='/enhughesiasm-astro/favicon.svg'
+			href={`${SITE_BASE_URL}favicon.svg`}
 		/>
-		<link rel='sitemap' href='/enhughesiasm-astro/sitemap-index.xml' />
+		<link rel='sitemap' href={`${SITE_BASE_URL}sitemap-index.xml`} />
 		<meta name='generator' content={Astro.generator} />
 		<title>{title}</title>
 	</head>
