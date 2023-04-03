@@ -14,7 +14,7 @@ export const MailchimpSignupForm: React.FC<{
 			e.preventDefault();
 			performSubmit();
 		}}
-		className='mx-12 mt-6 space-y-3 bg-green-200 px-6 py-3 md:space-y-6'>
+		className='mx-12 mt-6 space-y-3 bg-green-100 px-6 py-3 md:space-y-6'>
 		<h3 className='py-1 text-center font-serif font-bold '>
 			👇 Sign up for the experience here
 		</h3>

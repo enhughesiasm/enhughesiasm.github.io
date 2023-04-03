@@ -8,10 +8,10 @@ import { SITE_BASE_URL } from '../../data/definitions';
 import { MailchimpSignup } from './signup/MailchimpSignup';
 ---
 
-<div class='space-y-3 md:space-y-6'>
-	<div class='space-y-3 md:space-y-6'>
+<div class='space-y-3 md:space-y-3'>
+	<div class='space-y-3 md:space-y-3'>
 		<h2
-			class='rounded-xl py-3 text-center font-serif text-2xl font-bold xl:text-4xl'
+			class='rounded-xl py-3 text-center font-serif text-lg font-bold xl:text-3xl'
 		>
 			<Mail className='inline text-2xl xl:text-4xl pr-4 text-amber-600' />
 			The Occasional Email Experience
@@ -26,7 +26,7 @@ import { MailchimpSignup } from './signup/MailchimpSignup';
 				</p>
 			</div>
 			<div
-				class='mb-6 mr-12 space-y-3 rounded bg-amber-50 px-12 py-6 md:space-y-6'
+				class='mb-6 mr-12 space-y-3 rounded bg-amber-100 px-12 py-6 md:space-y-6'
 			>
 				<p
 					class='text-lg first-letter:float-left first-letter:pr-2 first-letter:text-5xl first-line:small-caps xl:text-2xl xl:first-letter:text-6xl'
@@ -37,7 +37,7 @@ import { MailchimpSignup } from './signup/MailchimpSignup';
 				</p>
 				<p>
 					<SendMail
-						className='inline text-2xl xl:text-4xl pr-4 text-zinc-500'
+						className='inline text-2xl xl:text-3xl pr-4 text-zinc-500'
 					/> Sign up below and I&apos;ll send you <span
 						class='font-bold text-green-600'
 						>funny stories which may mildly improve your life</span
@@ -45,16 +45,16 @@ import { MailchimpSignup } from './signup/MailchimpSignup';
 				</p>
 				<p>
 					<CoffeeCup
-						className='inline text-2xl xl:text-4xl pr-4 text-zinc-500'
+						className='inline text-2xl xl:text-3xl pr-4 text-zinc-500'
 					/>
-					On the rare occasion that an email arrives, you can grab a cup
-					of tea and settle in to enjoy.
+					When a rare email arrives, grab a cup of tea and settle in to
+					enjoy.
 				</p>
-				<p>
+				<p class='leading-loose'>
 					<Gift
-						className='inline text-2xl xl:text-4xl pr-4 text-zinc-500'
-					/>Plus! In your welcome email, I'll include the opening
-					chapters of my books, <a
+						className='inline text-2xl xl:text-3xl pr-4 text-zinc-500'
+					/>In your welcome email, I'll include the opening chapters
+					of my books, <a
 						href={`${SITE_BASE_URL}books/walking-on-custard`}
 						class='text-blue-500 underline hover:text-blue-400'
 					>
@@ -83,7 +83,7 @@ import { MailchimpSignup } from './signup/MailchimpSignup';
 
 	<MailchimpSignup client:load />
 
-	<div class='space-y-3 bg-blue-100 px-12 py-3 md:space-y-6'>
+	<div class='space-y-3 bg-violet-100 px-12 py-3 md:space-y-6'>
 		<ul class='space-y-3 px-12'>
 			<li>
 				👉 You can expect to receive an email newsletter from me

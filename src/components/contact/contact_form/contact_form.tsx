@@ -36,13 +36,13 @@ export const ContactForm: React.FC<{
 				e.preventDefault();
 				onSubmit(formState);
 			}}
-			className='m-auto w-2/3 space-y-3 bg-amber-100 py-3 px-6'>
+			className='m-auto w-2/3 space-y-3 bg-blue-100 px-6 py-3'>
 			<label
 				className='flex flex-row items-center space-x-2'
 				htmlFor='fromName'>
 				<User className='text-gray-500' /> Name:
 				<input
-					className={`w-full rounded py-3 px-3
+					className={`w-full rounded px-3 py-3
 								${
 									formState.name.length > 1
 										? validName
@@ -65,7 +65,7 @@ export const ContactForm: React.FC<{
 				htmlFor='fromEmail'>
 				<Mail className='text-gray-500' /> Email
 				<input
-					className={`w-full rounded py-3 px-3
+					className={`w-full rounded px-3 py-3
 					${
 						formState.email.length > 1
 							? validEmail
@@ -85,7 +85,7 @@ export const ContactForm: React.FC<{
 			</label>
 			<textarea
 				rows={6}
-				className={`w-full rounded py-3 px-3
+				className={`w-full rounded px-3 py-3
 					${
 						formState.message.length > 1
 							? validMessage
@@ -106,7 +106,7 @@ export const ContactForm: React.FC<{
 			<div className='text-center'>
 				<button
 					type='submit'
-					className={`rounded py-3 px-6 text-xl text-white ${
+					className={`rounded px-6 py-3 text-xl text-white ${
 						true
 							? enabled
 								? 'cursor-pointer bg-green-500'
