@@ -1,0 +1,23 @@
+---
+export type Props = {
+	tags: string[];
+};
+
+const { tags } = Astro.props;
+---
+
+<div
+	class='hidden flex-row flex-wrap items-center justify-center space-x-1 space-y-1 lg:flex'
+>
+	{
+		tags?.map((c) => (
+			<>
+				{c && c.length > 0 && (
+					<div class='w-min rounded-xl px-2 py-1 text-center text-xs odd:bg-teal-300 even:bg-rose-300'>
+						{c}
+					</div>
+				)}
+			</>
+		))
+	}
+</div>

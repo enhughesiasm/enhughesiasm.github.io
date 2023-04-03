@@ -12,7 +12,7 @@ const { title, subtitle, slug, tags } = Astro.props;
 ---
 
 <div
-	class='card group overflow-hidden border-b border-zinc-300 bg-gradient-to-bl transition ease-in-out odd:from-blue-100 odd:to-blue-500 even:from-amber-100 even:to-amber-400 hover:scale-[1.05] hover:rounded-xl hover:border-none'
+	class='card group overflow-hidden border-b border-zinc-300 transition ease-in-out odd:from-blue-100 odd:to-blue-500 even:from-amber-100 even:to-amber-400 hover:scale-[1.05] hover:rounded-xl hover:border-none'
 >
 	<a class='' href={slug}>
 		<div
@@ -29,7 +29,7 @@ const { title, subtitle, slug, tags } = Astro.props;
 				<Fragment set:html={subtitle} />
 			</div>
 
-			<div class='mx-auto flex-grow px-6 group-hover:hidden'>
+			<div class='mx-auto flex-grow group-hover:hidden'>
 				<slot name='image' />
 			</div>
 
@@ -48,7 +48,7 @@ const { title, subtitle, slug, tags } = Astro.props;
 		--g1: #f59e0b;*/
 		--g3: #60a5fa;
 		--g1: #fcd34d;
-		--g2: #09090b;
+		--g2: #e11d48;
 	}
 
 	.card {

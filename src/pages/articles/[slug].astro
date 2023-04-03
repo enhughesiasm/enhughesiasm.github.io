@@ -1,10 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import LayoutPage from '../../layouts/Layout_Page.astro';
 import { Image } from '@astrojs/image/components';
 import { getArticles } from '../../components/blog/api/fetch_articles';
 import type { Post } from '../../components/blog/api/post';
-import { HomeAlt, MultiplePages } from 'iconoir-react';
 import { friendlyDate } from '../../components/shared/friendly_date';
 import { getMediaById } from '../../components/blog/api/fetch_media';
 import { getCategories } from '../../components/blog/api/fetch_categories';
@@ -12,11 +10,15 @@ import {
 	DEFAULT_WP_MEDIA_ID,
 	FEATURED_WP_IMAGE_HEIGHT,
 	FEATURED_WP_IMAGE_WIDTH,
+	WP_PUTTYLIKE_TAG_ID,
 } from '../../data/definitions';
 import Categories from '../../components/blog/Categories.astro';
 import LayoutPageWithSidebar from '../../layouts/Layout_Page_With_Sidebar.astro';
 import ArticlesSidebar from './ArticlesSidebar.astro';
 import ArticleFooter from './ArticleFooter.astro';
+import { getTags } from '../../components/blog/api/fetch_tags';
+import Tags from '../../components/blog/Tags.astro';
+import PuttylikeAcknowledgement from '../../components/blog/PuttylikeAcknowledgement.astro';
 
 const { slug } = Astro.params;
 
@@ -54,6 +56,11 @@ const featured_media = await getMediaById(
 const categories = (await getCategories()).filter((c) =>
 	post.categories.includes(c.id)
 );
+
+const postTags = (await getTags()).filter((t) => post.tags.includes(t.id));
+
+const isPuttylike =
+	postTags.find((t) => t.id === WP_PUTTYLIKE_TAG_ID) !== undefined;
 ---
 
 <BaseLayout title={`${post.title.rendered} - enhughesiasm`}>
@@ -99,7 +106,9 @@ const categories = (await getCategories()).filter((c) =>
 				)
 			}
 			<div class='prose' set:html={post.content.rendered} />
+			{isPuttylike && <PuttylikeAcknowledgement />}
 			<ArticleFooter />
+			<Tags tags={postTags.map((t) => t.name)} />
 		</article>
 	</LayoutPageWithSidebar>
 </BaseLayout>

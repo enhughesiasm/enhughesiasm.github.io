@@ -4,6 +4,8 @@ export const TED_TALK_VIEWS = 340_000;
 
 export const WP_API_URL = 'https://walkingoncustard.com/wp-json/wp/v2';
 
+export const WP_PUTTYLIKE_TAG_ID = 324;
+
 export const RECAPTCHA_SITE_KEY = import.meta.env.DEV
 	? '6Lf_CMgUAAAAAPLAjc_8rZ_hO7xGZ6PK9ldjjCVr'
 	: '6LeoBsgUAAAAAN9yL0uxns-G4Jvl1q2wQz1Ld2cX';

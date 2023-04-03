@@ -1,6 +1,7 @@
 ---
 import { SendMail } from 'iconoir-react';
 import { ContactFormGate } from './contact_form/contact_form_gate';
+import { RECAPTCHA_SITE_KEY } from '../../data/definitions';
 ---
 
 <h1 class='bg-blue-200 py-3 text-center font-serif text-3xl font-bold'>
@@ -22,3 +23,7 @@ import { ContactFormGate } from './contact_form/contact_form_gate';
 </div>
 
 <ContactFormGate client:load />
+
+<script
+	src={`https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`}
+></script>
