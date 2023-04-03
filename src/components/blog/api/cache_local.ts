@@ -18,7 +18,7 @@ export async function cacheLocal<T>(
 	}
 
 	if (fs.existsSync(cacheLocation)) {
-		console.log(`🥳 Cache hit for ${key}!`);
+		// console.log(`🥳 Cache hit for ${key}!`);
 
 		const raw = fs.readFileSync(cacheLocation);
 		return JSON.parse(raw as unknown as string);
