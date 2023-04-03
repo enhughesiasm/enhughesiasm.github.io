@@ -14,7 +14,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://walkingoncustard.com/',
+	site: 'https://walkingoncustard.com',
 	base: '/',
 	integrations: [
 		react(),
