@@ -1,6 +1,6 @@
 ---
 import { Mail } from 'iconoir-react';
-import { SITE_BASE_URL } from '../../../data/definitions';
+
 import LinkButton from '../../shared/LinkButton.astro';
 ---
 
@@ -10,6 +10,9 @@ import LinkButton from '../../shared/LinkButton.astro';
 		hi, if you want!
 	</p>
 	<div class='mt-12 text-right'>
-		<LinkButton text='get in touch' url={`${SITE_BASE_URL}contact`} />
+		<LinkButton
+			text='get in touch'
+			url={`${import.meta.env.BASE_URL}contact`}
+		/>
 	</div>
 </div>

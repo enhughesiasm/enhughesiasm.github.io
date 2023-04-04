@@ -3,7 +3,7 @@ import { TED_TALK_VIEWS } from '../../../data/definitions';
 import tedSpeak from '../../../assets/images/speaking/ted_speak.jpg';
 import { Image } from '@astrojs/image/components';
 import { LightBulbOn } from 'iconoir-react';
-import { SITE_BASE_URL } from '../../../data/definitions';
+
 import LinkButton from '../../shared/LinkButton.astro';
 ---
 
@@ -54,7 +54,7 @@ import LinkButton from '../../shared/LinkButton.astro';
 	<p class='text-right'>
 		<LinkButton
 			text='get a fantastic speaker'
-			url={`${SITE_BASE_URL}speaking`}
+			url={`${import.meta.env.BASE_URL}speaking`}
 		/>
 	</p>
 </div>

@@ -1,5 +1,4 @@
 ---
-import { SITE_BASE_URL } from '../../data/definitions';
 import type { Post } from '../blog/api/post';
 
 export interface Props {
@@ -8,7 +7,7 @@ export interface Props {
 
 const { post } = Astro.props;
 
-const BASE_ARTICLE_URL = `${SITE_BASE_URL}articles/`;
+const BASE_ARTICLE_URL = `${import.meta.env.BASE_URL}articles/`;
 ---
 
 <li class=''>

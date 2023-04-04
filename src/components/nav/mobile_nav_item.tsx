@@ -1,6 +1,5 @@
 import { Pacman } from 'iconoir-react';
 import type React from 'react';
-import { SITE_BASE_URL } from '../../data/definitions';
 
 export const MobileNavItem: React.FC<{
 	text: string;
@@ -9,8 +8,8 @@ export const MobileNavItem: React.FC<{
 	children: React.ReactNode;
 }> = ({ text, link, children, indent = false }) => {
 	const isActive = false;
-	// (link === SITE_BASE_URL && url.pathname === SITE_BASE_URL) ||
-	// (link !== SITE_BASE_URL && url.pathname.startsWith(link));
+	// (link === import.meta.env.BASE_URL && url.pathname === import.meta.env.BASE_URL) ||
+	// (link !== import.meta.env.BASE_URL && url.pathname.startsWith(link));
 
 	return (
 		<li

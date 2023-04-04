@@ -1,12 +1,11 @@
 ---
 import type { WPMedia } from '../../components/blog/api/media';
 import type { Post } from '../../components/blog/api/post';
-import LinkToArticle from './LinkToArticle.astro';
+
 import { Image } from '@astrojs/image/components';
 import {
 	FEATURED_WP_IMAGE_HEIGHT,
 	FEATURED_WP_IMAGE_WIDTH,
-	SITE_BASE_URL,
 } from '../../data/definitions';
 import PrevNextLinks from './PrevNextLinks.astro';
 
@@ -35,7 +34,7 @@ const { nextPost, lastPost, currentPost, featuredMedia } = Astro.props;
 				<div class='flex flex-col items-end justify-end pb-3'>
 					<a
 						class='underlined block py-3 text-center font-sans text-lg text-blue-500 underline hover:scale-[1.03] hover:text-blue-400'
-						href={`${SITE_BASE_URL}mailing`}>
+						href={`${import.meta.env.BASE_URL}mailing`}>
 						Sign up for more articles
 					</a>
 					<Image

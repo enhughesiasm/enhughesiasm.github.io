@@ -3,7 +3,6 @@ import type { BookByNeil } from '../../books';
 import AlsoByBook from './AlsoByBook.astro';
 import wocCover from '../../../../assets/images/wocCover.jpg';
 import sblCover from '../../../../assets/images/sblCover.jpg';
-import { SITE_BASE_URL } from '../../../../data/definitions';
 
 export interface Props {
 	exclude: BookByNeil;
@@ -21,7 +20,9 @@ const { exclude } = Astro.props;
 			exclude !== 'walking-on-custard' && (
 				<AlsoByBook
 					title='Walking on Custard'
-					linkUrl={`${SITE_BASE_URL}books/walking-on-custard`}
+					linkUrl={`${
+						import.meta.env.BASE_URL
+					}books/walking-on-custard`}
 					coverImg={wocCover}
 					key={'walking-on-custard'}
 				/>
@@ -31,7 +32,9 @@ const { exclude } = Astro.props;
 			exclude !== 'shop-before-life' && (
 				<AlsoByBook
 					title='The Shop Before Life'
-					linkUrl={`${SITE_BASE_URL}books/shop-before-life`}
+					linkUrl={`${
+						import.meta.env.BASE_URL
+					}books/shop-before-life`}
 					coverImg={sblCover}
 					key={'shop-before-life'}
 				/>

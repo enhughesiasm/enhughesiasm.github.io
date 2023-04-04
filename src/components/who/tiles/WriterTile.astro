@@ -3,7 +3,7 @@ import sblCover from '../../../assets/images/sblCover.jpg';
 import wocCover from '../../../assets/images/wocCover.jpg';
 import BookTile from './BookTile.astro';
 import { BookStack, MultiplePages, PageSearch } from 'iconoir-react';
-import { SITE_BASE_URL } from '../../../data/definitions';
+
 import LinkButton from '../../shared/LinkButton.astro';
 import Trait from '../../books/sbl/Trait.astro';
 ---
@@ -11,7 +11,7 @@ import Trait from '../../books/sbl/Trait.astro';
 <div class='flex h-full flex-col justify-evenly space-y-3 md:space-y-6'>
 	<BookTile
 		coverImg={wocCover}
-		linkUrl={`${SITE_BASE_URL}books/walking-on-custard`}
+		linkUrl={`${import.meta.env.BASE_URL}books/walking-on-custard`}
 		title='Walking on Custard'
 		blurb='a funny guide to life with anxiety'
 		buttonText='find out how custard helps with anxiety'
@@ -19,7 +19,7 @@ import Trait from '../../books/sbl/Trait.astro';
 	<BookTile
 		coverImg={sblCover}
 		title='The Shop Before Life'
-		linkUrl={`${SITE_BASE_URL}books/shop-before-life`}
+		linkUrl={`${import.meta.env.BASE_URL}books/shop-before-life`}
 		blurb='before being born, everyone chooses who to be'
 		buttonText='explore the Shop Before Life'
 	/>
@@ -27,7 +27,10 @@ import Trait from '../../books/sbl/Trait.astro';
 		<span class='w-1/3'>Today the Shop is serving:</span><Trait />
 	</div>
 	<div class='text-center font-serif text-lg font-bold'>
-		<LinkButton text='Books' url={`${SITE_BASE_URL}books`} />
-		<LinkButton text='Articles' url={`${SITE_BASE_URL}articles`} />
+		<LinkButton text='Books' url={`${import.meta.env.BASE_URL}books`} />
+		<LinkButton
+			text='Articles'
+			url={`${import.meta.env.BASE_URL}articles`}
+		/>
 	</div>
 </div>

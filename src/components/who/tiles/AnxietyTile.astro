@@ -2,7 +2,7 @@
 import { CurrentWorry } from './CurrentWorry';
 import { Image } from '@astrojs/image/components';
 import worryTimeGraph from '../../../assets/images/worry_time.png';
-import { SITE_BASE_URL } from '../../../data/definitions';
+
 import LinkButton from '../../shared/LinkButton.astro';
 ---
 
@@ -30,7 +30,7 @@ import LinkButton from '../../shared/LinkButton.astro';
 	<p class='text-right'>
 		<LinkButton
 			text='discover how to deal with anxiety'
-			url={`${SITE_BASE_URL}anxiety`}
+			url={`${import.meta.env.BASE_URL}anxiety`}
 		/>
 	</p>
 </div>

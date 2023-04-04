@@ -4,7 +4,6 @@ import { Archery, YouTube } from 'iconoir-react';
 
 import { YouTube as YouTubeEmbed } from '@astro-community/astro-embed-youtube';
 import wocCover from '../../assets/images/wocCover.jpg';
-import { SITE_BASE_URL } from '../../data/definitions';
 ---
 
 <div class='space-y-3 md:space-y-6'>
@@ -82,7 +81,7 @@ import { SITE_BASE_URL } from '../../data/definitions';
 
 		<a
 			class='hidden md:block'
-			href={`${SITE_BASE_URL}books/walking-on-custard`}
+			href={`${import.meta.env.BASE_URL}books/walking-on-custard`}
 		>
 			<Image
 				src={wocCover}
@@ -94,8 +93,8 @@ import { SITE_BASE_URL } from '../../data/definitions';
 			<div>
 				Eventually, I wrote down everything I'd learned about my
 				anxiety, and this turned into <a
-					href={`${SITE_BASE_URL}books/walking-on-custard`}
-					class='text-blue-500 hover:text-blue-400'
+					href={`${import.meta.env.BASE_URL}books/walking-on-custard`}
+					class='teimport.meta.env.BASE_URLover:text-blue-400'
 					><strong>Walking on Custard & the Meaning of Life</strong
 					></a
 				>—a funny guide to life for anxious humans.
@@ -118,7 +117,7 @@ import { SITE_BASE_URL } from '../../data/definitions';
 			in person.
 		</p>
 		<div class='text-right'>
-			<a href={`${SITE_BASE_URL}speaking`}>
+			<a href={`${import.meta.env.BASE_URL}speaking`}>
 				<button
 					class='rounded bg-red-500 px-4 py-2 !text-white hover:bg-red-400'
 				>

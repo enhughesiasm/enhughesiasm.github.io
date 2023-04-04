@@ -12,7 +12,6 @@ import {
 	XboxX,
 } from 'iconoir-react';
 import { useState } from 'react';
-import { SITE_BASE_URL } from '../../data/definitions';
 import { MobileNavItem } from './mobile_nav_item';
 
 export const MobileNav: React.FC = () => {
@@ -35,49 +34,57 @@ export const MobileNav: React.FC = () => {
 			<nav className='flex w-full flex-col items-center justify-end pb-3 md:hidden'>
 				{opened && (
 					<ul>
-						<MobileNavItem text='who?!' link={`${SITE_BASE_URL}`}>
+						<MobileNavItem
+							text='who?!'
+							link={`${import.meta.env.BASE_URL}`}>
 							<PeopleTag />
 						</MobileNavItem>
 						<MobileNavItem
 							text='articles'
-							link={`${SITE_BASE_URL}articles`}>
+							link={`${import.meta.env.BASE_URL}articles`}>
 							<MultiplePages />
 						</MobileNavItem>
 						<MobileNavItem
 							text='anxiety'
-							link={`${SITE_BASE_URL}anxiety`}>
+							link={`${import.meta.env.BASE_URL}anxiety`}>
 							<Treadmill />
 						</MobileNavItem>
 						<MobileNavItem
 							text='books'
-							link={`${SITE_BASE_URL}books`}>
+							link={`${import.meta.env.BASE_URL}books`}>
 							<BookStack />
 						</MobileNavItem>
 						<MobileNavItem
 							indent
 							text='walking on custard'
-							link={`${SITE_BASE_URL}books/walking-on-custard`}>
+							link={`${
+								import.meta.env.BASE_URL
+							}books/walking-on-custard`}>
 							<CrackedEgg />
 						</MobileNavItem>
 						<MobileNavItem
 							indent
 							text='the shop before life'
-							link={`${SITE_BASE_URL}books/shop-before-life`}>
+							link={`${
+								import.meta.env.BASE_URL
+							}books/shop-before-life`}>
 							<ShopAlt />
 						</MobileNavItem>
 						<MobileNavItem
 							text='games'
-							link={`${SITE_BASE_URL}games`}>
+							link={`${import.meta.env.BASE_URL}games`}>
 							<Arcade />
 						</MobileNavItem>
 						<MobileNavItem
 							text='speaking'
-							link={`${SITE_BASE_URL}speaking`}>
+							link={`${import.meta.env.BASE_URL}speaking`}>
 							<ChatBubble />
 						</MobileNavItem>
 						<MobileNavItem
 							text='occasional email experience'
-							link={`${SITE_BASE_URL}occasional-email-experience`}>
+							link={`${
+								import.meta.env.BASE_URL
+							}occasional-email-experience`}>
 							<Mail />
 						</MobileNavItem>
 					</ul>

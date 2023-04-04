@@ -1,6 +1,5 @@
 ---
 import { Twitter } from 'iconoir-react';
-import { SITE_BASE_URL } from '../../data/definitions';
 
 let currentYear = new Date().getFullYear();
 
@@ -48,13 +47,13 @@ const isProd = import.meta.env.PROD;
 	</div>
 	<div class='mt-1 space-x-12'>
 		<a
-			href={`${SITE_BASE_URL}contact`}
+			href={`${import.meta.env.BASE_URL}contact`}
 			class='hover:font-bold hover:text-zinc-600'
 		>
 			contact</a
 		>
 		<a
-			href={`${SITE_BASE_URL}privacy`}
+			href={`${import.meta.env.BASE_URL}privacy`}
 			class='hover:font-bold hover:text-zinc-600'
 		>
 			privacy</a

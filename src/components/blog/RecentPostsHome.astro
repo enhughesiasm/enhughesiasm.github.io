@@ -1,7 +1,7 @@
 ---
 import { getArticles } from './api/fetch_articles';
 import RecentArticleCard from './RecentArticleCard.astro';
-import { SITE_BASE_URL } from '../../data/definitions';
+
 const posts = (await getArticles()).slice(0, 4);
 ---
 
@@ -15,13 +15,15 @@ const posts = (await getArticles()).slice(0, 4);
 		class='mx-auto flex flex-row flex-wrap items-center justify-center gap-y-6 space-x-12 text-center'
 	>
 		<div class='text-6xl'>
-			<a href={`${SITE_BASE_URL}articles`}>🗣️</a>
+			<a href={`${import.meta.env.BASE_URL}articles`}>🗣️</a>
 		</div>
 		{
 			posts.map((post) => (
 				<RecentArticleCard post={{ ...post, categories: [] }} />
 			))
 		}
-		<div class='text-6xl'><a href={`${SITE_BASE_URL}articles`}>...</a></div>
+		<div class='text-6xl'>
+			<a href={`${import.meta.env.BASE_URL}articles`}>...</a>
+		</div>
 	</div>
 </div>

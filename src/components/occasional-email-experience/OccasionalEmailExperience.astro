@@ -3,7 +3,6 @@ import { Image } from '@astrojs/image/components';
 import { CoffeeCup, Gift, Mail, SendMail } from 'iconoir-react';
 import yayImg from '../../assets/images/mailing-list-yay.png';
 import Quote from '../shared/Quote.astro';
-import { SITE_BASE_URL } from '../../data/definitions';
 
 import { MailchimpSignup } from './signup/MailchimpSignup';
 ---
@@ -55,14 +54,18 @@ import { MailchimpSignup } from './signup/MailchimpSignup';
 						className='inline text-2xl xl:text-3xl pr-4 text-zinc-500'
 					/>In your welcome email, I'll include the opening chapters
 					of my books, <a
-						href={`${SITE_BASE_URL}books/walking-on-custard`}
+						href={`${
+							import.meta.env.BASE_URL
+						}books/walking-on-custard`}
 						class='text-blue-500 underline hover:text-blue-400'
 					>
 						Walking on Custard
 					</a>
 					and
 					<a
-						href={`${SITE_BASE_URL}books/shop-before-life`}
+						href={`${
+							import.meta.env.BASE_URL
+						}books/shop-before-life`}
 						class='text-blue-500 underline hover:text-blue-400'
 						>The Shop Before Life</a
 					>, for <strong class='text-red-500'>free</strong>.

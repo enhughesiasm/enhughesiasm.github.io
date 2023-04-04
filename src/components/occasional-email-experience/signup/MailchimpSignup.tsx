@@ -1,4 +1,3 @@
-import { SITE_BASE_URL } from '../../../data/definitions';
 import { LoadingBox } from '../../shared/LoadingBox';
 import { MailchimpSignupForm } from './MailchimpSignupForm';
 import { SignupResultAlreadySubscribed } from './SignupResult_Already_Subscribed';
@@ -29,7 +28,9 @@ export const MailchimpSignup: React.FC = () => {
 						signupState.submitResult === 'SUCCESS' && (
 							<meta
 								http-equiv='refresh'
-								content={`0;url=${SITE_BASE_URL}confirm-signup`}
+								content={`0;url=${
+									import.meta.env.BASE_URL
+								}confirm-signup`}
 							/>
 						)}
 					{signupState.hasSubmitted &&

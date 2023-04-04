@@ -1,6 +1,5 @@
 ---
 import Nav from '../nav/Nav.astro';
-import { SITE_BASE_URL } from '../../data/definitions';
 import { RandomSubtitle } from './random_subtitle';
 ---
 
@@ -11,7 +10,7 @@ import { RandomSubtitle } from './random_subtitle';
 		<h1
 			class='text-md py-3 text-center text-yellow-400 hover:font-bold hover:text-yellow-300 md:text-lg lg:text-2xl'
 		>
-			<a href={`${SITE_BASE_URL}`}>walking on custard</a>
+			<a href={`${import.meta.env.BASE_URL}`}>walking on custard</a>
 		</h1>
 		<div class='hidden 2xl:block'>
 			<div

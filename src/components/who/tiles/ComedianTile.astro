@@ -1,7 +1,7 @@
 ---
 import { Image } from '@astrojs/image/components';
 import micImage from '../../../assets/images/speaking/microphone.jpg';
-import { SITE_BASE_URL } from '../../../data/definitions';
+
 import LinkButton from '../../shared/LinkButton.astro';
 ---
 
@@ -19,7 +19,7 @@ import LinkButton from '../../shared/LinkButton.astro';
 	<p class='pt-3 text-right'>
 		<LinkButton
 			text='get help writing a speech'
-			url={`${SITE_BASE_URL}humour-consultant`}
+			url={`${import.meta.env.BASE_URL}humour-consultant`}
 		/>
 	</p>
 </article>
