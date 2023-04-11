@@ -35,7 +35,7 @@
 		"prettier": "^2.8.7",
 		"prettier-plugin-astro": "^0.8.0",
 		"prettier-plugin-tailwindcss": "^0.2.7",
-		"sass": "^1.60.0",
+		"sass": "^1.61.0",
 		"tailwindcss-opentype": "^1.1.0"
 	}
 }
