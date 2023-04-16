@@ -3,9 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import LayoutPage from '../layouts/Layout_Page.astro';
 import { Image } from '@astrojs/image/components';
 import yayImg from '../assets/images/mailing-list-yay.png';
+import { SEO } from 'astro-seo';
 ---
 
-<BaseLayout title='Email Signup Confirmed - walking on custard'>
+<BaseLayout>
+	<Fragment slot='seo'>
+		<SEO title={'Email Signup Confirmed - Walking on Custard'} />
+	</Fragment>
 	<LayoutPage>
 		<div class='space-y-3 md:space-y-6'>
 			<div

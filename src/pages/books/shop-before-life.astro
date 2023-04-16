@@ -1,13 +1,17 @@
 ---
+import { SEO } from 'astro-seo';
 import sblCover from '../../assets/images/sblCover.jpg';
 import Sbl from '../../components/books/sbl/Sbl.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import LayoutBook from '../../layouts/Layout_Book.astro';
 ---
 
-<BaseLayout
-	title='The Shop Before Life - a novel by Neil Hughes - walking on custard'
->
+<BaseLayout>
+	<Fragment slot='seo'>
+		<SEO
+			title={'The Shop Before Life - a novel by Neil Hughes - walking on custard'}
+		/>
+	</Fragment>
 	<LayoutBook
 		key='shop-before-life'
 		title='The Shop Before Life'

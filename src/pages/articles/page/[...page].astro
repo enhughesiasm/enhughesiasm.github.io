@@ -6,6 +6,7 @@ import type { Post } from '../../../components/blog/api/post';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import LayoutPage from '../../../layouts/Layout_Page.astro';
 import { WP_API_POSTS_PER_PAGE } from '../../../data/definitions';
+import { SEO } from 'astro-seo';
 
 export async function getStaticPaths({ paginate }: { paginate: Function }) {
 	const allPosts = await getArticles();
@@ -21,9 +22,12 @@ export async function getStaticPaths({ paginate }: { paginate: Function }) {
 const { page } = Astro.props;
 ---
 
-<BaseLayout
-	title={`Articles by Neil Hughes - page ${page.currentPage} - walking on custard`}
->
+<BaseLayout>
+	<Fragment slot='seo'>
+		<SEO
+			title={`Articles by Neil Hughes - page ${page.currentPage} - Walking on Custard`}
+		/>
+	</Fragment>
 	<LayoutPage>
 		<div class='flex items-center justify-center'>
 			<h2
@@ -95,3 +99,4 @@ const { page } = Astro.props;
 		</div>
 	</LayoutPage>
 </BaseLayout>
+

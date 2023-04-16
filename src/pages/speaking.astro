@@ -1,12 +1,16 @@
 ---
+import { SEO } from 'astro-seo';
 import SpeakingPage from '../components/speaking/SpeakingPage.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LayoutPage from '../layouts/Layout_Page.astro';
 ---
 
-<BaseLayout
-	title='Comedian & Mental Health Public Speaker - Neil Hughes - walking on custard'
->
+<BaseLayout>
+	<Fragment slot='seo'>
+		<SEO
+			title={'Comedian & Mental Health Public Speaker - Neil Hughes - Walking on Custard'}
+		/>
+	</Fragment>
 	<LayoutPage>
 		<SpeakingPage />
 	</LayoutPage>

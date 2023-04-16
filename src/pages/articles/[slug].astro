@@ -1,4 +1,5 @@
 ---
+import { SEO } from 'astro-seo';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { Image } from '@astrojs/image/components';
 import { getArticles } from '../../components/blog/api/fetch_articles';
@@ -14,11 +15,12 @@ import {
 } from '../../data/definitions';
 import Categories from '../../components/blog/Categories.astro';
 import LayoutPageWithSidebar from '../../layouts/Layout_Page_With_Sidebar.astro';
-import ArticlesSidebar from './ArticlesSidebar.astro';
-import ArticleFooter from './ArticleFooter.astro';
+
 import { getTags } from '../../components/blog/api/fetch_tags';
 import Tags from '../../components/blog/Tags.astro';
 import PuttylikeAcknowledgement from '../../components/blog/PuttylikeAcknowledgement.astro';
+import ArticlesSidebar from '../../components/blog/ArticlesSidebar.astro';
+import ArticleFooter from '../../components/blog/ArticleFooter.astro';
 
 const { slug } = Astro.params;
 
@@ -63,7 +65,43 @@ const isPuttylike =
 	postTags.find((t) => t.id === WP_PUTTYLIKE_TAG_ID) !== undefined;
 ---
 
-<BaseLayout title={`${post.title.rendered} - walking on custard`}>
+<BaseLayout>
+	<Fragment slot='seo'>
+		<meta name='author' content='Neil Hughes' />
+		<meta name='twitter:card' content='summary_large_image' />
+		<meta name='twitter:creator' content='@enhughesiasm' />
+		<meta name='twitter:site' content='@enhughesiasm' />
+		<meta name='twitter:label1' content='Written by' />
+		<meta name='twitter:data1' content='Neil Hughes' />
+		<meta name='twitter:label2' content='Estimated reading time' />
+		<meta
+			name='twitter:data2'
+			content={post.yoast_head_json.twitter_misc[
+				'Estimated reading time'
+			] ?? 'Not sure'}
+		/>
+		<SEO
+			title={`${post.title.rendered} - Walking on Custard`}
+			description={post.yoast_head_json.description}
+			openGraph={{
+				basic: {
+					title: post.title.rendered ?? 'MISSING_TITLE',
+					type: 'article',
+					image: featured_media?.source_url ?? 'MISSING_URL',
+				},
+				optional: {
+					siteName: 'Walking on Custard',
+					description: post.yoast_head_json.description,
+					locale: 'en_GB',
+				},
+				article: {
+					authors: ['www.facebook.com/walkingoncustard'],
+				},
+			}}
+			twitter={{ creator: '@enhughesiasm' }}
+		/>
+	</Fragment>
+
 	<LayoutPageWithSidebar>
 		<ArticlesSidebar
 			currentPost={post}
@@ -84,6 +122,7 @@ const isPuttylike =
 					set:html={friendlyDate(post.date)}
 				/>
 			</div>
+
 			{
 				featured_media && featured_media.source_url.length > 0 && (
 					<>
@@ -105,6 +144,13 @@ const isPuttylike =
 					</>
 				)
 			}
+			<div class='text-right text-sm text-zinc-500'>
+				Estimated reading time: {
+					post.yoast_head_json.twitter_misc[
+						'Estimated reading time'
+					] ?? 'Not sure'
+				}
+			</div>
 			<div class='prose' set:html={post.content.rendered} />
 			{isPuttylike && <PuttylikeAcknowledgement />}
 			<ArticleFooter />

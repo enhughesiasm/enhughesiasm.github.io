@@ -1,4 +1,5 @@
 ---
+import { SEO } from 'astro-seo';
 import { SidebarCollapse } from 'iconoir-react';
 import AnxietyResources from '../components/anxiety/AnxietyResources.astro';
 import AnxietyStory from '../components/anxiety/AnxietyStory.astro';
@@ -6,7 +7,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import LayoutPageWithSidebar from '../layouts/Layout_Page_With_Sidebar.astro';
 ---
 
-<BaseLayout title='Anxiety Resources - by Neil Hughes - walking on custard'>
+<BaseLayout>
+	<Fragment slot='seo'>
+		<SEO
+			title={'Anxiety Resources - by Neil Hughes - Walking on Custard'}
+		/>
+	</Fragment>
 	<LayoutPageWithSidebar>
 		<div slot='sidebar'>
 			<AnxietyResources />

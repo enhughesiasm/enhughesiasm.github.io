@@ -1,10 +1,14 @@
 ---
+import { SEO } from 'astro-seo';
 import ContactPage from '../components/contact/ContactPage.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LayoutPage from '../layouts/Layout_Page.astro';
 ---
 
-<BaseLayout title='Contact - Neil Hughes - walking on custard'>
+<BaseLayout>
+	<Fragment slot='seo'>
+		<SEO title={'Contact - Neil Hughes - Walking on Custard'} />
+	</Fragment>
 	<LayoutPage>
 		<ContactPage />
 	</LayoutPage>

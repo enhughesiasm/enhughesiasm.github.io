@@ -4,11 +4,15 @@ import Woc from '../../components/books/woc/Woc.astro';
 import wocCover from '../../assets/images/wocCover.jpg';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import LayoutBook from '../../layouts/Layout_Book.astro';
+import { SEO } from 'astro-seo';
 ---
 
-<BaseLayout
-	title='Walking on Custard - The Best Funny Book about Anxiety - walking on custard'
->
+<BaseLayout>
+	<Fragment slot='seo'>
+		<SEO
+			title={'Walking on Custard - The Best Funny Book about Anxiety - Walking on Custard'}
+		/>
+	</Fragment>
 	<LayoutBook
 		key='walking-on-custard'
 		title='Walking on Custard & the Meaning of Life'

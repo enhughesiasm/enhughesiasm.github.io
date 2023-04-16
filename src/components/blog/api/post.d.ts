@@ -7,6 +7,7 @@ export type Post = {
 	slug: string;
 	status: 'publish';
 	link: string;
+	author: string;
 	title: { rendered: string };
 	content: { rendered: string };
 	excerpt: { rendered: string };
@@ -17,7 +18,23 @@ export type Post = {
 	tags: number[];
 	yoast_head_json: {
 		title: string;
+		description: string;
+		canonical: string;
+		og_locale: string;
 		og_description: string;
-		og_image: unknown;
+		og_url: string;
+		og_image: {
+			url: string;
+			width: string;
+			height: string;
+			type: string;
+		};
+		og_site_name: string;
+		article_published_time: string;
+		article_modified_time: string;
+		twitter_misc: {
+			'Written by': string;
+			'Estimated reading time': string;
+		};
 	};
 };

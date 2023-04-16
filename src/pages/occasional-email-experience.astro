@@ -2,9 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LayoutPage from '../layouts/Layout_Page.astro';
 import OccasionalEmailExperience from '../components/occasional-email-experience/OccasionalEmailExperience.astro';
+import { SEO } from 'astro-seo';
 ---
 
-<BaseLayout title='The Occasional Email Experience - walking on custard'>
+<BaseLayout>
+	<Fragment slot='seo'>
+		<SEO title={'The Occasional Email Experience - Walking on Custard'} />
+	</Fragment>
 	<LayoutPage>
 		<OccasionalEmailExperience />
 	</LayoutPage>

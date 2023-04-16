@@ -2,9 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LayoutPage from '../layouts/Layout_Page.astro';
 import Privacy from '../components/privacy/Privacy.astro';
+import { SEO } from 'astro-seo';
 ---
 
-<BaseLayout title='Privacy Policy - walking on custard'>
+<BaseLayout>
+	<Fragment slot='seo'>
+		<SEO title={'Privacy Policy - Walking on Custard'} />
+	</Fragment>
 	<LayoutPage>
 		<Privacy />
 	</LayoutPage>

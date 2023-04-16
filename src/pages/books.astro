@@ -5,9 +5,13 @@ import Book from '../components/books/Book.astro';
 import { BookStack } from 'iconoir-react';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LayoutPage from '../layouts/Layout_Page.astro';
+import { SEO } from 'astro-seo';
 ---
 
-<BaseLayout title='Books by Neil Hughes - walking on custard'>
+<BaseLayout>
+	<Fragment slot='seo'>
+		<SEO title={'Books by Neil Hughes - Walking on Custard'} />
+	</Fragment>
 	<LayoutPage>
 		<div
 			class='rounded-xl bg-yellow-200 py-3 text-center font-serif text-zinc-900'
