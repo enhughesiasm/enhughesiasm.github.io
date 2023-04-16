@@ -21,7 +21,9 @@ export const TraitName: React.FC = () => {
 	}, []);
 
 	return (
-		<span className='font-serif font-bold text-zinc-600 small-caps'>
+		<span
+			suppressHydrationWarning
+			className='font-serif font-bold text-zinc-600 small-caps'>
 			{name}
 		</span>
 	);

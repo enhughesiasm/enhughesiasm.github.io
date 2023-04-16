@@ -41,6 +41,7 @@ export const TwoTruths = () => {
 			<ul className='mt-3 space-y-6'>
 				{selected.map((item, i) => (
 					<li
+						suppressHydrationWarning
 						key={`truths-item-${i}`}
 						className={`cursor-pointer py-2 font-serif text-base font-bold xl:text-lg ${
 							item.clicked && !item.truth
