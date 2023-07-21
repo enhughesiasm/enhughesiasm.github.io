@@ -3,7 +3,7 @@ import { Image } from '@astrojs/image/components';
 import neilHeadshot from '../../../assets/images/neil_hughes_headshot_al.jpg';
 ---
 
-<div class='flex flex-row items-center justify-center rounded pr-0 font-serif'>
+<div transition:name="page-title" class='flex flex-row items-center justify-center rounded pr-0 font-serif'>
 	<Image
 		class='w-[25%] rounded-l-xl hover:animate-spin md:w-[20%] lg:w-[15%] xl:w-[10%]'
 		src={neilHeadshot}

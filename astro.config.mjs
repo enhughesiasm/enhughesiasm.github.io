@@ -24,4 +24,7 @@ export default defineConfig({
 		}),
 		sitemap(),
 	],
+	experimental: { 
+		viewTransitions: true
+	}
 });

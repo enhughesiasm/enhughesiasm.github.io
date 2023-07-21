@@ -21,7 +21,7 @@ const mayBeArticle = Astro.url.pathname.includes('articles') !== true;
 	<Fragment slot='seo'>
 		<SEO title={'404 - Walking on Custard'} />
 	</Fragment>
-	<div class='flex h-full w-full items-center justify-center py-32'>
+	<div transition:name="page-title" class='flex h-full w-full items-center justify-center py-32'>
 		<div class='border-r-8 border-r-zinc-700 px-12 text-6xl'>404</div>
 		<div class='pl-6 text-3xl'>Not Found</div>
 	</div>
