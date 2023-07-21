@@ -14,7 +14,7 @@
 		"@astro-community/astro-embed-youtube": "^0.2.2",
 		"@astrojs/image": "^0.16.6",
 		"@astrojs/react": "^2.1.1",
-		"@astrojs/sitemap": "^1.2.2",
+		"@astrojs/sitemap": "^2.0.1",
 		"@astrojs/tailwind": "^3.1.1",
 		"@fontsource/besley": "^4.5.13",
 		"@fontsource/jost": "^5.0.5",
