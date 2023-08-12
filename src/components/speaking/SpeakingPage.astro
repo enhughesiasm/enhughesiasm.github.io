@@ -83,8 +83,10 @@ import Quote from '../shared/Quote.astro';
 	<div class='m-auto w-1/2 p-3'>
 		<div class='bg-red-200 py-2 text-center'>
 			<YouTube className='inline text-red-500 text-xl' /> I gave a short (14
-			minute) version of this talk at TEDx Leamington Spa:
+			minute) version of this talk at TEDx Leamington Spa.
+			<a class="text-blue-500 hover:text-blue-700" href="https://bit.ly/custardTED">Click here to watch it!</a>
 		</div>
+		
 
 		<YouTubeEmbed id={'bM06o26PCDQ'} />
 		<div class='bg-red-200 pb-2 text-center text-sm'>
@@ -101,10 +103,7 @@ import Quote from '../shared/Quote.astro';
 			>click here to enquire about availability</a
 		>
 	</div>
-	<!-- <h4 class='text-center font-serif text-xl font-bold'>
-		<BubbleStar className='inline mr-4' /> Comments from Businesses, Schools
-		and Audience Members:
-	</h4> -->
+
 	<Quote
 		cite={quotes_highlighted[0].cite}
 		quote={quotes_highlighted[0].quote}
