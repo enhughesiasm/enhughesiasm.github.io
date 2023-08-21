@@ -33,7 +33,7 @@
 		"@fontsource/vt323": "^5.0.5",
 		"@tailwindcss/typography": "^0.5.9",
 		"@types/node": "^20.4.2",
-		"prettier": "^3.0.0",
+		"prettier": "^3.0.2",
 		"prettier-plugin-astro": "^0.11.0",
 		"prettier-plugin-tailwindcss": "^0.4.1",
 		"sass": "^1.64.0",
