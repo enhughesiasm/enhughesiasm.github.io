@@ -16,7 +16,7 @@
 		"@astrojs/react": "^2.2.1",
 		"@astrojs/sitemap": "^2.0.1",
 		"@astrojs/tailwind": "^4.0.0",
-		"@fontsource/besley": "^5.0.5",
+		"@fontsource/besley": "^5.0.12",
 		"@fontsource/jost": "^5.0.5",
 		"@types/react": "^18.2.15",
 		"@types/react-dom": "^18.2.7",
