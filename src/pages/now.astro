@@ -1,0 +1,37 @@
+---
+import { SEO } from "astro-seo";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import LayoutPage from "../layouts/Layout_Page.astro";
+import { Timer } from "iconoir-react";
+
+---
+
+
+<BaseLayout>
+	<Fragment slot='seo'>
+		<SEO title={'The online home of Neil Hughes - Walking on Custard'} />
+	</Fragment>
+	<LayoutPage >
+		<div class="prose">
+		<h2 	transition:name="page-title" class="rounded-xl text-center font-serif bg-yellow-200 text-lg py-3 flex-row justify-center items-center flex gap-x-3">
+			<Timer className="text-3xl"/><div class="text-4xl">NOW</div>
+		</h2>
+		<h2
+	
+			class='rounded-xl py-3 text-center font-serif text-lg font-bold xl:text-3xl'
+		>			
+			Neil is currently working on...
+		</h2>
+		<ul class="mt-6 gap-y-3 ">
+			<li>... (slowly) writing his third book.</li>
+			<li>... solving every Advent of Code problem released since 2015.</li>
+			<li>... speaking about mental health whenever invited.</li>
+			<li>... getting fit.</li>
+			<li>... fixing up his home.</li>
+		</ul>
+		<div class="text-right">
+			<a href="/" class="mt-6 text-blue-500 hover:text-blue-700 underline">Find out more...</a>
+		</div>
+	</div>
+	</LayoutPage>
+</Base>
