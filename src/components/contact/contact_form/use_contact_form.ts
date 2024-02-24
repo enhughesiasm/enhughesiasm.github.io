@@ -32,6 +32,9 @@ export function useContactForm() {
 			isSubmitting: true,
 		});
 
+		if (!window.grecaptcha) {
+			console.error(`NH: grecaptcha not defined.`);
+		}
 		// refresh the recaptcha token as they expire after 2 minutes
 		const token = await window.grecaptcha.execute(
 			clientConfig.recaptchaSiteKey,

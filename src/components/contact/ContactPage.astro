@@ -24,6 +24,6 @@ import { RECAPTCHA_SITE_KEY } from '../../data/definitions';
 
 <ContactFormGate client:load />
 
-<script
+<script is:raw
 	src={`https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`}
 ></script>
