@@ -1,4 +1,4 @@
-export const TED_TALK_VIEWS = 340_000;
+export const TED_TALK_VIEWS = 350_000;
 
 export const WP_API_URL = 'https://wp.enhughesiasm.com/wp-json/wp/v2';
 
