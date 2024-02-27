@@ -16,7 +16,6 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
 	site: 'https://walkingoncustard.com',
 	base: '/',
-	trailingSlash: 'always',
 	integrations: [
 		react(),
 		tailwind(),
