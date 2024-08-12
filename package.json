@@ -13,7 +13,7 @@
 	"dependencies": {
 		"@astro-community/astro-embed-youtube": "^0.4.0",
 		"@astrojs/image": "^0.17.2",
-		"@astrojs/react": "^2.2.1",
+		"@astrojs/react": "^3.6.2",
 		"@astrojs/sitemap": "^2.0.1",
 		"@astrojs/tailwind": "^5.1.0",
 		"@fontsource/besley": "^5.0.20",
