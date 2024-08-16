@@ -1,10 +1,10 @@
 ---
-import type { Post } from '../../components/blog/api/post';
+import type { PostV2 } from '../../components/blog/api/post';
 import LinkToArticle from './LinkToArticle.astro';
 
 export interface Props {
-	nextPost: Post | undefined;
-	lastPost: Post | undefined;
+	nextPost: PostV2 | undefined;
+	lastPost: PostV2 | undefined;
 	className?: string;
 }
 

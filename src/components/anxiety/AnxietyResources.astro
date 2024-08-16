@@ -1,7 +1,7 @@
 ---
 import { Youtube } from 'iconoir-react';
-import { getArticles } from '../blog/api/fetch_articles';
 import AnxietyArticleCard from './AnxietyArticleCard.astro';
+import { getBlogPosts } from '../blog/api/fetch_articles';
 
 const highlightedArticleIds = [
 	'2440', // three causes
@@ -20,7 +20,7 @@ const highlightedArticleIds = [
 	'1818', //my-life-is-not-worth-living/
 ];
 
-const allArticles = await getArticles();
+const allArticles = await getBlogPosts();
 
 const articles = allArticles.filter((a) =>
 	highlightedArticleIds.includes(a.id.toString())

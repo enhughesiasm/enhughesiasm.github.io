@@ -14,7 +14,7 @@ const { tags } = Astro.props;
 			<>
 				{c && c.length > 0 && (
 					<div class='w-min rounded-xl px-2 py-1 text-center text-xs odd:bg-teal-300 even:bg-rose-300'>
-						{c}
+						{c.replaceAll('-', ' ')}
 					</div>
 				)}
 			</>

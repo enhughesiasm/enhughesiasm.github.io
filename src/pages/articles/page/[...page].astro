@@ -1,16 +1,17 @@
 ---
 import { ArrowRightCircle, ArrowLeftCircle } from 'iconoir-react';
 import ArticleCard from '../../../components/blog/ArticleCard.astro';
-import { getArticles } from '../../../components/blog/api/fetch_articles';
-import type { Post } from '../../../components/blog/api/post';
+
+import type { PostV2 } from '../../../components/blog/api/post';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import LayoutPage from '../../../layouts/Layout_Page.astro';
 import { WP_API_POSTS_PER_PAGE } from '../../../data/definitions';
 import { SEO } from 'astro-seo';
 import type { GetStaticPaths } from 'astro';
+import { getBlogPosts } from '../../../components/blog/api/fetch_articles';
 
 export const getStaticPaths = (async ({ paginate }) => {
-	const allPosts = await getArticles();
+	const allPosts = await getBlogPosts();
 
 	const pages = paginate(allPosts, { pageSize: WP_API_POSTS_PER_PAGE });
 
@@ -69,7 +70,7 @@ const { page } = Astro.props;
 		<div
 			class='mt-3 grid grid-cols-2 justify-items-center gap-3 md:mt-12 md:grid-cols-3 md:gap-9 lg:mt-6 xl:grid-cols-3'
 		>
-			{page.data.map((post: Post) => <ArticleCard post={post} />)}
+			{page.data.map((post: PostV2) => <ArticleCard post={post} />)}
 		</div>
 
 		<div class='mt-3 flex w-full justify-evenly py-6 lg:mt-3 lg:text-4xl'>

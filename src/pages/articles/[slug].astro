@@ -2,13 +2,11 @@
 import { SEO } from 'astro-seo';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
-import { getArticles } from '../../components/blog/api/fetch_articles';
-import type { Post } from '../../components/blog/api/post';
+import { getBlogPosts } from '../../components/blog/api/fetch_articles';
+import type { PostV2 } from '../../components/blog/api/post';
 import { friendlyDate } from '../../components/shared/friendly_date';
-import { getMediaById } from '../../components/blog/api/fetch_media';
-import { getCategories } from '../../components/blog/api/fetch_categories';
-import {
-	DEFAULT_WP_MEDIA_ID,
+
+import {	
 	FEATURED_WP_IMAGE_HEIGHT,
 	FEATURED_WP_IMAGE_WIDTH,
 	WP_PUTTYLIKE_TAG_ID,
@@ -16,20 +14,25 @@ import {
 import Categories from '../../components/blog/Categories.astro';
 import LayoutPageWithSidebar from '../../layouts/Layout_Page_With_Sidebar.astro';
 
-import { getTags } from '../../components/blog/api/fetch_tags';
 import Tags from '../../components/blog/Tags.astro';
 import PuttylikeAcknowledgement from '../../components/blog/PuttylikeAcknowledgement.astro';
 import ArticlesSidebar from '../../components/blog/ArticlesSidebar.astro';
 import ArticleFooter from '../../components/blog/ArticleFooter.astro';
 
+import defaultCover from '../../assets/images/default_image.jpg';
+import type { WPCategory } from '../../components/blog/api/category';
+import type { WPTag } from '../../components/blog/api/tag';
+import { getImage } from '../../components/blog/api/get_images';
+import ArticleContent from '../../components/blog/ArticleContent.astro';
+
 const { slug } = Astro.params;
 
 export type Props = {
-	post: Post;
+	post: PostV2;
 };
 
 export async function getStaticPaths() {
-	const posts = await getArticles();
+	const posts = await getBlogPosts();
 
 	return posts.map((post) => ({
 		params: { slug: post.slug },
@@ -38,31 +41,24 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const allPosts = await getArticles();
+const allPosts = await getBlogPosts();
 
 const postIndex = allPosts.findIndex((p) => p.id === post.id);
 
-let nextPost: Post | undefined = undefined;
+let nextPost: PostV2 | undefined = undefined;
 if (postIndex > 0) {
 	nextPost = allPosts[postIndex - 1];
 }
 
-let lastPost: Post | undefined = undefined;
+let lastPost: PostV2 | undefined = undefined;
 if (postIndex < allPosts.length - 1) {
 	lastPost = allPosts[postIndex + 1];
 }
 
-const featured_media = await getMediaById(
-	post.featured_media === 0 ? DEFAULT_WP_MEDIA_ID : post.featured_media
-);
-const categories = (await getCategories()).filter((c) =>
-	post.categories.includes(c.id)
-);
-
-const postTags = (await getTags()).filter((t) => post.tags.includes(t.id));
+const featured_media = await getImage(post.coverImage) ?? defaultCover;
 
 const isPuttylike =
-	postTags.find((t) => t.id === WP_PUTTYLIKE_TAG_ID) !== undefined;
+	post.tags.includes('puttylike');
 ---
 
 <BaseLayout>
@@ -76,22 +72,20 @@ const isPuttylike =
 		<meta name='twitter:label2' content='Estimated reading time' />
 		<meta
 			name='twitter:data2'
-			content={post.yoast_head_json.twitter_misc[
-				'Estimated reading time'
-			] ?? 'Not sure'}
+			content={post.estimatedReadingTime ?? 'Not sure'}
 		/>
 		<SEO
-			title={`${post.title.rendered} - Walking on Custard`}
-			description={post.yoast_head_json.description}
+			title={`${post.title} - Walking on Custard`}
+			description={post.excerpt}
 			openGraph={{
 				basic: {
-					title: post.title.rendered ?? 'MISSING_TITLE',
+					title: post.title ?? 'MISSING_TITLE',
 					type: 'article',
-					image: featured_media?.source_url ?? 'MISSING_URL',
+					image: featured_media.src ?? 'MISSING_URL',
 				},
 				optional: {
 					siteName: 'Walking on Custard',
-					description: post.yoast_head_json.description,
+					description: post.excerpt,
 					locale: 'en_GB',
 				},
 				article: {
@@ -114,12 +108,12 @@ const isPuttylike =
 			<h1
 				transition:name="article-title"
 				class='text-center font-serif text-4xl font-bold leading-relaxed'
-				set:html={post.title.rendered}
+				set:html={post.title}
 			/>
 			<div 
 			transition:name="article-metadata"
 			class='m-0 flex flex-row justify-between p-0'>
-				<Categories categories={categories.map((c) => c.name)} />
+				<Categories categories={post.categories} />
 				<p
 					class='text-xl text-green-950'
 					set:html={friendlyDate(post.date)}
@@ -127,13 +121,13 @@ const isPuttylike =
 			</div>
 
 			{
-				featured_media && featured_media.source_url.length > 0 && (
+				featured_media && (
 					<>
 						<div>
 							<Image
 								transition:name="article-featured-image"
-								src={featured_media.source_url}
-								alt={featured_media.alt_text}
+								src={featured_media}
+								alt={"..."}
 								slot='image'
 								width={FEATURED_WP_IMAGE_WIDTH}
 								height={FEATURED_WP_IMAGE_HEIGHT}
@@ -142,9 +136,7 @@ const isPuttylike =
 							<div 
 							transition:name="article-text"
 							class='py-1 text-center text-xs italic'>
-								<Fragment
-									set:html={featured_media.caption.rendered}
-								/>
+								<!-- a caption could go here -->
 							</div>
 						</div>
 					</>
@@ -152,15 +144,13 @@ const isPuttylike =
 			}
 			<div class='text-right text-sm text-zinc-500'>
 				Estimated reading time: {
-					post.yoast_head_json.twitter_misc[
-						'Estimated reading time'
-					] ?? 'Not sure'
+					post.estimatedReadingTime ?? 'Not sure'
 				}
 			</div>
-			<div class='prose' set:html={post.content.rendered} />
+			<ArticleContent post={post}/>
 			{isPuttylike && <PuttylikeAcknowledgement />}
 			<ArticleFooter />
-			<Tags tags={postTags.map((t) => t.name)} />
+			<Tags tags={post.tags} />
 		</article>
-	</LayoutPageWithSidebar>
+	</LayoutPageWithSidebar> 
 </BaseLayout>

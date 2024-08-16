@@ -1,8 +1,8 @@
 ---
-import { getArticles } from './api/fetch_articles';
+import { getBlogPosts } from './api/fetch_articles';
 import RecentArticleCard from './RecentArticleCard.astro';
 
-const posts = (await getArticles()).slice(0, 4);
+const posts = (await getBlogPosts()).slice(0, 4);
 ---
 
 <div class='hidden space-y-6 md:block'>

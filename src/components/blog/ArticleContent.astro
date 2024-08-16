@@ -1,0 +1,25 @@
+---
+import type { PostV2 } from '../../components/blog/api/post';
+
+export type Props = {
+	post: PostV2;
+};
+
+const { post } = Astro.props;
+
+const posts = await Astro.glob('/src/data/blog/output/post/*.md');
+
+const thisPost = posts.find(p => p.frontmatter.id === post.id);
+
+// console.log(post.id);
+console.log(posts.find(p => p.file.includes('matter'))?.frontmatter)
+
+const { Content } = thisPost ?? {};
+---
+
+<div class="prose">
+{ Content && <Content/> }
+{ Content === undefined && <div>No article content.</div>}
+</div>
+
+

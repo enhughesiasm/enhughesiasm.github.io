@@ -1,8 +1,8 @@
 ---
 import CoolCard from '../shared/CoolCard.astro';
-import type { Post } from './api/post';
-import { getCategories } from './api/fetch_categories';
-import { getMediaById } from './api/fetch_media';
+import type { PostV2 } from './api/post';
+
+
 import {
 	DEFAULT_WP_MEDIA_ID,
 	FEATURED_WP_IMAGE_HEIGHT,
@@ -10,34 +10,30 @@ import {
 } from '../../data/definitions';
 import { Image } from 'astro:assets';
 export type Props = {
-	post: Post;
+	post: PostV2;
 };
-
-const categories = await getCategories();
+import defaultCover from '../../assets/images/default_image.jpg';
+import { getImage } from './api/get_images';
 
 const { post } = Astro.props;
 
-const featured_media = await getMediaById(
-	post.featured_media === 0 ? DEFAULT_WP_MEDIA_ID : post.featured_media
-);
+const featured_media = await getImage(post.coverImage);
 
-const imageUrl =
-	featured_media?.source_url ??
-	'https://www.walkingoncustard.com/wp-content/uploads/2023/03/3800819258_fc453b2126_o.jpg';
-const altText = featured_media?.alt_text ?? '';
-const imageType = featured_media?.mime_type ?? '';
+const imageSrc =
+	featured_media ??
+	defaultCover;
+const altText = "alt"; // featured_media?.alt_text ?? '';
+
 ---
 
 <CoolCard
-	title={post.title.rendered}
-	subtitle={post.excerpt.rendered}
+	title={post.title}
+	subtitle={post.excerpt}
 	slug={`${import.meta.env.BASE_URL}articles/${post.slug}`}
-	tags={post.categories.map(
-		(c) => categories.find((cat) => cat.id === c)?.name ?? ''
-	)}
+	tags={post.categories}
 >
 	<Image
-		src={imageUrl}
+		src={imageSrc}
 		alt={altText}
 		slot='image'
 		width={FEATURED_WP_IMAGE_WIDTH}

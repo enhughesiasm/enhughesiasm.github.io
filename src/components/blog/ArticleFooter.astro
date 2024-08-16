@@ -1,11 +1,13 @@
 ---
+import { Image } from 'astro:assets';
+import headshot from '../../data/blog/output/post/images/headshot.jpg';
 ---
 
 <div
 	class='prose flex flex-row items-center space-x-6 border-t-2 border-t-zinc-300'
 >
-	<img
-		src='https://www.walkingoncustard.com/wp-content/uploads/2019/12/headshot.jpg'
+	<Image
+		src={headshot}
 		alt='Neil Hughes'
 		class='wp-image-3201'
 		width='146'

@@ -1,9 +1,9 @@
 ---
 import { ArrowLeftCircle, ArrowRightCircle } from 'iconoir-react';
-import type { Post } from '../../components/blog/api/post';
+import type { PostV2 } from '../../components/blog/api/post';
 
 export type Props = {
-	post: Post;
+	post: PostV2;
 	icon: 'Right' | 'Left' | 'None';
 };
 const { post, icon } = Astro.props;
@@ -19,5 +19,5 @@ const { post, icon } = Astro.props;
 			icon === 'Left' && <ArrowLeftCircle className='inline  !text-lg' />
 		}</span
 	>
-	<span><Fragment set:html={post?.title.rendered} /></span>
+	<span><Fragment set:html={post?.title} /></span>
 </a>

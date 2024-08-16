@@ -38,3 +38,17 @@ export type Post = {
 		};
 	};
 };
+
+export type PostV2 = {
+	title: string;
+	date: Date;
+	categories: string[];
+	tags: string[];
+	coverImage: string;
+	excerpt: string;
+	id: string;
+	slug: string;
+	content: string;
+	estimatedReadingTime: string;
+	filePath: string;
+};
