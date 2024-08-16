@@ -110,6 +110,10 @@ const isPuttylike =
 				class='text-center font-serif text-4xl font-bold leading-relaxed'
 				set:html={post.title}
 			/>
+			<h2 transition:name="article-excerpt"
+			class="font-serif text-lg leading-relaxed text-gray-600"
+			set:html={post.excerpt}
+			/>
 			<div 
 			transition:name="article-metadata"
 			class='m-0 flex flex-row justify-between p-0'>
@@ -119,7 +123,7 @@ const isPuttylike =
 					set:html={friendlyDate(post.date)}
 				/>
 			</div>
-
+			
 			{
 				featured_media && (
 					<>
