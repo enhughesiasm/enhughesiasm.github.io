@@ -8,7 +8,9 @@ import {
 	FEATURED_WP_IMAGE_HEIGHT,
 	FEATURED_WP_IMAGE_WIDTH,
 } from '../../data/definitions';
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
+
+import defaultImage from '../../assets/images/other/default_image.jpg';
 
 export type Props = {
 	post: Post;
@@ -24,7 +26,7 @@ const featured_media = await getMediaById(
 
 const imageUrl =
 	featured_media?.source_url ??
-	'https://www.walkingoncustard.com/wp-content/uploads/2023/03/3800819258_fc453b2126_o.jpg';
+	"/default_image.jpg";
 const altText = featured_media?.alt_text ?? '';
 const imageType = featured_media?.mime_type ?? '';
 ---

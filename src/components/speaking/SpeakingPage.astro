@@ -1,6 +1,6 @@
 ---
 import { TED_TALK_VIEWS } from '../../data/definitions';
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import otmImage from '../../assets/images/neil_hughes_stage.jpg';
 import ebrdImage from '../../assets/images/speaking/ebrd.jpg';
 import tedImage from '../../assets/images/speaking/ted_speak.jpg';
@@ -8,7 +8,7 @@ import {
 	Heart,
 	MultiBubble,
 	BubbleStar,
-	YouTube,
+	Youtube,
 	Walking,
 } from 'iconoir-react';
 import { YouTube as YouTubeEmbed } from '@astro-community/astro-embed-youtube';
@@ -82,7 +82,7 @@ import Quote from '../shared/Quote.astro';
 
 	<div class='m-auto w-1/2 p-3'>
 		<div class='bg-red-200 py-2 text-center'>
-			<YouTube className='inline text-red-500 text-xl' /> I gave a short (14
+			<Youtube className='inline text-red-500 text-xl' /> I gave a short (14
 			minute) version of this talk at TEDx Leamington Spa.
 			<a class="text-blue-500 hover:text-blue-700" href="https://bit.ly/custardTED">Click here to watch it!</a>
 		</div>

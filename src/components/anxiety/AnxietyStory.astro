@@ -1,8 +1,9 @@
 ---
-import { Image } from '@astrojs/image/components';
-import { Archery, YouTube } from 'iconoir-react';
+import { Image } from 'astro:assets';
+import { Archery, Youtube } from 'iconoir-react';
 
 import { YouTube as YouTubeEmbed } from '@astro-community/astro-embed-youtube';
+
 import wocCover from '../../assets/images/wocCover.jpg';
 ---
 
@@ -59,7 +60,7 @@ import wocCover from '../../assets/images/wocCover.jpg';
 	</div>
 	<div class='p-3 text-center'>
 		<div class='pt-3 text-xl font-bold'>
-			<YouTube className='inline text-red-700 text-4xl' /> Here's me telling
+			<Youtube className='inline text-red-700 text-4xl' /> Here's me telling
 			the story of what I discovered:
 		</div>
 		<div class='pb-6 lg:pl-8 2xl:pl-16'>
@@ -87,6 +88,8 @@ import wocCover from '../../assets/images/wocCover.jpg';
 				src={wocCover}
 				alt='Walking on Custard - Book Cover'
 				class='float-left w-1/4 rounded pr-4'
+				width="600"
+				height="912"
 			/></a
 		>
 		<div class='space-y-3 md:space-y-6'>

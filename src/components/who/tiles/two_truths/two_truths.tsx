@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { truths } from '../../../../data/truths/truths';
 import lies from '../../../../data/truths/lies.json';
 import { Refresh } from 'iconoir-react';
@@ -58,6 +58,7 @@ export const TwoTruths = () => {
 							if (newItem) {
 								newItem.clicked = true;
 							}
+
 							setSelected(newSelected);
 						}}>
 						{item.text}

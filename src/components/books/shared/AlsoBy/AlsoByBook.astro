@@ -1,6 +1,6 @@
 ---
 import type { BookPage } from '../../books';
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 export type Props = BookPage;
 
 const { key, title, coverImg, linkUrl } = Astro.props;

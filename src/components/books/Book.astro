@@ -7,7 +7,7 @@ export interface Props {
 	sampleUrl?: string;
 	buttonText: string;
 }
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 const { coverImg, linkUrl, title, blurb, sampleUrl, buttonText } = Astro.props;
 ---
 

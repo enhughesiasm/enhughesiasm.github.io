@@ -1,5 +1,5 @@
 ---
-import { LeftRoundArrow, RightRoundArrow } from 'iconoir-react';
+import { ArrowRightCircle, ArrowLeftCircle } from 'iconoir-react';
 import ArticleCard from '../../../components/blog/ArticleCard.astro';
 import { getArticles } from '../../../components/blog/api/fetch_articles';
 import type { Post } from '../../../components/blog/api/post';
@@ -8,7 +8,7 @@ import LayoutPage from '../../../layouts/Layout_Page.astro';
 import { WP_API_POSTS_PER_PAGE } from '../../../data/definitions';
 import { SEO } from 'astro-seo';
 
-export async function getStaticPaths({ paginate }: { paginate: Function }) {
+export async function getStaticPaths({ paginate }) {
 	const allPosts = await getArticles();
 
 	const pages = paginate(allPosts, { pageSize: WP_API_POSTS_PER_PAGE });
@@ -47,7 +47,7 @@ const { page } = Astro.props;
 						href={`${import.meta.env.BASE_URL.slice(0, -1)}${
 							page.url.prev
 						}`}>
-						<LeftRoundArrow />
+						<ArrowLeftCircle />
 					</a>
 				)
 			}
@@ -59,7 +59,7 @@ const { page } = Astro.props;
 						href={`${import.meta.env.BASE_URL.slice(0, -1)}${
 							page.url.next
 						}`}>
-						<RightRoundArrow />
+						<ArrowRightCircle />
 					</a>
 				)
 			}
@@ -80,7 +80,7 @@ const { page } = Astro.props;
 							href={`${import.meta.env.BASE_URL.slice(0, -1)}${
 								page.url.prev
 							}`}>
-							<LeftRoundArrow />
+							<ArrowLeftCircle />
 						</a>
 					)
 				}
@@ -92,7 +92,7 @@ const { page } = Astro.props;
 							href={`${import.meta.env.BASE_URL.slice(0, -1)}${
 								page.url.next
 							}`}>
-							<RightRoundArrow />
+							<ArrowRightCircle />
 						</a>
 					)
 				}

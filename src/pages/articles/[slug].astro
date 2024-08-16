@@ -1,7 +1,7 @@
 ---
 import { SEO } from 'astro-seo';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import { getArticles } from '../../components/blog/api/fetch_articles';
 import type { Post } from '../../components/blog/api/post';
 import { friendlyDate } from '../../components/shared/friendly_date';

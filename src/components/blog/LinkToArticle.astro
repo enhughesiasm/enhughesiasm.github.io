@@ -1,5 +1,5 @@
 ---
-import { LeftRoundArrow, RightRoundArrow } from 'iconoir-react';
+import { ArrowLeftCircle, ArrowRightCircle } from 'iconoir-react';
 import type { Post } from '../../components/blog/api/post';
 
 export type Props = {
@@ -14,9 +14,9 @@ const { post, icon } = Astro.props;
 	href={`${import.meta.env.BASE_URL}articles/${post?.slug}`}
 >
 	<span
-		>{icon === 'Right' && <RightRoundArrow className='inline !text-lg' />}
+		>{icon === 'Right' && <ArrowRightCircle className='inline !text-lg' />}
 		{
-			icon === 'Left' && <LeftRoundArrow className='inline  !text-lg' />
+			icon === 'Left' && <ArrowLeftCircle className='inline  !text-lg' />
 		}</span
 	>
 	<span><Fragment set:html={post?.title.rendered} /></span>

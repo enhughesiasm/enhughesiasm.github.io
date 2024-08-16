@@ -7,7 +7,7 @@ import {
 	Menu,
 	MultiplePages,
 	PeopleTag,
-	ShopAlt,
+	ShopFourTiles,
 	Treadmill,
 	XboxX,
 } from 'iconoir-react';
@@ -68,7 +68,7 @@ export const MobileNav: React.FC = () => {
 							link={`${
 								import.meta.env.BASE_URL
 							}books/shop-before-life`}>
-							<ShopAlt />
+							<ShopFourTiles />
 						</MobileNavItem>
 						<MobileNavItem
 							text='games'

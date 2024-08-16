@@ -12,6 +12,9 @@ export const CurrentWorry = () => {
 		setWorry(worries[Math.floor(Math.random() * worries.length)]);
 	}, []);
 
+	// const level = worryLevels[Math.floor(Math.random() * worryLevels.length)];
+	// const worry = worries[Math.floor(Math.random() * worries.length)];
+
 	return (
 		<Suspense
 			fallback={
