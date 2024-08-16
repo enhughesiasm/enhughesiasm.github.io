@@ -7,17 +7,18 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import LayoutPage from '../../../layouts/Layout_Page.astro';
 import { WP_API_POSTS_PER_PAGE } from '../../../data/definitions';
 import { SEO } from 'astro-seo';
+import type { GetStaticPaths } from 'astro';
 
-export async function getStaticPaths({ paginate }) {
+export const getStaticPaths = (async ({ paginate }) => {
 	const allPosts = await getArticles();
 
 	const pages = paginate(allPosts, { pageSize: WP_API_POSTS_PER_PAGE });
 
 	// pages[0] has page "undefined" instead of 1. Let's make it work for page 1 for either undefined or 1
-	pages.push({ ...pages[0], params: { page: 1 } });
+	pages.push({ ...pages[0], params: { page: "1" } });
 
 	return pages;
-}
+}) satisfies GetStaticPaths;
 
 const { page } = Astro.props;
 ---

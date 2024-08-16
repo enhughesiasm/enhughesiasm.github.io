@@ -19,7 +19,7 @@ const choose = <T,>(arr: T[], number: number) => {
 
 const getSelectedTruths = () => {
 	const selectedTruths = choose(truths, 2);
-	const selectedLie = choose(lies, 1);
+	const selectedLie = choose(lies, 1) as string[];
 
 	return selectedTruths
 		.map((t) => {
