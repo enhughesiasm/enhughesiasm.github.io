@@ -11,9 +11,6 @@ const posts = await Astro.glob('/src/data/blog/output/post/*.md');
 
 const thisPost = posts.find(p => p.frontmatter.id === post.id);
 
-// console.log(post.id);
-console.log(posts.find(p => p.file.includes('matter'))?.frontmatter)
-
 const { Content } = thisPost ?? {};
 ---
 

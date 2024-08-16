@@ -10,9 +10,9 @@ export const getImage = async (
 	imageFileName: string
 ): Promise<ImageMetadata | null> => {
 	if (!allBlogImages[`${BLOG_IMAGE_BASE_URL}${imageFileName}`]) {
-		console.error(
-			`"${BLOG_IMAGE_BASE_URL}${imageFileName}" does not exist in glob: "${BLOG_IMAGE_BASE_URL}*.{jpeg,jpg,png,gif}"`
-		);
+		// console.error(
+		// 	`"${BLOG_IMAGE_BASE_URL}${imageFileName}" does not exist in glob: "${BLOG_IMAGE_BASE_URL}*.{jpeg,jpg,png,gif}"`
+		// );
 		return null;
 	}
 
