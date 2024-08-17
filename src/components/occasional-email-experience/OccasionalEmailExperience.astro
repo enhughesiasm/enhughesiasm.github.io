@@ -5,6 +5,7 @@ import yayImg from '../../assets/images/mailing-list-yay.png';
 import Quote from '../shared/Quote.astro';
 
 import { MailchimpSignup } from './signup/MailchimpSignup';
+import LinkButton from '../shared/LinkButton.astro';
 ---
 
 <div class='space-y-3 md:space-y-3'>
@@ -85,7 +86,9 @@ import { MailchimpSignup } from './signup/MailchimpSignup';
 		/>
 	</div>
 
-	<MailchimpSignup client:load />
+	<div class="flex justify-center py-6 group">
+		<LinkButton className='text-4xl'  url='http://eepurl.com/gB3e8P' text="Click here to sign up!"/>
+	</div>
 
 	<div class='space-y-3 bg-violet-100 px-12 py-3 md:space-y-6'>
 		<ul class='space-y-3 px-12'>

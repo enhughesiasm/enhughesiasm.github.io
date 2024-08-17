@@ -2,14 +2,15 @@
 export interface Props {
 	url: string;
 	text: string;
+	className?: string;
 }
 
-const { url, text } = Astro.props;
+const { url, text, className } = Astro.props;
 ---
 
 <a href={url}>
 	<button
-		class='rounded-full bg-green-700 px-4 py-2 font-bold text-white hover:!bg-green-500 group-hover:animate-bounce-once group-hover:bg-green-700 group-hover:text-white xl:bg-stone-200 xl:text-slate-500'
+		class={`rounded-full bg-green-700 px-4 py-2 font-bold text-white hover:!bg-green-500 group-hover:animate-bounce-once group-hover:bg-green-700 group-hover:text-white xl:bg-green-300 xl:text-slate-600  ${className}` }
 		>{text}</button
 	>
 </a>
