@@ -4,7 +4,7 @@ import '@fontsource/besley';
 import '@fontsource/vt323';
 
 import '../assets/styles/base_styles.scss';
-import ViewTransitions from 'astro/components/ViewTransitions.astro';
+import { ClientRouter } from 'astro:transitions';
 ---
 
 <!DOCTYPE html>
@@ -39,7 +39,7 @@ import ViewTransitions from 'astro/components/ViewTransitions.astro';
 		/>
 		<meta name='generator' content={Astro.generator} />
 		<slot name='seo' />
-		<ViewTransitions/>
+		<ClientRouter/>
 	</head>
 	<body class='flex min-h-screen flex-col bg-slate-100'>
 		<slot />
