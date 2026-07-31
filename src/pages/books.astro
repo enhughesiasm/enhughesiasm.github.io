@@ -13,31 +13,33 @@ import { SEO } from 'astro-seo';
 		<SEO title={'Books by Neil Hughes - Walking on Custard'} />
 	</Fragment>
 	<LayoutPage>
-		<div
+		<header
 			transition:name="page-title"
-			class="rounded-xl bg-yellow-200 py-3 text-center font-serif text-zinc-900"
+			class="rounded-2xl bg-yellow-200 px-6 py-8 text-center font-serif text-zinc-900"
 		>
 			<div class="inline-flex items-center text-3xl font-bold">
 				<BookStack className="inline" /> Books
 			</div>
 			<div class="text-zinc-700">by Neil Hughes</div>
-		</div>
-		<Book
-			coverImg={wocCover}
-			linkUrl={`${import.meta.env.BASE_URL}books/walking-on-custard`}
-			title="Walking on Custard"
-			blurb="a funny guide to life with anxiety"
-			sampleUrl="https://gallery.mailchimp.com/f16d438b230e1f3c54ecd5adc/files/Walking_on_Custard_the_Meaning_of_Life_Sample_01.pdf"
-			buttonText="find out how custard helps with anxiety"
-		/>
+		</header>
+		<div class="mt-8 space-y-6">
+			<Book
+				coverImg={wocCover}
+				linkUrl={`${import.meta.env.BASE_URL}books/walking-on-custard`}
+				title="Walking on Custard"
+				blurb="a funny guide to life with anxiety"
+				sampleUrl="https://gallery.mailchimp.com/f16d438b230e1f3c54ecd5adc/files/Walking_on_Custard_the_Meaning_of_Life_Sample_01.pdf"
+				buttonText="find out how custard helps with anxiety"
+			/>
 
-		<Book
-			coverImg={sblCover}
-			title="The Shop Before Life"
-			linkUrl={`${import.meta.env.BASE_URL}books/shop-before-life`}
-			blurb="before being born, each person must choose who to become"
-			sampleUrl="https://gallery.mailchimp.com/f16d438b230e1f3c54ecd5adc/files/a6f251c6-b056-4ed4-96bc-51be718be470/Shop_Before_Life_Sample.pdf"
-			buttonText="explore the Shop Before Life"
-		/>
+			<Book
+				coverImg={sblCover}
+				title="The Shop Before Life"
+				linkUrl={`${import.meta.env.BASE_URL}books/shop-before-life`}
+				blurb="before being born, each person must choose who to become"
+				sampleUrl="https://gallery.mailchimp.com/f16d438b230e1f3c54ecd5adc/files/a6f251c6-b056-4ed4-96bc-51be718be470/Shop_Before_Life_Sample.pdf"
+				buttonText="explore the Shop Before Life"
+			/>
+		</div>
 	</LayoutPage>
 </BaseLayout>

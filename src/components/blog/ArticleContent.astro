@@ -21,7 +21,9 @@ const thisPost = posts.find(
 const { Content } = thisPost ?? {};
 ---
 
-<div class="prose">
+<div
+	class="prose max-w-none prose-zinc prose-a:text-teal-700 prose-a:decoration-teal-300 hover:prose-a:text-teal-900 prose-blockquote:border-teal-600"
+>
 	{Content && <Content />}
 	{Content === undefined && <div>No article content.</div>}
 </div>

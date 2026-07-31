@@ -4,46 +4,48 @@ let currentYear = new Date().getFullYear();
 const isProd = import.meta.env.PROD;
 ---
 
-<div
-	class="mt-12 flex flex-col items-center space-y-3 bg-yellow-200 pt-6 pb-3 text-zinc-950"
->
-	<div class="">
-		&copy; Neil Hughes 2019
-		{currentYear !== 2019 ? '— ' + currentYear : ''}
-	</div>
-	<div class="inline-flex flex-row items-center justify-center space-x-6">
-		<a
-			target="_blank"
-			rel="noopener noreferrer"
-			href="https://www.buymeacoffee.com/enhughesiasm"
-		>
-			<button
-				class="inline-flex flex-row items-center rounded bg-zinc-700 px-4 py-2 font-bold text-yellow-500 hover:bg-zinc-600"
+<footer class="mt-16 bg-yellow-200 text-zinc-950">
+	<div
+		class="site-shell flex flex-col items-center gap-5 py-8 text-center sm:flex-row sm:justify-between sm:text-left"
+	>
+		<div class="">
+			&copy; Neil Hughes 2019
+			{currentYear !== 2019 ? '— ' + currentYear : ''}
+		</div>
+		<div class="inline-flex flex-row items-center justify-center">
+			<a
+				target="_blank"
+				rel="noopener noreferrer"
+				href="https://www.buymeacoffee.com/enhughesiasm"
 			>
-				<img
-					style={{ width: '18px' }}
-					src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg"
-					alt="Buy me a coffee"
-				/>
-				<span style={{ marginLeft: '12px', fontSize: '17px' }}>
-					Buy me a coffee
+				<span
+					class="inline-flex min-h-11 flex-row items-center rounded-full bg-zinc-800 px-4 py-2 font-bold text-yellow-400 hover:bg-zinc-700"
+				>
+					<img
+						style={{ width: '18px' }}
+						src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg"
+						alt="Buy me a coffee"
+					/>
+					<span style={{ marginLeft: '12px', fontSize: '17px' }}>
+						Buy me a coffee
+					</span>
 				</span>
-			</button>
-		</a>
-	</div>
-	<div class="mt-1 space-x-12">
-		<a
-			href={`${import.meta.env.BASE_URL}contact`}
-			class="hover:font-bold hover:text-zinc-600"
-		>
-			contact</a
-		>
-		<a
-			href={`${import.meta.env.BASE_URL}privacy`}
-			class="hover:font-bold hover:text-zinc-600"
-		>
-			privacy</a
-		>
+			</a>
+		</div>
+		<nav aria-label="Footer navigation" class="space-x-8">
+			<a
+				href={`${import.meta.env.BASE_URL}contact`}
+				class="underline decoration-zinc-400 hover:text-zinc-600"
+			>
+				contact</a
+			>
+			<a
+				href={`${import.meta.env.BASE_URL}privacy`}
+				class="underline decoration-zinc-400 hover:text-zinc-600"
+			>
+				privacy</a
+			>
+		</nav>
 	</div>
 	{
 		isProd && (
@@ -63,4 +65,4 @@ const isProd = import.meta.env.PROD;
 			/>
 		)
 	}
-</div>
+</footer>

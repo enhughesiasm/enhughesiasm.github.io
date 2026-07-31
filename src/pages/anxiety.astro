@@ -1,19 +1,37 @@
 ---
 import { SEO } from 'astro-seo';
+import { Archery } from 'iconoir-react';
 import AnxietyResources from '../components/anxiety/AnxietyResources.astro';
 import AnxietyStory from '../components/anxiety/AnxietyStory.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import LayoutPageWithSidebar from '../layouts/Layout_Page_With_Sidebar.astro';
 ---
 
 <BaseLayout>
 	<Fragment slot="seo">
 		<SEO title={'Anxiety Resources - by Neil Hughes - Walking on Custard'} />
 	</Fragment>
-	<LayoutPageWithSidebar>
-		<div slot="sidebar">
-			<AnxietyResources />
+	<div class="site-shell mt-10 md:mt-16">
+		<header
+			class="mx-auto mb-10 max-w-4xl rounded-2xl bg-red-200 px-6 py-8 text-center"
+		>
+			<h1
+				class="font-serif text-3xl leading-tight font-bold text-zinc-900 md:text-4xl"
+			>
+				Things I learned while worrying about everything
+			</h1>
+		</header>
+		<div class="mx-auto max-w-3xl"><AnxietyStory /></div>
+		<div class="mt-16"><AnxietyResources /></div>
+		<div class="mx-auto mt-10 max-w-3xl rounded-2xl bg-zinc-200 px-6 py-6">
+			<p>
+				<Archery className="inline text-red-500" />
+				I'm available to give funny & helpful talks about anxiety—online and in person.
+			</p>
+			<div class="mt-4 text-right">
+				<a href={`${import.meta.env.BASE_URL}speaking`} class="button-link">
+					need an entertaining speaker on mental health?
+				</a>
+			</div>
 		</div>
-		<AnxietyStory />
-	</LayoutPageWithSidebar>
+	</div>
 </BaseLayout>

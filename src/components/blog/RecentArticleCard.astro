@@ -18,7 +18,7 @@ const { post } = Astro.props;
 const featured_media = await getImage(post.coverImage);
 
 const imageSrc = featured_media ?? defaultCover;
-const altText = 'alt'; // featured_media?.alt_text ?? '';
+const altText = `Featured image for ${post.title.replace(/<[^>]*>/g, '')}`;
 ---
 
 <CoolCard

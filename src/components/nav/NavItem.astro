@@ -2,11 +2,12 @@
 interface Props {
 	text: string;
 	link: string;
+	className?: string;
 }
 
 import { Pacman } from 'iconoir-react';
 
-const { link, text } = Astro.props;
+const { link, text, className = '' } = Astro.props;
 
 const { url } = Astro;
 
@@ -16,24 +17,26 @@ const isActive =
 	(link !== import.meta.env.BASE_URL && url.pathname.startsWith(link));
 ---
 
-<li
-	class={`group relative cursor-pointer h-full flex items-center justify-center hover:bg-gradient-to-tr hover:from-zinc-800 hover:to-zinc-500 hover:text-yellow-400  hover:border-yellow-400 hover:border-b-8
-	${isActive ? 'border-b-4 xl:border-b-8 pt-2 border-rose-500' : ''}`}
->
+<li class={`group relative flex h-full items-stretch ${className}`}>
 	<a
-		class="flex h-full w-full flex-grow items-center space-x-1 px-2 text-sm group-hover:animate-text-bounce-once lg:space-x-3 lg:px-6 lg:text-base xl:text-lg"
+		aria-current={isActive ? 'page' : undefined}
+		class={`flex items-center gap-2 border-b-4 px-3 text-sm no-underline transition-colors lg:px-4 lg:text-base ${isActive ? 'border-yellow-400 bg-zinc-900 text-yellow-300' : 'border-transparent text-zinc-100 hover:border-zinc-600 hover:bg-zinc-900 hover:text-yellow-300'}`}
 		href={link}
 	>
-		<span class="hidden xl:inline">
-			<span class={`group-hover:hidden ${isActive ? 'text-yellow-500' : ''}`}
+		<span
+			class="hidden h-5 w-5 shrink-0 place-items-center xl:grid [&_svg]:h-5 [&_svg]:w-5 [&>*]:col-start-1 [&>*]:row-start-1"
+		>
+			<span class="grid place-items-center group-hover:invisible"
 				><slot name="icon" /></span
 			>
-			<Pacman className="hidden text-green-500 group-hover:inline" />
+			<Pacman
+				className="invisible h-5 w-5 text-yellow-400 group-hover:visible"
+			/>
 		</span>
-		<span class={`${isActive ? 'text-emerald-300' : ''}`}>{text}</span></a
+		<span>{text}</span></a
 	>
 	<ul
-		class="absolute top-[100%] hidden h-auto border-t-8 border-t-yellow-400 group-hover:block"
+		class="absolute top-full left-0 z-20 hidden h-auto border-t-4 border-t-yellow-400 group-focus-within:block group-hover:block"
 	>
 		<slot name="dropdown-items" />
 	</ul>

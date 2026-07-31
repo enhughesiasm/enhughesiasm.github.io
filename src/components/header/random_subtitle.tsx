@@ -1,5 +1,4 @@
-import { OnePointCircle } from 'iconoir-react';
-import { Suspense, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const subtitles = [
 	'where disappointment gets disappointed',
@@ -22,21 +21,5 @@ export const RandomSubtitle: React.FC = () => {
 		setSubtitle(subtitles[Math.floor(Math.random() * subtitles.length)]);
 	}, []);
 
-	return (
-		<Suspense
-			fallback={
-				<span>
-					<OnePointCircle className="inline animate-spin" />
-				</span>
-			}
-		>
-			<div className="animate-fade-once">
-				{subtitle ?? (
-					<span>
-						<OnePointCircle className="inline animate-spin" />
-					</span>
-				)}
-			</div>
-		</Suspense>
-	);
+	return <div>{subtitle ?? 'silly things about serious things'}</div>;
 };

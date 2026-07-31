@@ -4,7 +4,9 @@ import jar from '../../../assets/images/sbl/jar_transparent.png';
 import { TraitName } from './TraitName';
 ---
 
-<div>
-	<Image src={jar} alt="a magical jar" width={25} class="inline-block" />
+<div
+	class="grid h-20 min-w-0 grid-cols-[2rem_minmax(0,1fr)] items-center gap-3 rounded-xl bg-white/45 px-3 py-2"
+>
+	<Image src={jar} alt="a magical jar" width={25} class="mx-auto block" />
 	<TraitName client:idle />
 </div>

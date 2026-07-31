@@ -11,8 +11,8 @@ import { Image } from 'astro:assets';
 const { coverImg, linkUrl, title, blurb, sampleUrl, buttonText } = Astro.props;
 ---
 
-<div
-	class={`group/book flex rounded-3xl bg-amber-100 shadow-xl mt-6 justify-center items-center pr-6 lg:pr-12`}
+<article
+	class="mt-6 flex items-center justify-center overflow-hidden rounded-2xl bg-amber-100 pr-4 shadow-sm ring-1 ring-amber-200 sm:pr-6 lg:pr-10"
 >
 	{
 		coverImg && (
@@ -24,28 +24,22 @@ const { coverImg, linkUrl, title, blurb, sampleUrl, buttonText } = Astro.props;
 		)
 	}
 	<div class="flex flex-grow flex-col px-6 py-3">
-		<h3
-			class={`hidden 2xl:block space-x-3 font-serif text-3xl font-bold group-hover/book:text-green-800`}
-		>
-			<a href={linkUrl}>{title}</a>
+		<h3 class="font-serif text-xl leading-tight font-bold sm:text-2xl">
+			<a class="hover:text-teal-800" href={linkUrl}>{title}</a>
 		</h3>
 		<p class="py-3">{blurb}</p>
-		<div class="hidden space-y-2 text-right xl:flex xl:flex-col">
-			<a href={linkUrl}>
-				<button
-					class="rounded-full bg-red-100 px-4 py-2 text-slate-700 group-hover/book:animate-bounce-once group-hover/book:bg-green-700 group-hover/book:text-white hover:!bg-green-500"
-					>{buttonText}</button
-				></a
-			>
+		<div class="flex flex-wrap justify-end gap-2">
+			<a href={linkUrl} class="button-link">{buttonText}</a>
 			{
 				sampleUrl && (
-					<a href={sampleUrl}>
-						<button class="rounded-full bg-red-100 px-4 py-2 text-slate-700 group-hover/book:animate-bounce-once group-hover/book:bg-green-400 group-hover/book:text-white hover:!bg-green-300">
-							read a sample
-						</button>
+					<a
+						href={sampleUrl}
+						class="button-link !bg-white !text-teal-900 ring-1 ring-teal-700 hover:!bg-teal-50"
+					>
+						read a sample
 					</a>
 				)
 			}
 		</div>
 	</div>
-</div>
+</article>
