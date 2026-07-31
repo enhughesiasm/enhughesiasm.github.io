@@ -10,7 +10,7 @@ export const TraitName: React.FC = () => {
 	useEffect(() => {
 		const updateEvery = Math.max(
 			MIN_DISPLAY_TIME,
-			MAX_DISPLAY_TIME * Math.random()
+			MAX_DISPLAY_TIME * Math.random(),
 		);
 		const refresh = () => {
 			setName(getTraitName().toLowerCase());
@@ -23,7 +23,8 @@ export const TraitName: React.FC = () => {
 	return (
 		<span
 			suppressHydrationWarning
-			className='font-serif font-bold text-zinc-600 small-caps'>
+			className="font-serif font-bold text-zinc-600 small-caps"
+		>
 			{name}
 		</span>
 	);

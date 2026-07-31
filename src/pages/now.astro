@@ -1,40 +1,41 @@
 ---
-import { SEO } from "astro-seo";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import LayoutPage from "../layouts/Layout_Page.astro";
-import { Timer } from "iconoir-react";
-
+import { SEO } from 'astro-seo';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LayoutPage from '../layouts/Layout_Page.astro';
+import { Timer } from 'iconoir-react';
 ---
 
-
 <BaseLayout>
-	<Fragment slot='seo'>
+	<Fragment slot="seo">
 		<SEO title={'The online home of Neil Hughes - Walking on Custard'} />
 	</Fragment>
-	<LayoutPage >
+	<LayoutPage>
 		<div class="prose">
-		<h2 	transition:name="page-title" class="rounded-xl text-center font-serif bg-yellow-200 text-lg py-3 flex-row justify-center items-center flex gap-x-3">
-			<Timer className="text-3xl"/><div class="text-4xl">NOW</div>
-		</h2>
-		<h2
-	
-			class='rounded-xl py-3 text-center font-serif text-lg font-bold xl:text-3xl'
-		>			
-			Neil is currently...
-		</h2>
-		<ul class="mt-6 gap-y-3 list-none">						
-			<li>... getting back into writing music.</li>
-			<li>... (slowly) writing his third book.</li>
-			<li>... getting fit (or less unfit, anyway).</li>			
-			<li>... speaking about mental health whenever invited.</li>			
-		</ul>
-		<div class="text-right">
-			<a href="/" class="mt-6 rounded-xl bg-blue-500 text-white px-3 py-2 hover:bg-blue-700 no-underline">Find out more...</a>
+			<h2
+				transition:name="page-title"
+				class="flex flex-row items-center justify-center gap-x-3 rounded-xl bg-yellow-200 py-3 text-center font-serif text-lg"
+			>
+				<Timer className="text-3xl" /><div class="text-4xl">NOW</div>
+			</h2>
+			<h2
+				class="rounded-xl py-3 text-center font-serif text-lg font-bold xl:text-3xl"
+			>
+				Neil is currently...
+			</h2>
+			<ul class="mt-6 list-none gap-y-3">
+				<li>... getting back into writing music.</li>
+				<li>... (slowly) writing his third book.</li>
+				<li>... getting fit (or less unfit, anyway).</li>
+				<li>... speaking about mental health whenever invited.</li>
+			</ul>
+			<div class="text-right">
+				<a
+					href="/"
+					class="mt-6 rounded-xl bg-blue-500 px-3 py-2 text-white no-underline hover:bg-blue-700"
+					>Find out more...</a
+				>
+			</div>
+			<div class="mt-12 text-right text-gray-400">(Last Updated: Oct 2025)</div>
 		</div>
-		<div class="text-gray-400 text-right mt-12"
-	>
-			(Last Updated: Oct 2025)
-		</div>
-	</div>
 	</LayoutPage>
-</Base>
+</BaseLayout>

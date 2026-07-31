@@ -7,20 +7,20 @@ import { LightBulbOn } from 'iconoir-react';
 import LinkButton from '../../shared/LinkButton.astro';
 ---
 
-<div class='space-y-1 pb-3 xl:space-y-3 xl:pb-6'>
+<div class="space-y-1 pb-3 xl:space-y-3 xl:pb-6">
 	<p
-		class='rounded bg-emerald-100 px-6 py-2 text-center group-hover:bg-transparent'
+		class="rounded bg-emerald-100 px-6 py-2 text-center group-hover:bg-transparent"
 	>
-		<LightBulbOn className='inline text-emerald-600' />
-		Almost <span class='text-base lg:text-lg 2xl:text-xl'
+		<LightBulbOn className="inline text-emerald-600" />
+		Almost <span class="text-base lg:text-lg 2xl:text-xl"
 			>{TED_TALK_VIEWS.toLocaleString()} people</span
 		>
 		have watched Neil's
 		<a
-			href='https://bit.ly/custardTED'
-			target='_blank'
-			rel='noopener noreferrer'
-			class="text-blue-500 hover:text-blue-700 underline"			
+			href="https://bit.ly/custardTED"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="text-blue-500 underline hover:text-blue-700"
 		>
 			surprisingly good talk</a
 		>
@@ -29,31 +29,31 @@ import LinkButton from '../../shared/LinkButton.astro';
 
 	<div>
 		<a
-			href='https://bit.ly/custardTED'
-			target='_blank'
-			rel='noopener noreferrer'
+			href="https://bit.ly/custardTED"
+			target="_blank"
+			rel="noopener noreferrer"
 		>
 			<Image
 				src={tedSpeak}
-				alt='Neil Hughes, TEDx Leamington Spa'
-				class='group-hover:scale-[1.05]'
+				alt="Neil Hughes, TEDx Leamington Spa"
+				class="group-hover:scale-[1.05]"
 			/>
 		</a>
 	</div>
 
-	<p class='px-6 py-2 text-center'>
+	<p class="px-6 py-2 text-center">
 		Neil speaks entertainingly on many topics, from <span
-			class='text-base font-bold text-blue-500 lg:text-lg 2xl:text-xl'
+			class="text-base font-bold text-blue-500 lg:text-lg 2xl:text-xl"
 			>mental health</span
 		> to <span
-			class='text-base font-bold text-purple-500 lg:text-lg 2xl:text-xl'
+			class="text-base font-bold text-purple-500 lg:text-lg 2xl:text-xl"
 			>building a satisfying career</span
 		>, and at events of all sizes, both in-person and online.
 	</p>
 
-	<p class='text-right'>
+	<p class="text-right">
 		<LinkButton
-			text='watch Neil talk about custard'
+			text="watch Neil talk about custard"
 			url={`${import.meta.env.BASE_URL}speaking`}
 		/>
 	</p>

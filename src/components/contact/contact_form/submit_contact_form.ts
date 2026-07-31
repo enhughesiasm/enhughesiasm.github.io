@@ -1,10 +1,10 @@
 import clientConfig from '../../../config/client_config';
-import { JSON_to_URLEncoded } from '../../occasional-email-experience/signup/signup_utils';
+import { JSON_to_URLEncoded } from './contact_form_utils';
 import type { ContactFormState } from './use_contact_form';
 
 export async function submitContactForm(
 	inputs: ContactFormState,
-	recaptchaToken: string
+	recaptchaToken: string,
 ): Promise<{ result: 'SUCCESS' | 'FAILED'; message: string }> {
 	const url = `${clientConfig.nodeProtocol}://${clientConfig.nodeServer}:${clientConfig.nodePort}/api/submit-contact-form`;
 
@@ -40,7 +40,7 @@ export async function submitContactForm(
 				};
 			}
 		}
-	} catch (err) {
+	} catch {
 		return { result: 'FAILED', message: 'Could not reach server.' };
 	}
 }

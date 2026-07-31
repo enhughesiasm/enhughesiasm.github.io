@@ -6,19 +6,16 @@ export type Props = {
 };
 
 const { categories } = Astro.props;
-
-
-
 ---
 
 <div
-	class='hidden flex-row flex-wrap items-center justify-center space-x-1 space-y-1 lg:flex'
+	class="hidden flex-row flex-wrap items-center justify-center space-y-1 space-x-1 lg:flex"
 >
 	{
 		categories?.map((c) => (
 			<>
 				{c && c.length > 0 && (
-					<div class='w-min rounded-xl px-2 py-1 text-center text-xs odd:bg-amber-300 even:bg-blue-300'>
+					<div class="w-min rounded-xl px-2 py-1 text-center text-xs odd:bg-amber-300 even:bg-blue-300">
 						{toTitleCase(c)}
 					</div>
 				)}

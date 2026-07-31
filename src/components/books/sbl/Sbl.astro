@@ -3,8 +3,10 @@ import BookPageTitle from '../shared/BookPageTitle.astro';
 import sblCover from '../../../assets/images/sblCover.jpg';
 import { Image } from 'astro:assets';
 import { GlassEmpty, GlassHalf, Heart } from 'iconoir-react';
-import Quote, { QuoteData } from '../../shared/Quote.astro';
-import BookPurchase, { PurchaseLink } from '../shared/BookPurchase.astro';
+import Quote from '../../shared/Quote.astro';
+import type { QuoteData } from '../../shared/Quote.astro';
+import BookPurchase from '../shared/BookPurchase.astro';
+import type { PurchaseLink } from '../shared/BookPurchase.astro';
 
 import sblRender1 from '../../../assets/images/sbl/SBL_PE_1024.jpg';
 import sblRender2 from '../../../assets/images/sbl/JCU_PE_1024.jpg';
@@ -38,66 +40,64 @@ const purchaseLinks: PurchaseLink[] = [
 ];
 ---
 
-<BookPageTitle title='The Shop Before Life'>
-	<p class=''>
-		<GlassEmpty className='inline text-zinc-400' /> Before being born, everyone
-		chooses who they'll be...
+<BookPageTitle title="The Shop Before Life">
+	<p class="">
+		<GlassEmpty className="inline text-zinc-400" /> Before being born, everyone chooses
+		who they'll be...
 	</p>
 	<Trait />
 </BookPageTitle>
 
-<div class='mt-9 flex flex-col space-y-2 text-lg'>
-	<div class='flex flex-col md:flex-row'>
+<div class="mt-9 flex flex-col space-y-2 text-lg">
+	<div class="flex flex-col md:flex-row">
 		<div>
 			<a
-				href='http://viewbook.at/sbl'
-				target='_blank'
-				rel='noopener noreferrer'
+				href="http://viewbook.at/sbl"
+				target="_blank"
+				rel="noopener noreferrer"
 			>
 				<Image
 					src={sblCover}
-					alt='The Shop Before Life - Book Cover'
-					class='mx-auto w-1/3 hover:scale-[1.07] md:w-full'
+					alt="The Shop Before Life - Book Cover"
+					class="mx-auto w-1/3 hover:scale-[1.07] md:w-full"
 				/>
 			</a>
-			<div class='py-3 text-center text-sm'>
+			<div class="py-3 text-center text-sm">
 				beautiful cover by <a
-					href='https://www.tomhumberstone.com/'
-					class='text-blue-600 hover:text-blue-500'>Tom Humberstone</a
+					href="https://www.tomhumberstone.com/"
+					class="text-blue-600 hover:text-blue-500">Tom Humberstone</a
 				>
 			</div>
 		</div>
-		<div class='flex-grow space-y-2 pl-6'>
+		<div class="flex-grow space-y-2 pl-6">
 			<p
-				class='first-letter:float-left first-letter:pr-4 first-letter:font-serif first-letter:text-7xl first-letter:text-red-500'
+				class="first-letter:float-left first-letter:pr-4 first-letter:font-serif first-letter:text-7xl first-letter:text-red-500"
 			>
 				After two happy centuries in the prelife, Faythe is battling the
-				<span class='font-bold'>most dangerous human emotion</span>.
+				<span class="font-bold">most dangerous human emotion</span>.
 			</p>
-			<p class='text-right text-lg 2xl:text-xl'>
-				She's <span class='text-xl italic text-red-500 2xl:text-2xl'
-					>bored</span
+			<p class="text-right text-lg 2xl:text-xl">
+				She's <span class="text-xl text-red-500 italic 2xl:text-2xl">bored</span
 				>.
 			</p>
 			<p>
-				But after she accepts a once-in-a-prelifetime opportunity to
-				become <span class='text-lg font-bold text-blue-500 2xl:text-xl'
+				But after she accepts a once-in-a-prelifetime opportunity to become <span
+					class="text-lg font-bold text-blue-500 2xl:text-xl"
 					>Apprentice at the Shop Before Life</span
 				>, her days become dreadfully
-				<span class='text-lg font-bold 2xl:text-xl'>interesting</span>.
+				<span class="text-lg font-bold 2xl:text-xl">interesting</span>.
 			</p>
 			<p>
-				Now she helps yet-to-be-born customers plan their lives by
-				choosing a unique combination of traits from the countless
-				options available at the Shop. Will they be born on Earth as <span
-					class='font-serif text-sm font-bold small-caps'
+				Now she helps yet-to-be-born customers plan their lives by choosing a
+				unique combination of traits from the countless options available at the
+				Shop. Will they be born on Earth as <span
+					class="font-serif text-sm font-bold small-caps"
 				>
 					MATHEMATICALLY GIFTED</span
 				>
-				? Or perhaps <span
-					class='font-serif text-sm font-bold small-caps'
+				? Or perhaps <span class="font-serif text-sm font-bold small-caps"
 					>EASILY IRRITATED</span
-				> or <span class='font-serif text-sm font-bold small-caps'
+				> or <span class="font-serif text-sm font-bold small-caps"
 					>DELIGHTED BY CATS</span
 				>
 				?
@@ -105,47 +105,44 @@ const purchaseLinks: PurchaseLink[] = [
 		</div>
 	</div>
 
-	<Quote quote={quotes[0].quote} cite={quotes[0].cite} className='!mt-6' />
+	<Quote quote={quotes[0].quote} cite={quotes[0].cite} className="!mt-6" />
 
-	<div class='flex w-full items-center'>
+	<div class="flex w-full items-center">
 		<a
-			class='hidden hover:scale-[3] md:block'
-			href='https://www.instagram.com/sky2sart/'
-			><Image src={sblRender1} alt='The Shop Before Life' /></a
+			class="hidden hover:scale-[3] md:block"
+			href="https://www.instagram.com/sky2sart/"
+			><Image src={sblRender1} alt="The Shop Before Life" /></a
 		>
-		<div class='flex-grow space-y-2 pl-6'>
-			<p class='!mt-6'>
+		<div class="flex-grow space-y-2 pl-6">
+			<p class="!mt-6">
 				<!-- <ChatBubbleQuestion className='inline text-xl text-gray-400' /> -->
 				But Faythe has questions of her own. Like—<span
-					class='font-bold text-blue-500'
-					>what exactly is <span class='italic'>in</span> these jars of
-					magical personality traits</span
+					class="font-bold text-blue-500"
+					>what exactly is <span class="italic">in</span> these jars of magical personality
+					traits</span
 				>? And who is the mysterious Supplier who creates them?
 			</p>
 			<p>
 				Unfortunately, these questions could <span
-					class='font-bold text-red-500'
+					class="font-bold text-red-500"
 					>awaken an ancient conflict
-				</span> and perhaps even <span class='font-bold text-red-500'
+				</span> and perhaps even <span class="font-bold text-red-500"
 					>destroy the Shop itself</span
 				>.
-				<span class='font-bold'
-					>They should maybe mention that sort of thing during
-					orientation.</span
+				<span class="font-bold"
+					>They should maybe mention that sort of thing during orientation.</span
 				>
 			</p>
 			<p>
-				Management are going to be furious, but Faythe's divine
-				punishment must wait. She's got to race to discover the secrets
-				of the Shop—and hope the answers will be enough to save it 😓
+				Management are going to be furious, but Faythe's divine punishment must
+				wait. She's got to race to discover the secrets of the Shop—and hope the
+				answers will be enough to save it 😓
 			</p>
 			<p
-				class='!my-6 bg-yellow-300 px-3 py-3 text-center text-lg 2xl:px-6 2xl:py-6 2xl:text-xl'
+				class="!my-6 bg-yellow-300 px-3 py-3 text-center text-lg 2xl:px-6 2xl:py-6 2xl:text-xl"
 			>
-				<GlassHalf className='inline text-yellow-600' /> And if she fails,{
-					' '
-				}
-				<span class='font-bold text-red-500'>
+				<GlassHalf className="inline text-yellow-600" /> And if she fails,{' '}
+				<span class="font-bold text-red-500">
 					nobody can become themselves ever again</span
 				>
 				...
@@ -160,26 +157,26 @@ const purchaseLinks: PurchaseLink[] = [
 	}
 
 	<BookPurchase
-		headerText='READ NOW...'
-		title='Shop Before Life'
+		headerText="READ NOW..."
+		title="Shop Before Life"
 		links={purchaseLinks}
-		sampleUrl='https://gallery.mailchimp.com/f16d438b230e1f3c54ecd5adc/files/d4d6e78b-a740-413b-b04c-415c8828a75e/Shop_Before_Life_Sample.01.pdf'
+		sampleUrl="https://gallery.mailchimp.com/f16d438b230e1f3c54ecd5adc/files/d4d6e78b-a740-413b-b04c-415c8828a75e/Shop_Before_Life_Sample.01.pdf"
 	/>
 
-	<div class='!mt-9 space-y-3'>
-		<h4 class='bg-blue-400 py-3 text-center text-xl font-bold text-white'>
-			<Heart className='inline pr-4 text-3xl' /> READERS HAVE SAID...
+	<div class="!mt-9 space-y-3">
+		<h4 class="bg-blue-400 py-3 text-center text-xl font-bold text-white">
+			<Heart className="inline pr-4 text-3xl" /> READERS HAVE SAID...
 		</h4>
 
-		<div class='flex flex-row items-center justify-between space-x-3'>
+		<div class="flex flex-row items-center justify-between space-x-3">
 			<Quote quote={readerQuotes[0].quote} cite={readerQuotes[0].cite} />
 			<a
-				class='w-1/5 hover:scale-[4]'
-				href='https://www.instagram.com/sky2sart/'
+				class="w-1/5 hover:scale-[4]"
+				href="https://www.instagram.com/sky2sart/"
 				><Image
 					src={sblRender2}
-					alt='some magical jars, by sky2sart'
-					class='hidden md:block'
+					alt="some magical jars, by sky2sart"
+					class="hidden md:block"
 				/></a
 			>
 		</div>

@@ -1,5 +1,6 @@
 ---
 import type { PostV2 } from '../../components/blog/api/post';
+import type { MarkdownInstance } from 'astro';
 
 export type Props = {
 	post: PostV2;
@@ -7,16 +8,20 @@ export type Props = {
 
 const { post } = Astro.props;
 
-const posts = await Astro.glob('/src/data/blog/output/post/*.md');
+const postModules = import.meta.glob<MarkdownInstance<Record<string, unknown>>>(
+	'/src/data/blog/output/post/*.md',
+	{ eager: true },
+);
+const posts = Object.values(postModules);
 
-const thisPost = posts.find(p => p.frontmatter.id === post.id);
+const thisPost = posts.find(
+	(candidate) => candidate.frontmatter.id === post.id,
+);
 
 const { Content } = thisPost ?? {};
 ---
 
 <div class="prose">
-{ Content && <Content/> }
-{ Content === undefined && <div>No article content.</div>}
+	{Content && <Content />}
+	{Content === undefined && <div>No article content.</div>}
 </div>
-
-

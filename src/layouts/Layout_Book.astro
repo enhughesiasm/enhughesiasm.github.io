@@ -5,10 +5,10 @@ import LayoutPageWithSidebar from './Layout_Page_With_Sidebar.astro';
 
 export type Props = BookPage;
 
-const { key, imageUrl, link, title } = Astro.props;
+const { key } = Astro.props;
 ---
 
 <LayoutPageWithSidebar>
 	<slot />
-	<AlsoByNeil exclude={key} slot='sidebar' />
+	<AlsoByNeil exclude={key} slot="sidebar" />
 </LayoutPageWithSidebar>

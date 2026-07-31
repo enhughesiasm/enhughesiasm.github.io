@@ -11,18 +11,16 @@ export interface Props {
 const { exclude } = Astro.props;
 ---
 
-<div class='pr-3'>
-	<h3 class='mb-3 mt-6 text-center font-serif text-sm font-bold lg:mt-3'>
+<div class="pr-3">
+	<h3 class="mt-6 mb-3 text-center font-serif text-sm font-bold lg:mt-3">
 		Also by <div>Neil Hughes</div>
 	</h3>
-	<div class='space-y-3 md:space-y-6'>
+	<div class="space-y-3 md:space-y-6">
 		{
 			exclude !== 'walking-on-custard' && (
 				<AlsoByBook
-					title='Walking on Custard'
-					linkUrl={`${
-						import.meta.env.BASE_URL
-					}books/walking-on-custard`}
+					title="Walking on Custard"
+					linkUrl={`${import.meta.env.BASE_URL}books/walking-on-custard`}
 					coverImg={wocCover}
 					key={'walking-on-custard'}
 				/>
@@ -31,10 +29,8 @@ const { exclude } = Astro.props;
 		{
 			exclude !== 'shop-before-life' && (
 				<AlsoByBook
-					title='The Shop Before Life'
-					linkUrl={`${
-						import.meta.env.BASE_URL
-					}books/shop-before-life`}
+					title="The Shop Before Life"
+					linkUrl={`${import.meta.env.BASE_URL}books/shop-before-life`}
 					coverImg={sblCover}
 					key={'shop-before-life'}
 				/>

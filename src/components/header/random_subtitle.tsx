@@ -26,13 +26,14 @@ export const RandomSubtitle: React.FC = () => {
 		<Suspense
 			fallback={
 				<span>
-					<OnePointCircle className='inline animate-spin' />
+					<OnePointCircle className="inline animate-spin" />
 				</span>
-			}>
-			<div className='animate-fade-once'>
+			}
+		>
+			<div className="animate-fade-once">
 				{subtitle ?? (
 					<span>
-						<OnePointCircle className='inline animate-spin' />
+						<OnePointCircle className="inline animate-spin" />
 					</span>
 				)}
 			</div>

@@ -3,11 +3,11 @@ import type { ImageMetadata } from 'astro';
 export const BLOG_IMAGE_BASE_URL = '/src/data/blog/output/post/images/';
 
 export const allBlogImages = import.meta.glob<{ default: ImageMetadata }>(
-	'/src/data/blog/output/post/images/*.{jpeg,jpg,png,gif}'
+	'/src/data/blog/output/post/images/*.{jpeg,jpg,png,gif}',
 );
 
 export const getImage = async (
-	imageFileName: string
+	imageFileName: string,
 ): Promise<ImageMetadata | null> => {
 	if (!allBlogImages[`${BLOG_IMAGE_BASE_URL}${imageFileName}`]) {
 		// console.error(

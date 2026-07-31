@@ -4,24 +4,28 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout>
-	<Fragment slot='seo'>
+	<Fragment slot="seo">
 		<SEO title={'404 - Walking on Custard'} />
-	</Fragment>	
-	<div transition:name="page-title" class='flex h-full w-full items-center justify-center py-32'>
-		<div class='border-r-8 border-r-zinc-700 px-12 text-6xl'>404</div>
-		<div class='pl-6 text-3xl'>Not Found</div>
+	</Fragment>
+	<div
+		transition:name="page-title"
+		class="flex h-full w-full items-center justify-center py-32"
+	>
+		<div class="border-r-8 border-r-zinc-700 px-12 text-6xl">404</div>
+		<div class="pl-6 text-3xl">Not Found</div>
 	</div>
-	<div class='text-center'>🏗️ Sorry! That doesn't seem to exist.</div>
+	<div class="text-center">🏗️ Sorry! That doesn't seem to exist.</div>
 	<script is:inline>
-		
 		const mayBeArticle = location.pathname.includes('articles') !== true;
-		const slashCount = location.pathname.split('').filter(char => char === '/').length;
+		const slashCount = location.pathname
+			.split('')
+			.filter((char) => char === '/').length;
 
 		const possibleArticleName = `${import.meta.env.BASE_URL}articles${
 			location.pathname
-	}/`;
+		}/`;
 
-		if(mayBeArticle && slashCount <= 2){
+		if (mayBeArticle && slashCount <= 2) {
 			window.location.href = possibleArticleName;
 		}
 	</script>

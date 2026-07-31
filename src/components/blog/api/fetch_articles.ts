@@ -63,9 +63,7 @@ export function getBlogPosts(): PostV2[] {
 	const basePath = './src/data/blog/output/post/';
 	const blogPosts: PostV2[] = [];
 
-	const files = fs
-		.readdirSync(basePath)
-		.filter((file) => file.endsWith('.md'));
+	const files = fs.readdirSync(basePath).filter((file) => file.endsWith('.md'));
 
 	files.forEach((file) => {
 		const filePath = path.join(basePath, file);
@@ -75,7 +73,7 @@ export function getBlogPosts(): PostV2[] {
 
 		const blogPost: PostV2 = {
 			title: metadata.title || '',
-			date: new Date(metadata.date) || '',
+			date: new Date(metadata.date),
 			categories: metadata.categories || [],
 			tags: metadata.tags || [],
 			coverImage: metadata.coverImage || '',

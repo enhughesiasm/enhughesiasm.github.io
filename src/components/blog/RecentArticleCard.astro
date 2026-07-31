@@ -2,9 +2,7 @@
 import CoolCard from '../shared/CoolCard.astro';
 import type { PostV2 } from './api/post';
 
-
 import {
-	DEFAULT_WP_MEDIA_ID,
 	FEATURED_WP_IMAGE_HEIGHT,
 	FEATURED_WP_IMAGE_WIDTH,
 } from '../../data/definitions';
@@ -19,11 +17,8 @@ const { post } = Astro.props;
 
 const featured_media = await getImage(post.coverImage);
 
-const imageSrc =
-	featured_media ??
-	defaultCover;
-const altText = "alt"; // featured_media?.alt_text ?? '';
-
+const imageSrc = featured_media ?? defaultCover;
+const altText = 'alt'; // featured_media?.alt_text ?? '';
 ---
 
 <CoolCard
@@ -35,7 +30,7 @@ const altText = "alt"; // featured_media?.alt_text ?? '';
 	<Image
 		src={imageSrc}
 		alt={altText}
-		slot='image'
+		slot="image"
 		width={FEATURED_WP_IMAGE_WIDTH}
 		height={FEATURED_WP_IMAGE_HEIGHT}
 	/>

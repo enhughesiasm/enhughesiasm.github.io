@@ -4,11 +4,13 @@ import wocCover from '../../../assets/images/wocCover.jpg';
 import { Image } from 'astro:assets';
 import { BrainElectricity, GlassHalf, Heart } from 'iconoir-react';
 
-import BookPurchase, { PurchaseLink } from '../shared/BookPurchase.astro';
+import BookPurchase from '../shared/BookPurchase.astro';
+import type { PurchaseLink } from '../shared/BookPurchase.astro';
 
 import quotes from '../../../data/woc/woc_quotes.json';
 import sillyQuotes from '../../../data/woc/woc_quotes_silly.json';
-import Quote, { QuoteData } from '../../shared/Quote.astro';
+import Quote from '../../shared/Quote.astro';
+import type { QuoteData } from '../../shared/Quote.astro';
 
 const purchaseLinks: PurchaseLink[] = [
 	{
@@ -36,55 +38,53 @@ const purchaseLinks: PurchaseLink[] = [
 ---
 
 <BookPageTitle
-	title='Walking on Custard & the Meaning of Life'
-	quote='One of the best funny books about anxiety'
+	title="Walking on Custard & the Meaning of Life"
+	quote="One of the best funny books about anxiety"
 />
 
-<div class='mt-9 flex flex-col space-y-2 text-lg'>
-	<div class='flex flex-col md:flex-row'>
-		<div class='text-center md:block'>
+<div class="mt-9 flex flex-col space-y-2 text-lg">
+	<div class="flex flex-col md:flex-row">
+		<div class="text-center md:block">
 			<a
-				href='http://viewbook.at/walkingoncustard'
-				target='_blank'
-				rel='noopener noreferrer'
+				href="http://viewbook.at/walkingoncustard"
+				target="_blank"
+				rel="noopener noreferrer"
 			>
 				<Image
 					src={wocCover}
-					alt='Walking on Custard - Book Cover'
-					class='mx-auto w-1/3 hover:scale-[1.07] md:w-full'
+					alt="Walking on Custard - Book Cover"
+					class="mx-auto w-1/3 hover:scale-[1.07] md:w-full"
 				/>
 			</a>
-			<div class='py-3 text-center text-sm'>
+			<div class="py-3 text-center text-sm">
 				beautiful cover by <a
-					href='https://www.tomhumberstone.com/'
-					class='text-blue-600 hover:text-blue-500'>Tom Humberstone</a
+					href="https://www.tomhumberstone.com/"
+					class="text-blue-600 hover:text-blue-500">Tom Humberstone</a
 				>
 			</div>
 		</div>
-		<div class='flex-grow space-y-2 pl-6'>
+		<div class="flex-grow space-y-2 pl-6">
 			<p
-				class='first-letter:float-left first-letter:pr-4 first-letter:font-serif first-letter:text-7xl first-letter:text-red-500'
+				class="first-letter:float-left first-letter:pr-4 first-letter:font-serif first-letter:text-7xl first-letter:text-red-500"
 			>
 				<strong>
-					Part-time comedian and full-time worrier Neil Hughes isn’t
-					the kind of person you'd expect to write a helpful book.
+					Part-time comedian and full-time worrier Neil Hughes isn’t the kind of
+					person you'd expect to write a helpful book.
 				</strong>
 			</p>
-			<p class='italic'>He's an idiot.</p>
-			<p class='text-right'>
-				... at least, so his <span
-					class='text-lg text-red-500 2xl:text-xl'>Inner Critic</span
+			<p class="italic">He's an idiot.</p>
+			<p class="text-right">
+				... at least, so his <span class="text-lg text-red-500 2xl:text-xl"
+					>Inner Critic</span
 				> constantly claims.
 			</p>
-			<p class='py-3'>
-				<BrainElectricity className='inline text-red-400' /> No wonder he
-				lives with <span class='text-lg text-red-500 2xl:text-xl'
-					>anxiety</span
-				>.
+			<p class="py-3">
+				<BrainElectricity className="inline text-red-400" /> No wonder he lives with
+				<span class="text-lg text-red-500 2xl:text-xl">anxiety</span>.
 			</p>
 			<p>
-				But during his nervous bumbling through life he somehow learned
-				how to reduce his anxiety and quit his unhelpful mental habits.
+				But during his nervous bumbling through life he somehow learned how to
+				reduce his anxiety and quit his unhelpful mental habits.
 			</p>
 			<p>Oh… and he stumbled on the Meaning of Life, too.</p>
 
@@ -93,55 +93,48 @@ const purchaseLinks: PurchaseLink[] = [
 	</div>
 
 	<p
-		class='first-letter:float-left first-letter:pr-4 first-letter:font-serif first-letter:text-7xl first-letter:text-red-500'
+		class="first-letter:float-left first-letter:pr-4 first-letter:font-serif first-letter:text-7xl first-letter:text-red-500"
 	>
 		Now he's using the power of
 
-		<span class='font-bold text-green-700'>hilarious real-life stories</span
-		>, <span class='font-bold text-purple-700'
-			>inventive fantasy fiction</span
+		<span class="font-bold text-green-700">hilarious real-life stories</span>, <span
+			class="font-bold text-purple-700">inventive fantasy fiction</span
 		>
 		and
-		<span class='font-bold text-amber-700'>badly-drawn graphs</span> to help
-		others to be less anxious and more happy.
+		<span class="font-bold text-amber-700">badly-drawn graphs</span> to help others
+		to be less anxious and more happy.
 	</p>
-	<p class=''>
-		In this compelling, surprising and delightful guide to life, Neil
-		explains how he relieved his anxiety even while battling constant
-		interruptions from his doubtful Inner Critic. After sorting out crises,
-		thoughts, emotions, beliefs, relationships, purpose, and contentment, he
-		even considers how to deal with death and the Meaning of Life itself 😨
+	<p class="">
+		In this compelling, surprising and delightful guide to life, Neil explains
+		how he relieved his anxiety even while battling constant interruptions from
+		his doubtful Inner Critic. After sorting out crises, thoughts, emotions,
+		beliefs, relationships, purpose, and contentment, he even considers how to
+		deal with death and the Meaning of Life itself 😨
 	</p>
 	<p
-		class='!my-6 bg-yellow-300 px-3 py-3 text-center text-lg 2xl:px-6 2xl:py-6 2xl:text-xl'
+		class="!my-6 bg-yellow-300 px-3 py-3 text-center text-lg 2xl:px-6 2xl:py-6 2xl:text-xl"
 	>
-		<GlassHalf className='inline text-yellow-600' /> And, somehow, it turns out
-		<span class='text-xl 2xl:text-2xl'>everything</span> can be explained using
-		<span class='text-xl font-bold text-yellow-600 2xl:text-2xl'
-			>custard</span
-		>…
+		<GlassHalf className="inline text-yellow-600" /> And, somehow, it turns out
+		<span class="text-xl 2xl:text-2xl">everything</span> can be explained using
+		<span class="text-xl font-bold text-yellow-600 2xl:text-2xl">custard</span>…
 	</p>
 	<div>
 		<Quote quote={quotes[0].quote} cite={quotes[0].cite} />
-		<div class='flex flex-row gap-x-3'>
-			<Quote
-				quote={quotes[2].quote}
-				cite={quotes[2].cite}
-				className='my-3'
-			/>
+		<div class="flex flex-row gap-x-3">
+			<Quote quote={quotes[2].quote} cite={quotes[2].cite} className="my-3" />
 			<Quote quote={quotes[3].quote} cite={quotes[3].cite} />
 		</div>
 	</div>
 	<BookPurchase
-		headerText='READ NOW...'
-		title='Walking on Custard'
+		headerText="READ NOW..."
+		title="Walking on Custard"
 		links={purchaseLinks}
-		sampleUrl='https://gallery.mailchimp.com/f16d438b230e1f3c54ecd5adc/files/Walking_on_Custard_the_Meaning_of_Life_Sample_01.pdf'
+		sampleUrl="https://gallery.mailchimp.com/f16d438b230e1f3c54ecd5adc/files/Walking_on_Custard_the_Meaning_of_Life_Sample_01.pdf"
 	/>
 
-	<div class='!mt-9 space-y-3'>
-		<h4 class='bg-blue-400 py-3 text-center text-xl font-bold text-white'>
-			<Heart className='inline pr-4 text-3xl' /> READERS HAVE SAID...
+	<div class="!mt-9 space-y-3">
+		<h4 class="bg-blue-400 py-3 text-center text-xl font-bold text-white">
+			<Heart className="inline pr-4 text-3xl" /> READERS HAVE SAID...
 		</h4>
 
 		{

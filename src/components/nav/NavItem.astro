@@ -21,22 +21,20 @@ const isActive =
 	${isActive ? 'border-b-4 xl:border-b-8 pt-2 border-rose-500' : ''}`}
 >
 	<a
-		class='flex h-full w-full flex-grow items-center space-x-1 px-2 text-sm group-hover:animate-text-bounce-once lg:space-x-3 lg:px-6 lg:text-base xl:text-lg'
+		class="flex h-full w-full flex-grow items-center space-x-1 px-2 text-sm group-hover:animate-text-bounce-once lg:space-x-3 lg:px-6 lg:text-base xl:text-lg"
 		href={link}
 	>
-		<span class='hidden xl:inline'>
-			<span
-				class={`group-hover:hidden ${
-					isActive ? 'text-yellow-500' : ''
-				}`}><slot name='icon' /></span
+		<span class="hidden xl:inline">
+			<span class={`group-hover:hidden ${isActive ? 'text-yellow-500' : ''}`}
+				><slot name="icon" /></span
 			>
-			<Pacman className='text-green-500 group-hover:inline hidden' />
+			<Pacman className="hidden text-green-500 group-hover:inline" />
 		</span>
 		<span class={`${isActive ? 'text-emerald-300' : ''}`}>{text}</span></a
 	>
 	<ul
-		class='absolute top-[100%] hidden h-auto border-t-8 border-t-yellow-400 group-hover:block'
+		class="absolute top-[100%] hidden h-auto border-t-8 border-t-yellow-400 group-hover:block"
 	>
-		<slot name='dropdown-items' />
+		<slot name="dropdown-items" />
 	</ul>
 </li>

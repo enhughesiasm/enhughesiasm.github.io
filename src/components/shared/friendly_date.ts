@@ -1,6 +1,6 @@
-export function friendlyDate(date: Date) {
+export function friendlyDate(date: Date | string | undefined) {
 	if (date === undefined) return '';
-	if (typeof date.toLocaleDateString !== 'function') {
+	if (!(date instanceof Date)) {
 		date = new Date(date);
 	}
 
