@@ -5,25 +5,26 @@ import RecentArticleCard from './RecentArticleCard.astro';
 const posts = getBlogPosts().slice(0, 4);
 ---
 
-<div class="hidden space-y-6 md:block">
-	<!-- <div
-		class='items-center justify-center space-x-6 text-center font-serif text-xl'
-	>
-		<span class='text-3xl'>🗣️</span> Recent posts:
-	</div> -->
-	<div
-		class="mx-auto flex flex-row flex-wrap items-center justify-center space-x-12 gap-y-6 text-center"
-	>
-		<div class="text-6xl">
-			<a href={`${import.meta.env.BASE_URL}articles`}>🗣️</a>
+<section aria-labelledby="recent-writing">
+	<div class="mb-6 flex items-end justify-between gap-4">
+		<div>
+			<p class="eyebrow">From the notebook</p>
+			<h2 id="recent-writing" class="section-title">Recent articles</h2>
 		</div>
+		<a
+			class="text-link hidden sm:inline"
+			href={`${import.meta.env.BASE_URL}articles`}>All articles →</a
+		>
+	</div>
+	<div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
 		{
 			posts.map((post) => (
 				<RecentArticleCard post={{ ...post, categories: [] }} />
 			))
 		}
-		<div class="text-6xl">
-			<a href={`${import.meta.env.BASE_URL}articles`}>...</a>
-		</div>
 	</div>
-</div>
+	<a
+		class="text-link mt-6 inline-block sm:hidden"
+		href={`${import.meta.env.BASE_URL}articles`}>All articles →</a
+	>
+</section>

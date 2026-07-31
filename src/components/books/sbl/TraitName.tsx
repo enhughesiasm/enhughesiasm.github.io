@@ -6,6 +6,12 @@ const MAX_DISPLAY_TIME = 3000;
 
 export const TraitName: React.FC = () => {
 	const [name, setName] = useState(getTraitName().toLowerCase());
+	const sizeClass =
+		name.length > 34
+			? 'text-[0.68rem]'
+			: name.length > 24
+				? 'text-xs'
+				: 'text-sm';
 
 	useEffect(() => {
 		const updateEvery = Math.max(
@@ -23,7 +29,7 @@ export const TraitName: React.FC = () => {
 	return (
 		<span
 			suppressHydrationWarning
-			className="font-serif font-bold text-zinc-600 small-caps"
+			className={`${sizeClass} min-w-0 text-center font-serif leading-[1.05] font-bold break-words text-zinc-600 small-caps`}
 		>
 			{name}
 		</span>

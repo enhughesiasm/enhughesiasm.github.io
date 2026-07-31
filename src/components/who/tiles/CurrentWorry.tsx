@@ -23,11 +23,11 @@ export const CurrentWorry = () => {
 				</span>
 			}
 		>
-			<div className="grid animate-fade-once grid-cols-2 gap-x-2 gap-y-3 rounded bg-red-100 px-3 py-2 group-hover:bg-transparent">
+			<div className="grid animate-fade-once grid-cols-2 gap-x-2 gap-y-3 rounded bg-red-100 px-3 py-2">
 				<div className="mr-3 flex items-center justify-end text-right">
 					<strong>current concern level: </strong>
 				</div>
-				<div className="flex items-center rounded bg-red-200 px-3 text-sm group-hover:bg-transparent">
+				<div className="flex items-center rounded bg-red-200 px-3 text-sm">
 					<div>
 						<EmojiThinkLeft className="float-left mr-3" />
 					</div>
@@ -36,7 +36,7 @@ export const CurrentWorry = () => {
 				<div className="mr-3 flex items-center justify-end">
 					<strong>cause: </strong>
 				</div>
-				<div className="flex items-center rounded bg-red-200 px-3 text-sm group-hover:bg-transparent">
+				<div className="flex items-center rounded bg-red-200 px-3 text-sm">
 					<div>
 						<WarningHexagon className="float-left mr-3" />
 					</div>

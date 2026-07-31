@@ -12,21 +12,23 @@ import { SEO } from 'astro-seo';
 		<SEO title={'Games by Neil Hughes - Walking on Custard'} />
 	</Fragment>
 	<LayoutPage>
-		<div
+		<header
 			transition:name="page-title"
-			class="rounded-xl bg-teal-200 py-3 text-center font-serif text-zinc-900"
+			class="rounded-2xl bg-teal-200 px-6 py-8 text-center font-serif text-zinc-900"
 		>
 			<div class="inline-flex items-center text-3xl font-bold">
 				<Pacman className="inline pr-4" /> Games
 			</div>
 			<div class="text-zinc-700">by Neil Hughes</div>
+		</header>
+		<div class="mt-8">
+			<Book
+				coverImg={shelves}
+				linkUrl="https://walkingoncustard.com/complex"
+				title="The Supplier's Complex"
+				blurb="A relaxing, addictive idle game. Create magical jars of human traits to supply the Shop Before Life."
+				buttonText="begin your adventure"
+			/>
 		</div>
-		<Book
-			coverImg={shelves}
-			linkUrl="https://walkingoncustard.com/complex"
-			title="The Supplier's Complex"
-			blurb="A relaxing, addictive idle game. Create magical jars of human traits to supply the Shop Before Life."
-			buttonText="begin your adventure"
-		/>
 	</LayoutPage>
 </BaseLayout>

@@ -16,11 +16,11 @@ import NavItem from './NavItem.astro';
 import { MobileNav } from './mobile_nav';
 ---
 
-<MobileNav client:load />
+<MobileNav currentPath={Astro.url.pathname} client:load />
 
-<nav class="hidden flex-grow px-1 md:flex lg:px-6">
-	<ul class="top-0 hidden flex-grow items-center md:flex">
-		<NavItem text="who?!" link={`${import.meta.env.BASE_URL}`}>
+<nav aria-label="Main navigation" class="hidden self-stretch md:flex">
+	<ul class="flex items-stretch">
+		<NavItem text="home" link={`${import.meta.env.BASE_URL}`}>
 			<PeopleTag slot="icon" />
 		</NavItem>
 		<NavItem text="articles" link={`${import.meta.env.BASE_URL}articles`}>
@@ -46,20 +46,34 @@ import { MobileNav } from './mobile_nav';
 				</DropdownItem>
 			</Fragment>
 		</NavItem>
-		<NavItem text="games" link={`${import.meta.env.BASE_URL}games`}>
+		<NavItem
+			text="games"
+			link={`${import.meta.env.BASE_URL}games`}
+			className="hidden xl:flex"
+		>
 			<Arcade slot="icon" />
+			<Fragment slot="dropdown-items">
+				<DropdownItem
+					text="The Supplier's Complex"
+					link="https://walkingoncustard.com/complex"
+				>
+					<ShopFourTiles slot="icon" />
+				</DropdownItem>
+			</Fragment>
 		</NavItem>
-		<NavItem text="speaking" link={`${import.meta.env.BASE_URL}speaking`}>
+		<NavItem
+			text="speaking"
+			link={`${import.meta.env.BASE_URL}speaking`}
+			className="hidden lg:flex"
+		>
 			<ChatBubble slot="icon" />
 		</NavItem>
 		<NavItem
-			text="occasional email experience"
+			text="emails"
 			link={`${import.meta.env.BASE_URL}occasional-email-experience`}
 		>
 			<Mail slot="icon" />
 		</NavItem>
-	</ul>
-	<ul class="top-0 hidden items-center md:flex">
 		<NavItem text="contact" link={`${import.meta.env.BASE_URL}contact`}>
 			<MessageText slot="icon" />
 		</NavItem>

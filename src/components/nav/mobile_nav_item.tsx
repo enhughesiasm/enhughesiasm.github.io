@@ -5,23 +5,24 @@ export const MobileNavItem: React.FC<{
 	link: string;
 	indent?: boolean;
 	children: React.ReactNode;
-}> = ({ text, link, children, indent = false }) => {
-	const isActive = false;
-	// (link === import.meta.env.BASE_URL && url.pathname === import.meta.env.BASE_URL) ||
-	// (link !== import.meta.env.BASE_URL && url.pathname.startsWith(link));
+	currentPath: string;
+}> = ({ text, link, children, currentPath, indent = false }) => {
+	const isHome = link === import.meta.env.BASE_URL;
+	const isActive = isHome ? currentPath === link : currentPath.startsWith(link);
 
 	return (
 		<li
 			className={`${
 				indent === true ? 'pl-6' : ''
-			} group relative flex w-full items-center justify-center py-2 hover:text-yellow-400 ${isActive ? 'border-b-4 border-rose-500 pt-2 xl:border-b-8' : ''}`}
+			} relative flex w-full items-center rounded-lg ${isActive ? 'bg-zinc-800 text-yellow-300' : 'text-zinc-100 hover:bg-zinc-900 hover:text-yellow-300'}`}
 		>
 			<a
-				className="flex h-full w-full flex-grow items-center space-x-1 px-2 text-sm lg:space-x-3 lg:px-6 lg:text-base xl:text-lg"
+				aria-current={isActive ? 'page' : undefined}
+				className="flex min-h-11 w-full items-center gap-3 px-3 text-base no-underline"
 				href={link}
 			>
 				<span className="mr-2 text-sm">{children}</span>
-				<span className={`${isActive ? 'text-emerald-300' : ''}`}>{text}</span>
+				<span>{text}</span>
 			</a>
 		</li>
 	);

@@ -1,6 +1,110 @@
 @config '../../../tailwind.config.cjs';
 @import 'tailwindcss';
 
+:root {
+	--color-ink: #27272a;
+	--color-muted: #5f6470;
+	--color-page: #f7f5f0;
+	--color-surface: #fffdf8;
+	--color-brand: #facc15;
+	--color-accent: #176b66;
+	--color-accent-strong: #0f514d;
+	--color-focus: #2563eb;
+	--radius-card: 1rem;
+	--shadow-card:
+		0 1px 2px rgb(39 39 42 / 0.08), 0 12px 32px rgb(39 39 42 / 0.08);
+}
+
+html {
+	scroll-behavior: smooth;
+}
+body {
+	color: var(--color-ink);
+	font-size: 1.0625rem;
+	line-height: 1.65;
+}
+a {
+	text-underline-offset: 0.18em;
+}
+:where(a, button, input, textarea, select):focus-visible {
+	outline: 3px solid var(--color-focus);
+	outline-offset: 3px;
+}
+.site-shell {
+	width: min(100% - 2rem, 76rem);
+	margin-inline: auto;
+}
+.reading-width {
+	width: min(100% - 2rem, 68ch);
+	margin-inline: auto;
+}
+.eyebrow {
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--color-muted);
+}
+.section-title {
+	font-family: Besley, Georgia, serif;
+	font-size: clamp(1.65rem, 3vw, 2.5rem);
+	font-weight: 700;
+	line-height: 1.2;
+}
+.text-link {
+	color: var(--color-accent);
+	font-weight: 650;
+	text-decoration: underline;
+}
+.text-link:hover {
+	color: var(--color-accent-strong);
+}
+.button-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 2.75rem;
+	border-radius: 999px;
+	background: var(--color-accent-strong);
+	padding: 0.65rem 1.1rem;
+	color: white;
+	font-size: 0.95rem;
+	font-weight: 700;
+	line-height: 1.25;
+	text-align: center;
+	text-decoration: none;
+	transition:
+		background-color 160ms ease,
+		transform 160ms ease;
+}
+.button-link:hover {
+	background: var(--color-accent);
+	transform: translateY(-1px);
+}
+.prose {
+	max-width: 68ch;
+	font-size: 1.075rem;
+	line-height: 1.75;
+}
+.prose :where(h2, h3, h4) {
+	font-family: Besley, Georgia, serif;
+	line-height: 1.25;
+}
+.prose :where(img) {
+	border-radius: 0.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		scroll-behavior: auto !important;
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
 .grecaptcha-badge {
 	display: none;
 }

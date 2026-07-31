@@ -6,17 +6,19 @@ import Quote from '../shared/Quote.astro';
 import LinkButton from '../shared/LinkButton.astro';
 ---
 
-<div class="space-y-3 md:space-y-3">
-	<div class="space-y-3 md:space-y-3">
+<div class="space-y-10">
+	<div class="space-y-6">
 		<h2
 			transition:name="page-title"
-			class="rounded-xl py-3 text-center font-serif text-lg font-bold xl:text-3xl"
+			class="rounded-2xl bg-violet-200 px-6 py-8 text-center font-serif text-3xl leading-tight font-bold text-zinc-900 md:text-4xl"
 		>
 			<Mail className="inline pr-4 text-2xl text-amber-600 xl:text-4xl" />
 			The Occasional Email Experience
 		</h2>
 
-		<div class="relative top-3 clear-left flex flex-col md:flex-row">
+		<div
+			class="grid overflow-hidden rounded-2xl bg-amber-100 md:grid-cols-[minmax(15rem,0.8fr)_1.5fr]"
+		>
 			<div class="flex flex-col items-center justify-center p-3">
 				<Image alt="hooray" src={yayImg} />
 				<p class="mt-2 text-center text-xs italic">
@@ -24,9 +26,7 @@ import LinkButton from '../shared/LinkButton.astro';
 					a mere picture, but this comes close
 				</p>
 			</div>
-			<div
-				class="mr-12 mb-6 space-y-3 rounded bg-amber-100 px-12 py-6 md:space-y-6"
-			>
+			<div class="space-y-5 px-6 py-7 sm:px-10">
 				<p
 					class="text-lg first-letter:float-left first-letter:pr-2 first-letter:text-5xl first-line:small-caps xl:text-2xl xl:first-letter:text-6xl"
 				>
@@ -55,8 +55,8 @@ import LinkButton from '../shared/LinkButton.astro';
 						class="text-blue-500 underline hover:text-blue-400"
 					>
 						Walking on Custard
-					</a>
-					and
+					</a>{' '}
+					and{' '}
 					<a
 						href={`${import.meta.env.BASE_URL}books/shop-before-life`}
 						class="text-blue-500 underline hover:text-blue-400"
@@ -67,7 +67,7 @@ import LinkButton from '../shared/LinkButton.astro';
 		</div>
 	</div>
 
-	<div class="mb-6 px-12">
+	<div class="mb-6 px-0 sm:px-8">
 		<Quote
 			quote={[
 				'Your emails make me howl. With laughter, I hasten to add!',
@@ -77,16 +77,18 @@ import LinkButton from '../shared/LinkButton.astro';
 		/>
 	</div>
 
-	<div class="group flex justify-center px-3 pt-6 pb-7">
+	<div class="flex justify-center px-3">
 		<LinkButton
 			className="px-5 pt-4 pb-5 font-serif text-2xl"
-			url="http://eepurl.com/gB3e8P"
+			url="https://eepurl.com/gB3e8P"
 			text="Click here to sign up!"
 		/>
 	</div>
 
-	<div class="space-y-3 bg-violet-100 px-12 py-3 md:space-y-6">
-		<ul class="space-y-3 px-12">
+	<div
+		class="space-y-3 rounded-2xl bg-violet-100 px-6 py-6 sm:px-10 md:space-y-6"
+	>
+		<ul class="space-y-4">
 			<li>
 				👉 You can expect to receive an email newsletter from me ‘occasionally’;
 				in practice, this means roughly every few weeks to every few months.
@@ -99,13 +101,9 @@ import LinkButton from '../shared/LinkButton.astro';
 			</li>
 			<li>
 				❗ I don't store any of your data myself: at the time of writing I am
-				using <a
-					href="http://mailchimp.com"
-					class="text-blue-500 underline hover:text-blue-400"
-				>
-					Mailchimp</a
-				> to manage my email list, which means they will store the data you provide
-				on my behalf.
+				using <a href="https://mailchimp.com" class="text-link"> Mailchimp</a> to
+				manage my email list, which means they will store the data you provide on
+				my behalf.
 			</li>
 			<li>
 				🥳 Naturally, <strong> you can unsubscribe at any time</strong>—an

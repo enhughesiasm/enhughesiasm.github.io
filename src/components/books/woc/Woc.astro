@@ -15,24 +15,18 @@ import type { QuoteData } from '../../shared/Quote.astro';
 const purchaseLinks: PurchaseLink[] = [
 	{
 		displayName: 'the paperback',
-		purchaseUrl: 'http://viewbook.at/walkingoncustard',
+		purchaseUrl: 'https://viewbook.at/walkingoncustard',
 		icon: 'FavouriteBook',
 	},
 	{
 		displayName: 'the hardback',
-		purchaseUrl: 'http://viewbook.at/woch',
+		purchaseUrl: 'https://viewbook.at/woch',
 		icon: 'Book',
 	},
 	{
 		displayName: 'Kindle',
-		purchaseUrl: 'http://getbook.at/walkingoncustard',
+		purchaseUrl: 'https://getbook.at/walkingoncustard',
 		icon: 'Thunderstorm',
-	},
-	{
-		displayName: 'worldwide shipping',
-		icon: 'Globe',
-		purchaseUrl:
-			'http://www.bookdepository.com/Walking-on-Custard-Meaning-Life-Neil-Hughes/9780993166808/?a_aid=walkingoncustard',
 	},
 ];
 ---
@@ -46,14 +40,14 @@ const purchaseLinks: PurchaseLink[] = [
 	<div class="flex flex-col md:flex-row">
 		<div class="text-center md:block">
 			<a
-				href="http://viewbook.at/walkingoncustard"
+				href="https://viewbook.at/walkingoncustard"
 				target="_blank"
 				rel="noopener noreferrer"
 			>
 				<Image
 					src={wocCover}
 					alt="Walking on Custard - Book Cover"
-					class="mx-auto w-1/3 hover:scale-[1.07] md:w-full"
+					class="mx-auto w-1/3 md:w-full"
 				/>
 			</a>
 			<div class="py-3 text-center text-sm">
@@ -79,7 +73,9 @@ const purchaseLinks: PurchaseLink[] = [
 				> constantly claims.
 			</p>
 			<p class="py-3">
-				<BrainElectricity className="inline text-red-400" /> No wonder he lives with
+				<BrainElectricity className="inline text-red-400" /> No wonder he lives with{
+					' '
+				}
 				<span class="text-lg text-red-500 2xl:text-xl">anxiety</span>.
 			</p>
 			<p>
@@ -95,12 +91,12 @@ const purchaseLinks: PurchaseLink[] = [
 	<p
 		class="first-letter:float-left first-letter:pr-4 first-letter:font-serif first-letter:text-7xl first-letter:text-red-500"
 	>
-		Now he's using the power of
+		Now he's using the power of{' '}
 
 		<span class="font-bold text-green-700">hilarious real-life stories</span>, <span
 			class="font-bold text-purple-700">inventive fantasy fiction</span
 		>
-		and
+		{' '}and{' '}
 		<span class="font-bold text-amber-700">badly-drawn graphs</span> to help others
 		to be less anxious and more happy.
 	</p>
@@ -114,8 +110,12 @@ const purchaseLinks: PurchaseLink[] = [
 	<p
 		class="!my-6 bg-yellow-300 px-3 py-3 text-center text-lg 2xl:px-6 2xl:py-6 2xl:text-xl"
 	>
-		<GlassHalf className="inline text-yellow-600" /> And, somehow, it turns out
-		<span class="text-xl 2xl:text-2xl">everything</span> can be explained using
+		<GlassHalf className="inline text-yellow-600" /> And, somehow, it turns out{
+			' '
+		}
+		<span class="text-xl 2xl:text-2xl">everything</span> can be explained using{
+			' '
+		}
 		<span class="text-xl font-bold text-yellow-600 2xl:text-2xl">custard</span>…
 	</p>
 	<div>

@@ -18,24 +18,18 @@ import Trait from './Trait.astro';
 const purchaseLinks: PurchaseLink[] = [
 	{
 		displayName: 'the paperback',
-		purchaseUrl: 'http://viewbook.at/sbl',
+		purchaseUrl: 'https://viewbook.at/sbl',
 		icon: 'FavouriteBook',
 	},
 	{
 		displayName: 'the hardback',
-		purchaseUrl: 'http://viewbook.at/sblh',
+		purchaseUrl: 'https://viewbook.at/sblh',
 		icon: 'Book',
 	},
 	{
 		displayName: 'Kindle',
-		purchaseUrl: 'http://viewbook.at/sblk',
+		purchaseUrl: 'https://viewbook.at/sblk',
 		icon: 'Thunderstorm',
-	},
-	{
-		displayName: 'worldwide shipping',
-		icon: 'Globe',
-		purchaseUrl:
-			'http://www.bookdepository.com/Shop-Before-Life-Neil-Hughes/9780993166846/?a_aid=walkingoncustard',
 	},
 ];
 ---
@@ -52,14 +46,14 @@ const purchaseLinks: PurchaseLink[] = [
 	<div class="flex flex-col md:flex-row">
 		<div>
 			<a
-				href="http://viewbook.at/sbl"
+				href="https://viewbook.at/sbl"
 				target="_blank"
 				rel="noopener noreferrer"
 			>
 				<Image
 					src={sblCover}
 					alt="The Shop Before Life - Book Cover"
-					class="mx-auto w-1/3 hover:scale-[1.07] md:w-full"
+					class="mx-auto w-1/3 md:w-full"
 				/>
 			</a>
 			<div class="py-3 text-center text-sm">
@@ -73,7 +67,7 @@ const purchaseLinks: PurchaseLink[] = [
 			<p
 				class="first-letter:float-left first-letter:pr-4 first-letter:font-serif first-letter:text-7xl first-letter:text-red-500"
 			>
-				After two happy centuries in the prelife, Faythe is battling the
+				After two happy centuries in the prelife, Faythe is battling the{' '}
 				<span class="font-bold">most dangerous human emotion</span>.
 			</p>
 			<p class="text-right text-lg 2xl:text-xl">
@@ -84,7 +78,7 @@ const purchaseLinks: PurchaseLink[] = [
 				But after she accepts a once-in-a-prelifetime opportunity to become <span
 					class="text-lg font-bold text-blue-500 2xl:text-xl"
 					>Apprentice at the Shop Before Life</span
-				>, her days become dreadfully
+				>, her days become dreadfully{' '}
 				<span class="text-lg font-bold 2xl:text-xl">interesting</span>.
 			</p>
 			<p>
@@ -108,15 +102,13 @@ const purchaseLinks: PurchaseLink[] = [
 	<Quote quote={quotes[0].quote} cite={quotes[0].cite} className="!mt-6" />
 
 	<div class="flex w-full items-center">
-		<a
-			class="hidden hover:scale-[3] md:block"
-			href="https://www.instagram.com/sky2sart/"
+		<a class="hidden md:block" href="https://www.instagram.com/sky2sart/"
 			><Image src={sblRender1} alt="The Shop Before Life" /></a
 		>
 		<div class="flex-grow space-y-2 pl-6">
 			<p class="!mt-6">
 				<!-- <ChatBubbleQuestion className='inline text-xl text-gray-400' /> -->
-				But Faythe has questions of her own. Like—<span
+				But Faythe has questions of her own. Like—{' '}<span
 					class="font-bold text-blue-500"
 					>what exactly is <span class="italic">in</span> these jars of magical personality
 					traits</span
@@ -170,9 +162,7 @@ const purchaseLinks: PurchaseLink[] = [
 
 		<div class="flex flex-row items-center justify-between space-x-3">
 			<Quote quote={readerQuotes[0].quote} cite={readerQuotes[0].cite} />
-			<a
-				class="w-1/5 hover:scale-[4]"
-				href="https://www.instagram.com/sky2sart/"
+			<a class="w-1/5" href="https://www.instagram.com/sky2sart/"
 				><Image
 					src={sblRender2}
 					alt="some magical jars, by sky2sart"

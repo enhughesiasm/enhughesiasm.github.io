@@ -3,7 +3,6 @@ import {
 	BookStack,
 	Dollar,
 	FavouriteBook,
-	Globe,
 	OpenBook,
 	Thunderstorm,
 	WarningCircle,
@@ -12,7 +11,7 @@ import {
 export type PurchaseLink = {
 	displayName: string;
 	purchaseUrl: string;
-	icon: 'FavouriteBook' | 'Globe' | 'Book' | 'Dollar' | 'Thunderstorm';
+	icon: 'FavouriteBook' | 'Book' | 'Dollar' | 'Thunderstorm';
 	tooltip?: string;
 };
 
@@ -43,14 +42,12 @@ const { headerText, links, sampleUrl } = Astro.props;
 					<>
 						<span class="mr-2 text-sm">
 							{l.icon === 'FavouriteBook' && <FavouriteBook />}
-							{l.icon === 'Globe' && <Globe />}
 							{l.icon === 'Book' && <BookStack />}
 							{l.icon === 'Dollar' && <Dollar />}
 							{l.icon === 'Thunderstorm' && <Thunderstorm />}
 						</span>
 						<span>
-							I want
-							<span class="">{l.displayName}</span>!
+							I want <span class="">{l.displayName}</span>!
 						</span>
 					</>
 				</a>

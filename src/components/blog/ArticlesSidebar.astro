@@ -39,7 +39,7 @@ const { nextPost, lastPost, currentPost, featuredMedia } = Astro.props;
 					</a>
 					<Image
 						src={featuredMedia}
-						alt={'missing alt text'}
+						alt={`Featured image for ${currentPost.title.replace(/<[^>]*>/g, '')}`}
 						slot="image"
 						width={FEATURED_WP_IMAGE_WIDTH}
 						height={FEATURED_WP_IMAGE_HEIGHT}

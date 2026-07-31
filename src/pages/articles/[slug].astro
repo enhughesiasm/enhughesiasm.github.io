@@ -11,12 +11,10 @@ import {
 	FEATURED_WP_IMAGE_WIDTH,
 } from '../../data/definitions';
 import Categories from '../../components/blog/Categories.astro';
-import LayoutPageWithSidebar from '../../layouts/Layout_Page_With_Sidebar.astro';
-
 import Tags from '../../components/blog/Tags.astro';
 import PuttylikeAcknowledgement from '../../components/blog/PuttylikeAcknowledgement.astro';
-import ArticlesSidebar from '../../components/blog/ArticlesSidebar.astro';
 import ArticleFooter from '../../components/blog/ArticleFooter.astro';
+import PrevNextLinks from '../../components/blog/PrevNextLinks.astro';
 
 import defaultCover from '../../assets/images/default_image.jpg';
 import { getImage } from '../../components/blog/api/get_images';
@@ -90,56 +88,66 @@ const isPuttylike = post.tags.includes('puttylike');
 		/>
 	</Fragment>
 
-	<LayoutPageWithSidebar>
-		<ArticlesSidebar
-			currentPost={post}
-			nextPost={nextPost}
-			lastPost={lastPost}
-			featuredMedia={featured_media}
-			slot="sidebar"
-		/>
-		<article class="space-y-2 md:space-y-4">
-			<h1
-				transition:name="article-title"
-				class="text-center font-serif text-4xl leading-relaxed font-bold"
-				set:html={post.title}
-			/>
-			<h2
-				transition:name="article-excerpt"
-				class="font-serif text-lg leading-relaxed text-gray-600"
-				set:html={post.excerpt}
-			/>
-			<div
-				transition:name="article-metadata"
-				class="m-0 flex flex-row justify-between p-0"
-			>
-				<Categories categories={post.categories} />
-				<p class="text-xl text-green-950" set:html={friendlyDate(post.date)} />
-			</div>
+	<div class="reading-width mt-10 md:mt-16">
+		<article>
+			<header class="mb-8 text-center md:mb-10">
+				<h1
+					transition:name="article-title"
+					class="font-serif text-3xl leading-tight font-bold text-zinc-950 sm:text-4xl md:text-5xl"
+					set:html={post.title}
+				/>
+				<h2
+					transition:name="article-excerpt"
+					class="mx-auto mt-5 max-w-2xl font-serif text-lg leading-relaxed font-normal text-zinc-600 md:text-xl"
+					set:html={post.excerpt}
+				/>
+				<div
+					transition:name="article-metadata"
+					class="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm text-zinc-600"
+				>
+					<p set:html={friendlyDate(post.date)} />
+					<span aria-hidden="true">·</span>
+					<p>{post.estimatedReadingTime ?? 'Reading time unknown'}</p>
+					{post.categories[0] && <span aria-hidden="true">·</span>}
+					{
+						post.categories[0] && (
+							<Categories categories={[post.categories[0]]} />
+						)
+					}
+				</div>
+			</header>
 
 			{
 				featured_media && (
-					<>
-						<div>
-							<Image
-								transition:name="article-featured-image"
-								src={featured_media}
-								alt={'...'}
-								slot="image"
-								width={FEATURED_WP_IMAGE_WIDTH}
-								height={FEATURED_WP_IMAGE_HEIGHT}
-							/>
-						</div>
-					</>
+					<Image
+						transition:name="article-featured-image"
+						src={featured_media}
+						alt={`Featured image for ${post.title.replace(/<[^>]*>/g, '')}`}
+						width={FEATURED_WP_IMAGE_WIDTH}
+						height={FEATURED_WP_IMAGE_HEIGHT}
+						class="mb-10 w-full rounded-2xl"
+					/>
 				)
 			}
-			<div class="text-right text-sm text-zinc-500">
-				Estimated reading time: {post.estimatedReadingTime ?? 'Not sure'}
-			</div>
 			<ArticleContent post={post} />
-			{isPuttylike && <PuttylikeAcknowledgement />}
-			<ArticleFooter />
-			<Tags tags={post.tags} />
+			<footer class="mt-12 space-y-10">
+				{isPuttylike && <PuttylikeAcknowledgement />}
+				<ArticleFooter />
+				<Tags tags={post.tags} />
+				<div class="rounded-2xl bg-emerald-50 px-6 py-6 text-center">
+					<p class="font-serif text-xl font-bold">Enjoyed this?</p>
+					<a
+						class="button-link mt-3"
+						href={`${import.meta.env.BASE_URL}mailing`}
+						>Get occasional new articles</a
+					>
+				</div>
+				<PrevNextLinks
+					nextPost={nextPost}
+					lastPost={lastPost}
+					className="grid gap-4 sm:grid-cols-2"
+				/>
+			</footer>
 		</article>
-	</LayoutPageWithSidebar>
+	</div>
 </BaseLayout>

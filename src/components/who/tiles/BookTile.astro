@@ -8,7 +8,7 @@ export interface Props {
 }
 
 import { Image } from 'astro:assets';
-const { linkUrl, coverImg, title, blurb, buttonText } = Astro.props;
+const { linkUrl, coverImg, title, blurb } = Astro.props;
 ---
 
 <div class={`group/book grid grid-cols-2 rounded-3xl bg-green-100 shadow-xl`}>
@@ -34,12 +34,5 @@ const { linkUrl, coverImg, title, blurb, buttonText } = Astro.props;
 			<a href={linkUrl}>{title}</a>
 		</h3>
 		<p class="flex-grow px-3 py-3 text-sm lg:text-base">{blurb}</p>
-
-		<a href={linkUrl} class="hidden">
-			<button
-				class="rounded-full bg-green-200 bg-transparent px-4 py-2 font-bold text-slate-500 group-hover/book:animate-bounce-once group-hover/book:bg-green-700 group-hover/book:text-white hover:!bg-green-500"
-				>{buttonText}</button
-			></a
-		>
 	</div>
 </div>

@@ -3,30 +3,19 @@ import Nav from '../nav/Nav.astro';
 import { RandomSubtitle } from './random_subtitle';
 ---
 
-<header
-	class="flex flex-col bg-zinc-950 px-2 font-serif text-white md:flex-row lg:px-6"
->
-	<div class="py-3">
-		<h1
-			class="text-md py-3 text-center text-yellow-400 hover:font-bold hover:text-yellow-300 md:text-lg lg:text-2xl"
-		>
-			<a href={`${import.meta.env.BASE_URL}`}>walking on custard</a>
-		</h1>
-		<div class="hidden 2xl:block">
-			<div
-				class="mx-auto w-1/2 text-center text-xs text-white md:text-sm 2xl:w-3/4"
+<header class="bg-zinc-950 text-white">
+	<div class="site-shell flex min-h-20 items-center justify-between gap-6">
+		<div class="min-w-0 py-3 font-serif">
+			<a
+				href={`${import.meta.env.BASE_URL}`}
+				class="block text-xl leading-tight font-bold text-yellow-400 no-underline hover:text-yellow-300 lg:text-2xl"
 			>
+				walking on custard
+			</a>
+			<div class="hidden text-xs leading-snug text-zinc-300 lg:block">
 				<RandomSubtitle client:load />
 			</div>
-			<div class="hidden text-xs text-zinc-400 md:text-sm">
-				[ɛn`hyuz iˌæz əm]
-			</div>
-			<div class="hidden space-x-3">
-				<em class="text-xs">(noun)</em><span
-					>the feeling of being Neil Hughes</span
-				>
-			</div>
 		</div>
+		<Nav />
 	</div>
-	<Nav />
 </header>
