@@ -1001,8 +1001,8 @@ function getAdjective(fraction: number) {
 }
 
 export function getTraitName() {
-	let x = Math.random();
-	let trait = 'NEUTRAL';
+	const x = Math.random();
+	let trait: string;
 	if (x < POSITIVE_FRACTION) {
 		trait =
 			getAdjective(ADJECTIVE_FRACTION) +
@@ -1010,9 +1010,7 @@ export function getTraitName() {
 	} else if (x < POSITIVE_FRACTION + PREFERENCES_FRACTION) {
 		trait =
 			getAdjective(PREFERENCE_ADJECTIVE_FRACTION) +
-			PREFERENCE_VERBS[
-				Math.floor(Math.random() * PREFERENCE_VERBS.length)
-			] +
+			PREFERENCE_VERBS[Math.floor(Math.random() * PREFERENCE_VERBS.length)] +
 			NOUNS[Math.floor(Math.random() * NOUNS.length)];
 	} else {
 		trait =

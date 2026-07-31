@@ -12,25 +12,25 @@ const { title, subtitle, slug, tags } = Astro.props;
 ---
 
 <div
-	class='card group overflow-hidden border-b border-zinc-300 transition ease-in-out odd:from-blue-100 odd:to-blue-500 even:from-amber-100 even:to-amber-400 hover:scale-[1.05] hover:rounded-xl hover:border-none'
+	class="card group overflow-hidden border-b border-zinc-300 transition ease-in-out odd:from-blue-100 odd:to-blue-500 even:from-amber-100 even:to-amber-400 hover:scale-[1.05] hover:rounded-xl hover:border-none"
 >
-	<a class='' href={slug}>
+	<a class="" href={slug}>
 		<div
 			class={`card-content flex flex-col justify-between items-center space-y-2 overflow-hidden  group-hover:pb-4`}
 		>
 			<h3
-				class='flex flex-grow items-center justify-center px-2 text-center font-serif text-xs font-bold text-zinc-950 group-hover:rounded-xl group-hover:bg-[#09090b22] group-hover:font-bold group-hover:text-white md:text-base lg:px-3 lg:text-base'
+				class="flex flex-grow items-center justify-center px-2 text-center font-serif text-xs font-bold text-zinc-950 group-hover:rounded-xl group-hover:bg-[#09090b22] group-hover:font-bold group-hover:text-white md:text-base lg:px-3 lg:text-base"
 			>
 				<Fragment set:html={title} />
 			</h3>
 			<div
-				class='hidden rounded-xl px-3 py-2 text-xs group-hover:bg-amber-100 group-hover:text-zinc-950 md:group-hover:block lg:text-sm'
+				class="hidden rounded-xl px-3 py-2 text-xs group-hover:bg-amber-100 group-hover:text-zinc-950 md:group-hover:block lg:text-sm"
 			>
 				<Fragment set:html={subtitle} />
 			</div>
 
-			<div class='mx-auto flex-grow group-hover:hidden'>
-				<slot name='image' />
+			<div class="mx-auto flex-grow group-hover:hidden">
+				<slot name="image" />
 			</div>
 
 			{(tags ?? []).length > 0 && <Categories categories={tags ?? []} />}
@@ -78,7 +78,8 @@ const { title, subtitle, slug, tags } = Astro.props;
 	.card:hover > .card-content > .card-subtitle > .card-subtitle-word {
 		opacity: 1;
 		transform: translateY(0%);
-		transition: opacity 0ms,
+		transition:
+			opacity 0ms,
 			transform 200ms cubic-bezier(0.9, 0.06, 0.15, 0.9);
 	}
 
@@ -98,7 +99,9 @@ const { title, subtitle, slug, tags } = Astro.props;
 		pointer-events: none;
 		position: absolute;
 		top: 0px;
-		transition: background-position 350ms ease, transform 350ms ease;
+		transition:
+			background-position 350ms ease,
+			transform 350ms ease;
 		width: 100%;
 		z-index: 1;
 	}

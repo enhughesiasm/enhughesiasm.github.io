@@ -1,32 +1,29 @@
 ---
-import { Twitter } from 'iconoir-react';
-
 let currentYear = new Date().getFullYear();
 
 const isProd = import.meta.env.PROD;
 ---
 
 <div
-	class='mt-12 flex flex-col items-center space-y-3 bg-yellow-200 pb-3 pt-6 text-zinc-950'
+	class="mt-12 flex flex-col items-center space-y-3 bg-yellow-200 pt-6 pb-3 text-zinc-950"
 >
-	<div class=''>
+	<div class="">
 		&copy; Neil Hughes 2019
 		{currentYear !== 2019 ? '— ' + currentYear : ''}
 	</div>
-	<div class='inline-flex flex-row items-center justify-center space-x-6'>	
-
+	<div class="inline-flex flex-row items-center justify-center space-x-6">
 		<a
-			target='_blank'
-			rel='noopener noreferrer'
-			href='https://www.buymeacoffee.com/enhughesiasm'
+			target="_blank"
+			rel="noopener noreferrer"
+			href="https://www.buymeacoffee.com/enhughesiasm"
 		>
 			<button
-				class='inline-flex flex-row items-center rounded bg-zinc-700 px-4 py-2 font-bold text-yellow-500 hover:bg-zinc-600'
+				class="inline-flex flex-row items-center rounded bg-zinc-700 px-4 py-2 font-bold text-yellow-500 hover:bg-zinc-600"
 			>
 				<img
 					style={{ width: '18px' }}
-					src='https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg'
-					alt='Buy me a coffee'
+					src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg"
+					alt="Buy me a coffee"
 				/>
 				<span style={{ marginLeft: '12px', fontSize: '17px' }}>
 					Buy me a coffee
@@ -34,16 +31,16 @@ const isProd = import.meta.env.PROD;
 			</button>
 		</a>
 	</div>
-	<div class='mt-1 space-x-12'>
+	<div class="mt-1 space-x-12">
 		<a
 			href={`${import.meta.env.BASE_URL}contact`}
-			class='hover:font-bold hover:text-zinc-600'
+			class="hover:font-bold hover:text-zinc-600"
 		>
 			contact</a
 		>
 		<a
 			href={`${import.meta.env.BASE_URL}privacy`}
-			class='hover:font-bold hover:text-zinc-600'
+			class="hover:font-bold hover:text-zinc-600"
 		>
 			privacy</a
 		>
@@ -51,17 +48,18 @@ const isProd = import.meta.env.PROD;
 	{
 		isProd && (
 			<script
+				is:inline
 				async
 				defer
-				data-name='BMC-Widget'
-				src='https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js'
-				data-id='enhughesiasm'
-				data-description=''
-				data-message=''
-				data-color='#5F7FFF'
-				data-position='left'
-				data-x_margin='18'
-				data-y_margin='18'
+				data-name="BMC-Widget"
+				src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+				data-id="enhughesiasm"
+				data-description=""
+				data-message=""
+				data-color="#5F7FFF"
+				data-position="left"
+				data-x_margin="18"
+				data-y_margin="18"
 			/>
 		)
 	}

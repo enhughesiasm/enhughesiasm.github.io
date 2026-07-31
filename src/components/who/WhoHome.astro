@@ -13,50 +13,50 @@ import WhoTile from './tiles/WhoTile.astro';
 import WriterTile from './tiles/WriterTile.astro';
 ---
 
-<div class='container m-auto grid gap-3 md:gap-6 lg:gap-9'>
+<div class="container m-auto grid gap-3 md:gap-6 lg:gap-9">
 	<WhoHero />
 	<div
-		class='grid grid-flow-row grid-cols-1 gap-3 md:grid-cols-2 md:gap-6 lg:gap-9 xl:grid-cols-3'
+		class="grid grid-flow-row grid-cols-1 gap-3 md:grid-cols-2 md:gap-6 lg:gap-9 xl:grid-cols-3"
 	>
 		<!-- 300 then 100 for start, end -->
 		<WhoTile
-			title='worrying'
-			bgColor='bg-red-200'
+			title="worrying"
+			bgColor="bg-red-200"
 			link={`${import.meta.env.BASE_URL}anxiety`}
-			gradientStartHex='#fca5a5'
-			gradientEndHex='#fee2e2'
+			gradientStartHex="#fca5a5"
+			gradientEndHex="#fee2e2"
 		>
 			<AnxietyTile />
 		</WhoTile>
 		<WhoTile
-			title='writing'
-			bgColor='bg-lime-200'
+			title="writing"
+			bgColor="bg-lime-200"
 			link={`${import.meta.env.BASE_URL}books`}
-			gradientStartHex='#bef264'
-			gradientEndHex='#ecfccb'
+			gradientStartHex="#bef264"
+			gradientEndHex="#ecfccb"
 		>
 			<WriterTile />
 		</WhoTile>
 		<WhoTile
-			title='speaking'
-			bgColor='bg-emerald-200'
+			title="speaking"
+			bgColor="bg-emerald-200"
 			link={`${import.meta.env.BASE_URL}speaking`}
-			gradientStartHex='#6ee7b7'
-			gradientEndHex='#d1fae5'
+			gradientStartHex="#6ee7b7"
+			gradientEndHex="#d1fae5"
 		>
 			<SpeakingTile />
 		</WhoTile>
 		<WhoTile
-			title='coding'
-			bgColor='bg-black'
+			title="coding"
+			bgColor="bg-black"
 			link={`${import.meta.env.BASE_URL}games`}
-			titleColor='text-white'
+			titleColor="text-white"
 		>
 			<CodingTile />
 		</WhoTile>
 		<WhoTile
-			title='helping people be funny'
-			bgColor='bg-teal-200'
+			title="helping people be funny"
+			bgColor="bg-teal-200"
 			link={`${import.meta.env.BASE_URL}comedy`}
 			gradientStartHex={'#5eead4'}
 			gradientEndHex={'#ccfbf1'}
@@ -64,32 +64,32 @@ import WriterTile from './tiles/WriterTile.astro';
 			<ComedianTile />
 		</WhoTile>
 		<WhoTile
-			title='misusing his education'
-			bgColor='bg-purple-200'
+			title="misusing his education"
+			bgColor="bg-purple-200"
 			gradientStartHex={'#d8b4fe'}
 			gradientEndHex={'f3e8ff'}
 		>
 			<PhysicistTile />
 		</WhoTile>
 		<WhoTile
-			title='telling two truths & a lie'
-			bgColor='bg-amber-200'
+			title="telling two truths & a lie"
+			bgColor="bg-amber-200"
 			gradientStartHex={'#fcd34d'}
 			gradientEndHex={'#fef3c7'}
 		>
 			<TwoTruthsTile />
 		</WhoTile>
 		<WhoTile
-			title='TODO'
-			bgColor='bg-white'
+			title="TODO"
+			bgColor="bg-white"
 			gradientStartHex={'#fef9c3'}
 			gradientEndHex={'#fefce8'}
 		>
 			<TodoTile />
 		</WhoTile>
 		<WhoTile
-			title='receiving emails'
-			bgColor='bg-rose-200'
+			title="receiving emails"
+			bgColor="bg-rose-200"
 			gradientStartHex={'#fda4af'}
 			gradientEndHex={'#ffe4e6'}
 		>

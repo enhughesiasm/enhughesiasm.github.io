@@ -19,25 +19,26 @@ export const CurrentWorry = () => {
 		<Suspense
 			fallback={
 				<span>
-					<OnePointCircle className='inline animate-spin' />
+					<OnePointCircle className="inline animate-spin" />
 				</span>
-			}>
-			<div className='grid animate-fade-once grid-cols-2 gap-x-2 gap-y-3 rounded bg-red-100 px-3 py-2 group-hover:bg-transparent'>
-				<div className='mr-3 flex items-center justify-end text-right'>
+			}
+		>
+			<div className="grid animate-fade-once grid-cols-2 gap-x-2 gap-y-3 rounded bg-red-100 px-3 py-2 group-hover:bg-transparent">
+				<div className="mr-3 flex items-center justify-end text-right">
 					<strong>current concern level: </strong>
 				</div>
-				<div className='flex items-center  rounded bg-red-200 px-3 text-sm group-hover:bg-transparent'>
+				<div className="flex items-center rounded bg-red-200 px-3 text-sm group-hover:bg-transparent">
 					<div>
-						<EmojiThinkLeft className='float-left mr-3' />
+						<EmojiThinkLeft className="float-left mr-3" />
 					</div>
 					<span>{level}</span>
 				</div>
-				<div className='mr-3 flex items-center justify-end '>
+				<div className="mr-3 flex items-center justify-end">
 					<strong>cause: </strong>
 				</div>
-				<div className='flex items-center rounded bg-red-200 px-3 text-sm group-hover:bg-transparent'>
+				<div className="flex items-center rounded bg-red-200 px-3 text-sm group-hover:bg-transparent">
 					<div>
-						<WarningHexagon className='float-left mr-3' />
+						<WarningHexagon className="float-left mr-3" />
 					</div>
 					<span>{worry}</span>
 				</div>

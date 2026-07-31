@@ -40,7 +40,7 @@ export function useContactForm() {
 			clientConfig.recaptchaSiteKey,
 			{
 				action: 'submit_contact_form',
-			}
+			},
 		);
 
 		if (token) {

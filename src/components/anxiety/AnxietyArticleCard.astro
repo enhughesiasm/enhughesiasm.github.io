@@ -10,10 +10,10 @@ const { post } = Astro.props;
 const BASE_ARTICLE_URL = `${import.meta.env.BASE_URL}articles/`;
 ---
 
-<li class=''>
+<li class="">
 	<a
 		href={`${BASE_ARTICLE_URL}${post.slug}`}
-		class='block text-sm text-blue-500 hover:scale-[1.02] hover:text-blue-400'
+		class="block text-sm text-blue-500 hover:scale-[1.02] hover:text-blue-400"
 	>
 		👉 <Fragment set:html={post.title} />
 	</a>

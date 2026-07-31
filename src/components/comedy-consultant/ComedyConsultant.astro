@@ -6,45 +6,43 @@ import { TED_TALK_VIEWS } from '../../data/definitions';
 import Quote from '../shared/Quote.astro';
 ---
 
-<div transition:name="page-title" class='bg-amber-100 py-6 text-center'>
-	<h2 class='py-3 font-serif text-3xl font-bold'>Comedy Consulting</h2>
-	<p class='text-xl'>Make your public speaking more amusing!</p>
+<div transition:name="page-title" class="bg-amber-100 py-6 text-center">
+	<h2 class="py-3 font-serif text-3xl font-bold">Comedy Consulting</h2>
+	<p class="text-xl">Make your public speaking more amusing!</p>
 </div>
 
-<article class='flex flex-row py-6'>
+<article class="flex flex-row py-6">
 	<div>
-		<Image src={stageImg} alt='One Track Minds' />
+		<Image src={stageImg} alt="One Track Minds" />
 	</div>
-	<div class='space-y-3 pl-6 md:space-y-6'>
+	<div class="space-y-3 pl-6 md:space-y-6">
 		<p>
 			Neil Hughes is a
 			<a
 				href={`${import.meta.env.BASE_URL}speaking`}
-				class='font-bold text-red-500 hover:text-red-400'
-				>public speaker</a
-			> and <span class='font-bold text-blue-500'>standup comedian</span>,
-			and he can help you make your speech funnier.
+				class="font-bold text-red-500 hover:text-red-400">public speaker</a
+			> and <span class="font-bold text-blue-500">standup comedian</span>, and
+			he can help you make your speech funnier.
 		</p>
 
 		<p>
-			Everyone loves laughing. And we all know that humour is the best way
-			to connect with audiences, to get them to retain the information you
-			share... and to even ENJOY yourself while you&apos;re speaking in
-			public!
+			Everyone loves laughing. And we all know that humour is the best way to
+			connect with audiences, to get them to retain the information you share...
+			and to even ENJOY yourself while you&apos;re speaking in public!
 		</p>
 		<p>
 			<strong>But being funny is hard.</strong>
 		</p>
 		<p>
-			When jokes fall flat, self-doubt creeps in and that can derail your
-			entire presentation. And hey—it happens! But if there was a way to
-			be confident that your next presentation will be more entertaining,
-			wouldn&apos;t you want to get on board?
+			When jokes fall flat, self-doubt creeps in and that can derail your entire
+			presentation. And hey—it happens! But if there was a way to be confident
+			that your next presentation will be more entertaining, wouldn&apos;t you
+			want to get on board?
 		</p>
 	</div>
 </article>
 
-<div class='px-12'>
+<div class="px-12">
 	<Quote
 		quote={[
 			'Neil did the nearly impossible: he helped me realize my personal finance workshop could be fun... and funny!',
@@ -57,20 +55,19 @@ import Quote from '../shared/Quote.astro';
 	/>
 </div>
 
-<div class='space-y-3 py-6 md:space-y-6'>
+<div class="space-y-3 py-6 md:space-y-6">
 	<p>
-		I&apos;ve been amusing audiences since the early 2000s, when I sang a
-		song about beans to a surprisingly enthusiastic crowd.
+		I&apos;ve been amusing audiences since the early 2000s, when I sang a song
+		about beans to a surprisingly enthusiastic crowd.
 	</p>
 	<p>
-		Since then I&apos;ve performed everywhere from the Edinburgh Fringe
-		Festival to my local shopping centre.
+		Since then I&apos;ve performed everywhere from the Edinburgh Fringe Festival
+		to my local shopping centre.
 	</p>
 	<p>
 		Now I give comedy talks about anxiety, including <a
-			href='http://bit.ly/custardTED'
-			class='font-bold text-blue-500 underline hover:text-blue-400'
-			>this one</a
+			href="http://bit.ly/custardTED"
+			class="font-bold text-blue-500 underline hover:text-blue-400">this one</a
 		>, which has been seen by over {TED_TALK_VIEWS.toLocaleString()} people!
 	</p>
 
@@ -79,30 +76,30 @@ import Quote from '../shared/Quote.astro';
 	</p>
 </div>
 
-<div class='mb-6 flex flex-row bg-green-100 py-6'>
-	<div class='space-y-3 px-6 py-3 pr-6 md:space-y-6'>
-		<h4 class='font-bold text-green-700'>I will work with you to:</h4>
+<div class="mb-6 flex flex-row bg-green-100 py-6">
+	<div class="space-y-3 px-6 py-3 pr-6 md:space-y-6">
+		<h4 class="font-bold text-green-700">I will work with you to:</h4>
 
 		<ul>
 			<li>👉 Embrace your natural sense of humour</li>
 			<li>👉 Write jokes appropriate to you and your audience</li>
 			<li>👉 Develop your comedic timing</li>
 			<li>
-				👉 Identify the different types of humour you can and should use
-				in YOUR presentations
+				👉 Identify the different types of humour you can and should use in YOUR
+				presentations
 			</li>
 			<li>
-				👉 Come up with a strategy to use the right types of jokes at
-				the right time
+				👉 Come up with a strategy to use the right types of jokes at the right
+				time
 			</li>
 			<li>👉 Create comedy material you can use again and again</li>
 		</ul>
 	</div>
-	<div class='flex flex-col items-center justify-center'>
-		<Image src={micImg} alt='A Microphone' />
-		<div class='text-xs italic'>
+	<div class="flex flex-col items-center justify-center">
+		<Image src={micImg} alt="A Microphone" />
+		<div class="text-xs italic">
 			Photo by{' '}
-			<a href='https://unsplash.com/@esloman'>Elliot Sloman</a> on Unsplash
+			<a href="https://unsplash.com/@esloman">Elliot Sloman</a> on Unsplash
 		</div>
 	</div>
 </div>
@@ -120,23 +117,22 @@ import Quote from '../shared/Quote.astro';
 />
 
 <div
-	class='mt-12 rounded bg-amber-200 py-3 text-center font-serif text-3xl font-bold'
+	class="mt-12 rounded bg-amber-200 py-3 text-center font-serif text-3xl font-bold"
 >
 	Ask Neil to help you improve your material and skills
 </div>
-<div class='space-y-9 bg-amber-100 px-6 py-3'>
-	<p class='mt-6 text-center text-xl'>
+<div class="space-y-9 bg-amber-100 px-6 py-3">
+	<p class="mt-6 text-center text-xl">
 		Contact <strong>neil@walkingoncustard.com</strong> or
 		<a
 			href={`${import.meta.env.BASE_URL}contact`}
-			class='rounded-xl bg-green-500 px-6 py-2 text-white hover:bg-green-400'
+			class="rounded-xl bg-green-500 px-6 py-2 text-white hover:bg-green-400"
 			>click here to ask for a quote</a
 		>
 	</p>
 	<p>
-		Tell me a little background about you and what you&apos;re looking for,
-		and I&apos;ll be in touch with a suggested fee. After that, we&apos;ll
-		arrange an online meeting and I&apos;ll get to work on your talk
-		material.
+		Tell me a little background about you and what you&apos;re looking for, and
+		I&apos;ll be in touch with a suggested fee. After that, we&apos;ll arrange
+		an online meeting and I&apos;ll get to work on your talk material.
 	</p>
 </div>

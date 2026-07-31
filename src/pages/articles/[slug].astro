@@ -6,10 +6,9 @@ import { getBlogPosts } from '../../components/blog/api/fetch_articles';
 import type { PostV2 } from '../../components/blog/api/post';
 import { friendlyDate } from '../../components/shared/friendly_date';
 
-import {	
+import {
 	FEATURED_WP_IMAGE_HEIGHT,
 	FEATURED_WP_IMAGE_WIDTH,
-	WP_PUTTYLIKE_TAG_ID,
 } from '../../data/definitions';
 import Categories from '../../components/blog/Categories.astro';
 import LayoutPageWithSidebar from '../../layouts/Layout_Page_With_Sidebar.astro';
@@ -20,19 +19,15 @@ import ArticlesSidebar from '../../components/blog/ArticlesSidebar.astro';
 import ArticleFooter from '../../components/blog/ArticleFooter.astro';
 
 import defaultCover from '../../assets/images/default_image.jpg';
-import type { WPCategory } from '../../components/blog/api/category';
-import type { WPTag } from '../../components/blog/api/tag';
 import { getImage } from '../../components/blog/api/get_images';
 import ArticleContent from '../../components/blog/ArticleContent.astro';
-
-const { slug } = Astro.params;
 
 export type Props = {
 	post: PostV2;
 };
 
 export async function getStaticPaths() {
-	const posts = await getBlogPosts();
+	const posts = getBlogPosts();
 
 	return posts.map((post) => ({
 		params: { slug: post.slug },
@@ -41,7 +36,7 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const allPosts = await getBlogPosts();
+const allPosts = getBlogPosts();
 
 const postIndex = allPosts.findIndex((p) => p.id === post.id);
 
@@ -55,23 +50,22 @@ if (postIndex < allPosts.length - 1) {
 	lastPost = allPosts[postIndex + 1];
 }
 
-const featured_media = await getImage(post.coverImage) ?? defaultCover;
+const featured_media = (await getImage(post.coverImage)) ?? defaultCover;
 
-const isPuttylike =
-	post.tags.includes('puttylike');
+const isPuttylike = post.tags.includes('puttylike');
 ---
 
 <BaseLayout>
-	<Fragment slot='seo'>
-		<meta name='author' content='Neil Hughes' />
-		<meta name='twitter:card' content='summary_large_image' />
-		<meta name='twitter:creator' content='@enhughesiasm' />
-		<meta name='twitter:site' content='@enhughesiasm' />
-		<meta name='twitter:label1' content='Written by' />
-		<meta name='twitter:data1' content='Neil Hughes' />
-		<meta name='twitter:label2' content='Estimated reading time' />
+	<Fragment slot="seo">
+		<meta name="author" content="Neil Hughes" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:creator" content="@enhughesiasm" />
+		<meta name="twitter:site" content="@enhughesiasm" />
+		<meta name="twitter:label1" content="Written by" />
+		<meta name="twitter:data1" content="Neil Hughes" />
+		<meta name="twitter:label2" content="Estimated reading time" />
 		<meta
-			name='twitter:data2'
+			name="twitter:data2"
 			content={post.estimatedReadingTime ?? 'Not sure'}
 		/>
 		<SEO
@@ -102,28 +96,27 @@ const isPuttylike =
 			nextPost={nextPost}
 			lastPost={lastPost}
 			featuredMedia={featured_media}
-			slot='sidebar'
+			slot="sidebar"
 		/>
-		<article class='space-y-2 md:space-y-4'>
+		<article class="space-y-2 md:space-y-4">
 			<h1
 				transition:name="article-title"
-				class='text-center font-serif text-4xl font-bold leading-relaxed'
+				class="text-center font-serif text-4xl leading-relaxed font-bold"
 				set:html={post.title}
 			/>
-			<h2 transition:name="article-excerpt"
-			class="font-serif text-lg leading-relaxed text-gray-600"
-			set:html={post.excerpt}
+			<h2
+				transition:name="article-excerpt"
+				class="font-serif text-lg leading-relaxed text-gray-600"
+				set:html={post.excerpt}
 			/>
-			<div 
-			transition:name="article-metadata"
-			class='m-0 flex flex-row justify-between p-0'>
+			<div
+				transition:name="article-metadata"
+				class="m-0 flex flex-row justify-between p-0"
+			>
 				<Categories categories={post.categories} />
-				<p
-					class='text-xl text-green-950'
-					set:html={friendlyDate(post.date)}
-				/>
+				<p class="text-xl text-green-950" set:html={friendlyDate(post.date)} />
 			</div>
-			
+
 			{
 				featured_media && (
 					<>
@@ -131,30 +124,22 @@ const isPuttylike =
 							<Image
 								transition:name="article-featured-image"
 								src={featured_media}
-								alt={"..."}
-								slot='image'
+								alt={'...'}
+								slot="image"
 								width={FEATURED_WP_IMAGE_WIDTH}
 								height={FEATURED_WP_IMAGE_HEIGHT}
 							/>
-
-							<div 
-							transition:name="article-text"
-							class='py-1 text-center text-xs italic'>
-								<!-- a caption could go here -->
-							</div>
 						</div>
 					</>
 				)
 			}
-			<div class='text-right text-sm text-zinc-500'>
-				Estimated reading time: {
-					post.estimatedReadingTime ?? 'Not sure'
-				}
+			<div class="text-right text-sm text-zinc-500">
+				Estimated reading time: {post.estimatedReadingTime ?? 'Not sure'}
 			</div>
-			<ArticleContent post={post}/>
+			<ArticleContent post={post} />
 			{isPuttylike && <PuttylikeAcknowledgement />}
 			<ArticleFooter />
 			<Tags tags={post.tags} />
 		</article>
-	</LayoutPageWithSidebar> 
+	</LayoutPageWithSidebar>
 </BaseLayout>
