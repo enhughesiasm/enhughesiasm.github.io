@@ -54,7 +54,7 @@
 		"sass": "^1.102.0",
 		"tailwindcss-opentype": "^1.2.0",
 		"typescript": "^6.0.3",
-		"typescript-eslint": "^8.65.0",
+		"typescript-eslint": "^8.66.0",
 		"vitest": "^4.1.10"
 	}
 }
